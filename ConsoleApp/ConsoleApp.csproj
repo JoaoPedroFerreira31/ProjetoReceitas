@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PRE.Model\PRE.Model.csproj">
+      <Project>{37ADD18E-E96C-4081-8782-AB1B93A89A37}</Project>
+      <Name>PRE.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRE.Services\PRE.Services.csproj">
+      <Project>{76494E1B-1ED0-4615-A5EC-E2A31D60A73D}</Project>
+      <Name>PRE.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
