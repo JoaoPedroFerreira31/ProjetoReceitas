@@ -24,8 +24,7 @@ namespace PRE.Data.Repositories
         private static int _colDifficulty = 4;
         private static int _colIdRating = 5;
         private static int _colIsValidated = 6;
-        private static int _colIdCategory = 7;
-        private static int _colIdUser = 8;
+
 
         //Get all Recipes from Database
         public List<Recipe> GetAll()
@@ -38,7 +37,7 @@ namespace PRE.Data.Repositories
                 //COMMAND                 
                 SqlCommand cmd = connection.CreateCommand();
 
-                //Query to select all users from Database
+                //Query to select all recipes from Database
                 cmd.CommandText = "spReadRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -46,7 +45,7 @@ namespace PRE.Data.Repositories
                 //EXECUTE
                 connection.Open();
 
-                SqlDataReader dataReader = cmd.ExecuteReader();                
+                SqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
                 {
@@ -55,20 +54,59 @@ namespace PRE.Data.Repositories
                     recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
                     recipe.Name = dataReader.GetString(_colName);
                     recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
 
                     recipes.Add(recipe);
                 }
-                
+
                 return recipes;
             }
         }
 
+        //Get Recipe by ID from Database
         public Recipe GetById(int id)
         {
+            SqlParameter parameter;
 
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                SqlCommand cmd = new SqlCommand("spReadRecipeById", connection);
+
+                //Query to select all recipes from Database
+                /*cmd.CommandText = "spReadRecipeById";*/
+                cmd.CommandType = CommandType.StoredProcedure;
+                parameter = new SqlParameter("@IdRecipe", id);
+
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Recipe recipe = null;
+
+                while (dataReader.Read())
+                {
+                    recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+
+                }
+
+                return recipe;
+            }
         }
     }
 }
