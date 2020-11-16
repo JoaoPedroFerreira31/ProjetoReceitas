@@ -76,7 +76,7 @@ namespace PRE.Data.Repositories
             {
 
                 //COMMAND                 
-                SqlCommand cmd = new SqlCommand("spReadRecipeById", connection);
+                SqlCommand cmd = new SqlCommand("spReadRecipesById", connection);
 
                 //Query to select all recipes from Database
                 /*cmd.CommandText = "spReadRecipeById";*/
@@ -108,5 +108,7 @@ namespace PRE.Data.Repositories
                 return recipe;
             }
         }
+
+        //Insert Recipe in Database
     }
 }
