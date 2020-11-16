@@ -66,18 +66,21 @@ namespace PRE.Data.Repositories
             }
 
             //Get user by ID from Database
-            public User GetById(int id)
+            void GetById(int id)
             {
+                SqlParameter parameter;
+
                 //CONNECTION
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
 
                     //COMMAND                 
-                    SqlCommand cmd = connection.CreateCommand();
+                    SqlCommand cmd = new SqlCommand("spReadUserById", connection);
 
                     //Query to select all users from Database
-                    cmd.CommandText = "spReadUserById";
+                    /*cmd.CommandText = "spReadUserById";*/
                     cmd.CommandType = CommandType.StoredProcedure;
+                    parameter =new SqlParameter("@IdUser", id);
 
 
                     //EXECUTE
