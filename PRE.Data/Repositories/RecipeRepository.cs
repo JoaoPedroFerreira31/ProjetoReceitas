@@ -57,8 +57,18 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+
+                    recipes.Add(recipe);
                 }
+                
+                return recipes;
             }
+        }
+
+        public Recipe GetById(int id)
+        {
+
         }
     }
 }

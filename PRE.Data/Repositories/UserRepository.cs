@@ -64,52 +64,53 @@ namespace PRE.Data.Repositories
                 return users;
 
             }
-
-            //Get user by ID from Database
-            public User GetById(int id)
-            {
-                SqlParameter parameter;
-
-                //CONNECTION
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-
-                    //COMMAND                 
-                    SqlCommand cmd = new SqlCommand("spReadUserById", connection);
-
-                    //Query to select all users from Database
-                    /*cmd.CommandText = "spReadUserById";*/
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    parameter =new SqlParameter("@IdUser", id);
-
-
-                    //EXECUTE
-                    connection.Open();
-
-                    SqlDataReader dataReader = cmd.ExecuteReader();
-
-                    User user = null;
-
-                    while (dataReader.Read())
-                    {                        
-
-                        user.IdUser = dataReader.GetInt32(_colIdUser);
-                        user.FirstName = dataReader.GetString(_colFirstName);
-                        user.LastName = dataReader.GetString(_colLastName);
-                        user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                        user.Gender = (Gender)dataReader.GetByte(_colGender);
-                        user.Email = dataReader.GetString(_colEmail);
-                        user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
-
-                        user = new User();
-                    }
-                    return user;
-
-                }
-
-
-                //Insert User in Database
-            }
         }
+
+        //Get user by ID from Database
+        public User GetById(int id)
+        {
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                SqlCommand cmd = new SqlCommand("spReadUserById", connection);
+
+                //Query to select all users from Database
+                /*cmd.CommandText = "spReadUserById";*/
+                cmd.CommandType = CommandType.StoredProcedure;
+                parameter =new SqlParameter("@IdUser", id);
+
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                User user = null;
+
+                while (dataReader.Read())
+                {
+                    user = new User();
+
+                    user.IdUser = dataReader.GetInt32(_colIdUser);
+                    user.FirstName = dataReader.GetString(_colFirstName);
+                    user.LastName = dataReader.GetString(_colLastName);
+                    user.BirthDate = dataReader.GetDateTime(_colBirthDate);
+                    user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    user.Email = dataReader.GetString(_colEmail);
+                    user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
+                    
+                }
+                
+                return user;
+            }
+
+
+            //Insert User in Database
+        }
+        
     } 
 }
