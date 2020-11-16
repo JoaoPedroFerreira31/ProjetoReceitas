@@ -66,7 +66,7 @@ namespace PRE.Data.Repositories
             }
 
             //Get user by ID from Database
-            void GetById(int id)
+            public User GetById(int id)
             {
                 SqlParameter parameter;
 
