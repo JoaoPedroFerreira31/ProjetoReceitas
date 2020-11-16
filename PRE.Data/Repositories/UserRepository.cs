@@ -66,7 +66,7 @@ namespace PRE.Data.Repositories
             }
 
             //Get user by ID from Database
-            Public User GetById(int id)
+            public User GetById(int id)
             {
                 //CONNECTION
                 using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -88,8 +88,7 @@ namespace PRE.Data.Repositories
                     User user = null;
 
                     while (dataReader.Read())
-                    {
-                        
+                    {                        
 
                         user.IdUser = dataReader.GetInt32(_colIdUser);
                         user.FirstName = dataReader.GetString(_colFirstName);
@@ -99,7 +98,7 @@ namespace PRE.Data.Repositories
                         user.Email = dataReader.GetString(_colEmail);
                         user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
 
-
+                        user = new User();
                     }
                     return user;
 
