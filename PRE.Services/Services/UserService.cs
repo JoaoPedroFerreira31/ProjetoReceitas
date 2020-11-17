@@ -29,9 +29,9 @@ namespace PRE.Services.Services
             return _repo.GetById(id);
         }
 
-        //public User Insert()
-        //{
-        //return _repo.Insert();
-        //}
+        public void Insert(User user)
+        {
+           _repo.Insert(user);
+        }
     }
 }
