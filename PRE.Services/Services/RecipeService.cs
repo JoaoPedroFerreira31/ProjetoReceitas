@@ -1,4 +1,5 @@
 ﻿using PRE.Data.Repositories;
+using PRE.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,23 @@ namespace PRE.Services.Services
         private RecipeRepository _repo;
 
         
+        //Create builders to generate RecipeService
+        public RecipeService()
+        {
+            _repo = new RecipeRepository();
+        }
+
+        public List<Recipe> GetAll()
+        {
+            return _repo.GetAll();
+        }
+
+        public Recipe GetById(int id)
+        {
+            return _repo.GetById(id);
+        }
+
+        public Recipe Get
+
     }
 }

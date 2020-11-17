@@ -109,14 +109,15 @@ namespace PRE.Data.Repositories
             }
         }
 
-        //Get Recipe by User from Database
-        public Recipe GetByUserId(int id)
+        //Get Recipes by User from Database
+        public List<Recipe> GetByUserId(int id)
         {
             SqlParameter parameter;
 
             //CONNECTION
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
+                List<Recipe> recipes = new List<Recipe>();
 
                 //COMMAND                 
                 SqlCommand cmd = new SqlCommand("spReadRecipesByUserId", connection);
@@ -146,9 +147,10 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
 
+                    recipes.Add(recipe);
                 }
 
-                return recipe;
+                return recipes;
             }
         }
 
