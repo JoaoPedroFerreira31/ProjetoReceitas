@@ -82,6 +82,8 @@ namespace PRE.Data.Repositories
                 //Query to select all users from Database
                 cmd.CommandText = "spReadUsersById";
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
                 parameter = new SqlParameter("@IdUser", id);
                 
                 parameter.Direction = ParameterDirection.Input;                
