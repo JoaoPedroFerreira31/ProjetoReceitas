@@ -16,7 +16,7 @@ namespace ConsoleApp
 
             User user = userService.GetById(20);
 
-            Console.WriteLine();
+            Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Email} ");
 
         }
     }
