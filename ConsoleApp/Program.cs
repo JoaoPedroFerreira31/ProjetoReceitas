@@ -12,12 +12,15 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            UserService userService = new UserService();
+            /*UserService userService = new UserService();
 
             User user = userService.GetById(20);
 
-            Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Email} ");
+            Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Email} ");*/
 
+            UserService userService = new UserService();
+
+            User user = new User("Manuel", "Mendonça", 1985-10-5, 1,  )
         }
     }
 }

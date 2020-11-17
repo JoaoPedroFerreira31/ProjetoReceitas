@@ -56,6 +56,16 @@ namespace PRE.Model.Model
             Account = account;
             IsAdmin = isAdmin;
         }
+
+        public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName; 
+            BirthDate = birthDate;
+            Gender = gender;
+            Email = email;
+            
+        }
     }
 }
 
