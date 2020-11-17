@@ -109,6 +109,50 @@ namespace PRE.Data.Repositories
             }
         }
 
+        //Get Recipe by User from Database
+        public Recipe GetByUserId(int id)
+        {
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                SqlCommand cmd = new SqlCommand("spReadRecipesByUserId", connection);
+
+                //Query to select all recipes from Database
+                /*cmd.CommandText = "spReadRecipeByUsersId";*/
+                cmd.CommandType = CommandType.StoredProcedure;
+                parameter = new SqlParameter("@IdUser", id);
+
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Recipe recipe = null;
+
+                while (dataReader.Read())
+                {
+                    recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+
+                }
+
+                return recipe;
+            }
+        }
+
+
         //Insert Recipe in Database
     }
 }
