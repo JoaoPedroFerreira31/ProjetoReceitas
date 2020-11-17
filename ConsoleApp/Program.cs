@@ -16,14 +16,7 @@ namespace ConsoleApp
 
             User user = userService.GetById(20);
 
-            
-            Console.WriteLine(user);
-            
-
-
             Console.WriteLine();
-
-            
 
         }
     }

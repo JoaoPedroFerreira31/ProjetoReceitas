@@ -76,12 +76,22 @@ namespace PRE.Data.Repositories
             {
 
                 //COMMAND                 
-                SqlCommand cmd = new SqlCommand("spReadUsersById", connection);
+                //SqlCommand cmd = new SqlCommand("spReadUsersById", connection); 
+                SqlCommand cmd = connection.CreateCommand();
 
                 //Query to select all users from Database
-                /*cmd.CommandText = "spReadUserById";*/
+                cmd.CommandText = "spReadUsersById";
                 cmd.CommandType = CommandType.StoredProcedure;
-                parameter =new SqlParameter("@IdUser", id);
+                parameter = new SqlParameter("@IdUser", id);
+                
+                parameter.Direction = ParameterDirection.Input;                
+                
+                //IdUser DataType in Database
+                parameter.DbType = DbType.Int32;
+                
+                cmd.Parameters.Add(parameter);
+
+
 
 
                 //EXECUTE
