@@ -10,8 +10,10 @@ namespace PRE.Services.Services
 {
     public class UserService
     {
+        //Call UserRepository
         private UserRepository _repo;
 
+        //Create builders to generate UserService
         public UserService()
         {
             _repo = new UserRepository();
