@@ -76,12 +76,22 @@ namespace PRE.Data.Repositories
             {
 
                 //COMMAND                 
-                SqlCommand cmd = new SqlCommand("spReadRecipesById", connection);
+                //SqlCommand cmd = new SqlCommand("spReadRecipesById", connection); 
+                SqlCommand cmd = connection.CreateCommand();
 
-                //Query to select all recipes from Database
-                /*cmd.CommandText = "spReadRecipeById";*/
+                //Query to select all users from Database
+                cmd.CommandText = "spReadRecipesById";
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
                 parameter = new SqlParameter("@IdRecipe", id);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //IdRecipe DataType in Database
+                parameter.DbType = DbType.Int32;
+
+                cmd.Parameters.Add(parameter);
 
 
                 //EXECUTE
@@ -120,14 +130,24 @@ namespace PRE.Data.Repositories
                 List<Recipe> recipes = new List<Recipe>();
 
                 //COMMAND                 
-                SqlCommand cmd = new SqlCommand("spReadRecipesByUserId", connection);
+                //SqlCommand cmd = new SqlCommand("spReadRecipesByUserId", connection); 
+                SqlCommand cmd = connection.CreateCommand();
 
-                //Query to select all recipes from Database
-                /*cmd.CommandText = "spReadRecipeByUsersId";*/
+                //Query to select all users from Database
+                cmd.CommandText = "spReadRecipesUserById";
                 cmd.CommandType = CommandType.StoredProcedure;
+                
+                //Access Store Procedure Parameter
                 parameter = new SqlParameter("@IdUser", id);
 
+                parameter.Direction = ParameterDirection.Input;
 
+                //IdUser DataType in Database
+                parameter.DbType = DbType.Int32;
+
+                cmd.Parameters.Add(parameter);
+
+               
                 //EXECUTE
                 connection.Open();
 
