@@ -1,0 +1,14 @@
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\ConsoleApp.exe.config
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\ConsoleApp.exe
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\ConsoleApp.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Model.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Services.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Data.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Model.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Services.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\bin\Release\PRE.Data.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\obj\Release\ConsoleApp.csprojAssemblyReference.cache
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\obj\Release\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\obj\Release\ConsoleApp.csproj.CopyComplete
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\obj\Release\ConsoleApp.exe
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\ConsoleApp\obj\Release\ConsoleApp.pdb

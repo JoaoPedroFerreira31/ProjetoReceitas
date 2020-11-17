@@ -1,0 +1,9 @@
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\bin\Release\PRE.Data.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\bin\Release\PRE.Data.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\bin\Release\PRE.Model.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\bin\Release\PRE.Model.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\obj\Release\PRE.Data.csprojAssemblyReference.cache
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\obj\Release\PRE.Data.csproj.CoreCompileInputs.cache
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\obj\Release\PRE.Data.csproj.CopyComplete
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\obj\Release\PRE.Data.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\PRE.Data\obj\Release\PRE.Data.pdb

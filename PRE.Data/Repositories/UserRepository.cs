@@ -14,7 +14,7 @@ namespace PRE.Data.Repositories
     public class UserRepository
     {
         //MSSQL connection string
-        private static string _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelares"].ConnectionString;
+        private static string _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelaresCS"].ConnectionString;
 
         //MSSQL Table Users_tbl
         private static int _colIdUser = 0;
@@ -55,9 +55,9 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                    user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    //user.Gender = (Gender)dataReader.GetByte(_colGender);
                     user.Email = dataReader.GetString(_colEmail);
-                    user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
+                    //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
 
                     users.Add(user);
                 }
@@ -76,7 +76,7 @@ namespace PRE.Data.Repositories
             {
 
                 //COMMAND                 
-                SqlCommand cmd = new SqlCommand("spReadUserById", connection);
+                SqlCommand cmd = new SqlCommand("spReadUsersById", connection);
 
                 //Query to select all users from Database
                 /*cmd.CommandText = "spReadUserById";*/
@@ -99,9 +99,9 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                    user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    //user.Gender = (Gender)dataReader.GetByte(_colGender);
                     user.Email = dataReader.GetString(_colEmail);
-                    user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
+                    //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
                     
                 }
                 

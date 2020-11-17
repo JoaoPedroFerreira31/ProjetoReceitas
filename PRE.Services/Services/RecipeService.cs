@@ -30,7 +30,10 @@ namespace PRE.Services.Services
             return _repo.GetById(id);
         }
 
-        public Recipe Get
+        public List<Recipe> GetByUserId(int id)
+        {
+            return _repo.GetByUserId(id);
+        }
 
     }
 }

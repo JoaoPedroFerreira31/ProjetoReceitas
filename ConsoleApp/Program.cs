@@ -14,12 +14,11 @@ namespace ConsoleApp
         {
             UserService userService = new UserService();
 
-            List<User> users = userService.GetAll();
+            User user = userService.GetById(20);
 
-            foreach (var item in users)
-            {
-                Console.WriteLine($"{item.FirstName}, {item.LastName}, {item.Email}");
-            }
+            
+            Console.WriteLine(user);
+            
 
 
             Console.WriteLine();

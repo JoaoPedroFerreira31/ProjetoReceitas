@@ -14,7 +14,7 @@ namespace PRE.Data.Repositories
     public class RecipeRepository
     {
         //MSSQL connection string
-        private static string _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelares"].ConnectionString;
+        private static string _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelaresCS"].ConnectionString;
 
         //MSSQL Table Recipes_tbl
         private static int _colIdRecipe = 0;
