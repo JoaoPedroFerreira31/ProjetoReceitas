@@ -90,10 +90,7 @@ namespace PRE.Data.Repositories
                 parameter.DbType = DbType.Int32;
                 
                 cmd.Parameters.Add(parameter);
-
-
-
-
+                
                 //EXECUTE
                 connection.Open();
 
