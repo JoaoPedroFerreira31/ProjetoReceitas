@@ -85,14 +85,14 @@ namespace PRE.Data.Repositories
 
                 //Access Store Procedure Parameter
                 parameter = new SqlParameter("@IdUser", id);
-                
-                parameter.Direction = ParameterDirection.Input;                
-                
+
+                parameter.Direction = ParameterDirection.Input;
+
                 //IdUser DataType in Database
                 parameter.DbType = DbType.Int32;
-                
+
                 cmd.Parameters.Add(parameter);
-                
+
                 //EXECUTE
                 connection.Open();
 
@@ -111,15 +111,51 @@ namespace PRE.Data.Repositories
                     //user.Gender = (Gender)dataReader.GetByte(_colGender);
                     user.Email = dataReader.GetString(_colEmail);
                     //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
-                    
+
                 }
-                
+
                 return user;
             }
 
-
-            //Insert User in Database
         }
-        
-    } 
+
+        //Insert User in Database        
+        public void Insert(User user)
+        {
+            //SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                //SqlCommand cmd = new SqlCommand("spInsertUsers", connection); 
+                //SqlCommand cmd = connection.CreateCommand();
+                SqlCommand cmd = new SqlCommand();
+
+                //Query to select all users from Database
+                cmd.CommandText = "spInsertUsers";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Add Store Procedure Parameter
+                cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar);    //parameter = new SqlParameter("@IdUser", );
+                cmd.Parameters.Add("@LastName", SqlDbType.NVarChar);
+                cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime);
+                cmd.Parameters.Add("@Gender", SqlDbType.TinyInt);
+                cmd.Parameters.Add("@Email", SqlDbType.NVarChar);
+
+                //parameter.Direction = ParameterDirection.Input;
+
+                //IdUser DataType in Database
+                //parameter.DbType = DbType.Int32;
+                //cmd.Parameters.Add(parameter);
+
+                //EXECUTE
+                connection.Open();
+
+                int RowsAffected = cmd.ExecuteNonQuery();
+
+            }
+        }
+    }
 }
