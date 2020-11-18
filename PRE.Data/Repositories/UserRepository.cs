@@ -55,7 +55,27 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                    //user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    
+                    //Convert GetByte (Tinyint) into Gender Enum 
+                    var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    if ((byte)EnumGender == 1)
+                    {
+                        Gender gender = Gender.Male;
+                        user.Gender = gender;
+
+                    }
+                    else if ((byte)EnumGender == 2)
+                    {
+                        Gender gender = Gender.Female;
+                        user.Gender = gender;
+
+                    }
+                    else
+                    {
+                        Gender gender = Gender.Other;
+                        user.Gender = gender;
+                    }
+
                     user.Email = dataReader.GetString(_colEmail);
                     //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
 
@@ -108,7 +128,27 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                    //user.Gender = (Gender)dataReader.GetByte(_colGender);
+
+                    //Convert GetByte (Tinyint) into Gender Enum 
+                    var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    if((byte)EnumGender == 1)
+                    {
+                        Gender gender = Gender.Male;
+                        user.Gender =  gender;
+                    
+                    }
+                    else if((byte)EnumGender == 2)
+                    {
+                        Gender gender = Gender.Female;
+                        user.Gender = gender;
+
+                    }
+                    else
+                    {
+                        Gender gender = Gender.Other;
+                        user.Gender = gender;
+                    }
+
                     user.Email = dataReader.GetString(_colEmail);
                     //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
 

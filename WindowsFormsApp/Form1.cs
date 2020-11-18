@@ -16,5 +16,10 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
         }
+
+        private void viewAllUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
