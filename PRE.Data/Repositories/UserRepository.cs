@@ -70,7 +70,7 @@ namespace PRE.Data.Repositories
                         user.Gender = gender;
 
                     }
-                    else
+                    else if ((byte)EnumGender >= 3)
                     {
                         Gender gender = Gender.Other;
                         user.Gender = gender;
@@ -162,7 +162,6 @@ namespace PRE.Data.Repositories
         //Insert User in Database        
         public void Insert(User user)
         {
-            //SqlParameter parameter;
 
             //CONNECTION
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -178,11 +177,40 @@ namespace PRE.Data.Repositories
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Add Store Procedure Parameter
-                cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar);    //parameter = new SqlParameter("@IdUser", );
-                cmd.Parameters.Add("@LastName", SqlDbType.NVarChar);
-                cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime);
-                cmd.Parameters.Add("@Gender", SqlDbType.TinyInt);
-                cmd.Parameters.Add("@Email", SqlDbType.NVarChar);
+                
+                //FirstName
+                SqlParameter firstName = new SqlParameter();
+                firstName.ParameterName = "@FirstName";
+                firstName.Value = user.FirstName;
+                firstName.SqlDbType = SqlDbType.NVarChar;
+
+                //LastName
+                SqlParameter LastName = new SqlParameter();
+                LastName.ParameterName = "@LastName";
+                LastName.Value = user.LastName;
+                LastName.SqlDbType = SqlDbType.NVarChar;
+
+                //BirthName
+                SqlParameter birthDate = new SqlParameter();
+                birthDate.ParameterName = "@BirthDate";
+                birthDate.Value = user.BirthDate;
+                birthDate.SqlDbType = SqlDbType.DateTime;
+
+                //Gender
+                SqlParameter gender = new SqlParameter();
+                gender.ParameterName = "@Gender";
+                gender.Value = user.Gender;
+                gender.SqlDbType = SqlDbType.TinyInt;
+
+
+                cmd.Parameters.Add(firstName);    //parameter = new SqlParameter("@IdUser", );
+                cmd.Parameters.Add(LastName);
+                cmd.Parameters.Add(birthDate);
+                cmd.Parameters.Add(gender);
+                
+                //cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime);
+                //cmd.Parameters.Add("@Gender", SqlDbType.TinyInt);
+                //cmd.Parameters.Add("@Email", SqlDbType.NVarChar);
 
                 //parameter.Direction = ParameterDirection.Input;
 
