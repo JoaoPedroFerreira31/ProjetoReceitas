@@ -55,7 +55,7 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-                    
+           
                     //Convert GetByte (Tinyint) into Gender Enum 
                     var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
                     if ((byte)EnumGender == 1)
@@ -190,7 +190,7 @@ namespace PRE.Data.Repositories
                 LastName.Value = user.LastName;
                 LastName.SqlDbType = SqlDbType.NVarChar;
 
-                //BirthName
+                //BirthDate
                 SqlParameter birthDate = new SqlParameter();
                 birthDate.ParameterName = "@BirthDate";
                 birthDate.Value = user.BirthDate;
@@ -202,11 +202,17 @@ namespace PRE.Data.Repositories
                 gender.Value = user.Gender;
                 gender.SqlDbType = SqlDbType.TinyInt;
 
+                //Email
+                SqlParameter email = new SqlParameter();
+                email.ParameterName = "@Email";
+                email.Value = user.Email;
+                email.SqlDbType = SqlDbType.NVarChar;
 
                 cmd.Parameters.Add(firstName);    //parameter = new SqlParameter("@IdUser", );
                 cmd.Parameters.Add(LastName);
                 cmd.Parameters.Add(birthDate);
                 cmd.Parameters.Add(gender);
+                cmd.Parameters.Add(email);
                 
                 //cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime);
                 //cmd.Parameters.Add("@Gender", SqlDbType.TinyInt);
@@ -220,8 +226,9 @@ namespace PRE.Data.Repositories
 
                 //EXECUTE
                 connection.Open();
+                int id = (int)cmd.ExecuteScalar();
 
-                int RowsAffected = cmd.ExecuteNonQuery();
+                user.IdUser = id;
 
             }
         }

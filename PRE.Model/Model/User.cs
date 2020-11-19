@@ -13,6 +13,7 @@ namespace PRE.Model.Model
         private string _FirstName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; } // Enum
         public string Email { get; set; }
@@ -20,10 +21,8 @@ namespace PRE.Model.Model
 
 
         public Account Account { get; set; }
-
         private List<Recipe> _OwnRecipies { get; set; }
         public List<Recipe> OwnRecipies { get; set; }
-
         public List<Recipe> FavoriteRecipies { get; set; }
 
 

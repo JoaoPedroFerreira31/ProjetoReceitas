@@ -26,7 +26,7 @@ namespace ConsoleApp
             //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
 
             //Insert User
-            User user2 = new User("Manuel", "Mendonça", 1984-08-25, , "exemplo@exemplo.pt");
+            //User Manuel = new User("Manuel", "Mendonça", 1992/12/05, , "exemplo@exemplo.pt");
         }
     }
 }
