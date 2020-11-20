@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class InitForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blockUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,9 +42,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.usersToolStripMenuItem,
             this.recipesToolStripMenuItem,
-            this.windowToolStripMenuItem});
+            this.windowToolStripMenuItem,
+            this.usersMenuStrip});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -56,32 +57,41 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // usersToolStripMenuItem
+            // usersMenuStrip
             // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewAllUsersToolStripMenuItem});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
-            // recipesToolStripMenuItem
-            // 
-            this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
-            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.recipesToolStripMenuItem.Text = "Recipes";
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.windowToolStripMenuItem.Text = "Window";
+            this.usersMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewAllUsersToolStripMenuItem,
+            this.blockUsersToolStripMenuItem});
+            this.usersMenuStrip.Name = "usersMenuStrip";
+            this.usersMenuStrip.Size = new System.Drawing.Size(80, 20);
+            this.usersMenuStrip.Text = "Utilizadores";
+            this.usersMenuStrip.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // viewAllUsersToolStripMenuItem
             // 
             this.viewAllUsersToolStripMenuItem.Name = "viewAllUsersToolStripMenuItem";
-            this.viewAllUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewAllUsersToolStripMenuItem.Text = "View all users";
+            this.viewAllUsersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.viewAllUsersToolStripMenuItem.Text = "Consultar Utilizadores";
             this.viewAllUsersToolStripMenuItem.Click += new System.EventHandler(this.viewAllUsersToolStripMenuItem_Click);
+            // 
+            // recipesToolStripMenuItem
+            // 
+            this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
+            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.recipesToolStripMenuItem.Text = "Receitas";
+            // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.windowToolStripMenuItem.Text = "Ingredientes";
+            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
+            // blockUsersToolStripMenuItem
+            // 
+            this.blockUsersToolStripMenuItem.Name = "blockUsersToolStripMenuItem";
+            this.blockUsersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.blockUsersToolStripMenuItem.Text = "Bloquear Utilizadores";
             // 
             // Form1
             // 
@@ -103,10 +113,11 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem viewAllUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recipesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blockUsersToolStripMenuItem;
     }
 }
 

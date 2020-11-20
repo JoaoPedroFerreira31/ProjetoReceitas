@@ -10,14 +10,26 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class Form1 : Form
+    public partial class InitForm : Form
     {
-        public Form1()
+        public InitForm()
         {
             InitializeComponent();
         }
 
         private void viewAllUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open ViewUsersForm
+            ViewUsersForm viewUsers = new ViewUsersForm();
+            viewUsers.Show();
+        }
+
+        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

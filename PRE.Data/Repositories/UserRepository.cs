@@ -55,7 +55,7 @@ namespace PRE.Data.Repositories
                     user.FirstName = dataReader.GetString(_colFirstName);
                     user.LastName = dataReader.GetString(_colLastName);
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
-           
+                    
                     //Convert GetByte (Tinyint) into Gender Enum 
                     var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
                     if ((byte)EnumGender == 1)
