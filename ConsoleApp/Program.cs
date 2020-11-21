@@ -15,14 +15,18 @@ namespace ConsoleApp
         {
             UserService userService = new UserService();
 
-            
+
 
             //Get User by id
             //User user = userService.GetById(20);
             //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
 
             //Insert User
-            User Manuel = new User("Manuel", "Mendonça", new DateTime(1992/12/05), Gender.Male , "exemplo@exemplo.pt");
+            int year = 1963;
+            int month = 06;
+            int day = 16;
+
+            User Manuel = new User("Manuel", "Mendonça", new DateTime(year, month, day), Gender.Male , "exemplo@exemplo.pt");
 
             userService.Insert(Manuel);
 

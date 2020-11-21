@@ -175,16 +175,15 @@ namespace PRE.Data.Repositories
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
 
-                //COMMAND                 
-                
+                //COMMAND                                 
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
 
                 //Query to select all users from Database
-                cmd.CommandText = "spInsertUsers";
+                cmd.CommandText = "spInsertUsers";                
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Add Store Procedure Parameter                
-                //FirstName
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
                 cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
@@ -205,6 +204,7 @@ namespace PRE.Data.Repositories
                 int affectedRows = cmd.ExecuteNonQuery();
 
                 int id = (int)parameter.Value;
+                user.IdUser = id;
                 Console.WriteLine(id);
                 
 

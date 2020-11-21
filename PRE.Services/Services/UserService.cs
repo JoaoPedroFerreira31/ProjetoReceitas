@@ -31,7 +31,18 @@ namespace PRE.Services.Services
 
         public void Insert(User user)
         {
-           _repo.Insert(user);
+            
+            if (user == null)
+                throw new Exception("Impossível isto ser null");
+
+            if (user.Account == null)
+                throw new Exception("Impossível isto ser null");
+
+            // verificar username tem as caracterisitcas
+            //if (_accountRepo.CheckUsername(user.Account.Username))
+                //throw new Exception("Username already exists");
+
+            _repo.Insert(user);
         }
     }
 }

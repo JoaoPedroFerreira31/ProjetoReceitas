@@ -17,6 +17,7 @@ namespace PRE.Model.Model
         public Gender Gender { get; set; } // Enum
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
+        public bool Blocked { get; set; }
 
         public Account Account { get; set; }
         private List<Recipe> _OwnRecipies { get; set; }
@@ -26,7 +27,7 @@ namespace PRE.Model.Model
         //Create Override Method
         public override string ToString()
         {
-            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}";
+            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}, Blocked: {Blocked}";
         }
 
         //Create builders to generate users
@@ -34,7 +35,7 @@ namespace PRE.Model.Model
         {
         }
 
-        public User(int idUser, string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin, Account account, List<Recipe> ownRecipies, List<Recipe> favoriteRecipies)
+        public User(int idUser, string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin, bool blocked , Account account, List<Recipe> ownRecipies, List<Recipe> favoriteRecipies)
         {
             IdUser = idUser;
             FirstName = firstName;
@@ -43,18 +44,20 @@ namespace PRE.Model.Model
             Gender = gender;
             Email = email;
             IsAdmin = isAdmin;
+            Blocked = blocked;
             Account = account;
             OwnRecipies = ownRecipies;
             FavoriteRecipies = favoriteRecipies;
         }
 
-        public User(int idUser, string firstName, string lastName, DateTime birthDate, string email, bool isAdmin, Account account)
+        public User(int idUser, string firstName, string lastName, DateTime birthDate, string email, bool isAdmin, bool blocked, Account account)
         {
             IdUser = idUser;
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
             Email = email;
+            Blocked = blocked;
             Account = account;
             IsAdmin = isAdmin;
         }
