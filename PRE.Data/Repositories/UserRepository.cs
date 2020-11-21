@@ -23,6 +23,8 @@ namespace PRE.Data.Repositories
         private static int _colBirthDate = 3;
         private static int _colGender = 4;
         private static int _colEmail = 5;
+        private static int _colIdAccount = 6;
+        private static int _IdRecipe = 7;
         private static int _colIsAdmin = 8;
 
         //Get all users from Database
@@ -57,27 +59,28 @@ namespace PRE.Data.Repositories
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
                     
                     //Convert GetByte (Tinyint) into Gender Enum 
-                    var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
-                    if ((byte)EnumGender == 1)
+                    var enumGender = user.Gender = dataReader.IsDBNull(_colGender) ? 0: (Gender)dataReader.GetByte(_colGender);
+                    if ((byte)enumGender == 1)
                     {
                         Gender gender = Gender.Male;
                         user.Gender = gender;
 
                     }
-                    else if ((byte)EnumGender == 2)
+                    else if ((byte)enumGender == 2)
                     {
                         Gender gender = Gender.Female;
                         user.Gender = gender;
 
                     }
-                    else if ((byte)EnumGender >= 3)
+                    else if ((byte)enumGender >= 3)
                     {
                         Gender gender = Gender.Other;
                         user.Gender = gender;
                     }
 
                     user.Email = dataReader.GetString(_colEmail);
-                    //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
+                    //user.OwnRecipies = dataReader.IsDBNull(_IdRecipe) ? 0 : dataReader.GetInt32(_IdRecipe);
+                    user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
 
                     users.Add(user);
                 }
@@ -130,14 +133,19 @@ namespace PRE.Data.Repositories
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
 
                     //Convert GetByte (Tinyint) into Gender Enum 
-                    var EnumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
-                    if((byte)EnumGender == 1)
+                    var enumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    if((byte)enumGender == 0)
+                    {
+                        Gender gender = Gender.NA;
+                        user.Gender = gender;
+                    }
+                    else if((byte)enumGender == 1)
                     {
                         Gender gender = Gender.Male;
                         user.Gender =  gender;
                     
                     }
-                    else if((byte)EnumGender == 2)
+                    else if((byte)enumGender == 2)
                     {
                         Gender gender = Gender.Female;
                         user.Gender = gender;
@@ -168,67 +176,37 @@ namespace PRE.Data.Repositories
             {
 
                 //COMMAND                 
-                //SqlCommand cmd = new SqlCommand("spInsertUsers", connection); 
-                //SqlCommand cmd = connection.CreateCommand();
+                
                 SqlCommand cmd = new SqlCommand();
 
                 //Query to select all users from Database
                 cmd.CommandText = "spInsertUsers";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //Add Store Procedure Parameter
-                
+                //Add Store Procedure Parameter                
                 //FirstName
-                SqlParameter firstName = new SqlParameter();
-                firstName.ParameterName = "@FirstName";
-                firstName.Value = user.FirstName;
-                firstName.SqlDbType = SqlDbType.NVarChar;
+                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
 
-                //LastName
-                SqlParameter LastName = new SqlParameter();
-                LastName.ParameterName = "@LastName";
-                LastName.Value = user.LastName;
-                LastName.SqlDbType = SqlDbType.NVarChar;
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@IdUser";
+                parameter.SqlDbType = SqlDbType.Int;
+                parameter.Direction = ParameterDirection.Output;
 
-                //BirthDate
-                SqlParameter birthDate = new SqlParameter();
-                birthDate.ParameterName = "@BirthDate";
-                birthDate.Value = user.BirthDate;
-                birthDate.SqlDbType = SqlDbType.DateTime;
-
-                //Gender
-                SqlParameter gender = new SqlParameter();
-                gender.ParameterName = "@Gender";
-                gender.Value = user.Gender;
-                gender.SqlDbType = SqlDbType.TinyInt;
-
-                //Email
-                SqlParameter email = new SqlParameter();
-                email.ParameterName = "@Email";
-                email.Value = user.Email;
-                email.SqlDbType = SqlDbType.NVarChar;
-
-                cmd.Parameters.Add(firstName);    //parameter = new SqlParameter("@IdUser", );
-                cmd.Parameters.Add(LastName);
-                cmd.Parameters.Add(birthDate);
-                cmd.Parameters.Add(gender);
-                cmd.Parameters.Add(email);
-                
-                //cmd.Parameters.Add("@BirthDate", SqlDbType.DateTime);
-                //cmd.Parameters.Add("@Gender", SqlDbType.TinyInt);
-                //cmd.Parameters.Add("@Email", SqlDbType.NVarChar);
-
-                //parameter.Direction = ParameterDirection.Input;
-
-                //IdUser DataType in Database
-                //parameter.DbType = DbType.Int32;
-                //cmd.Parameters.Add(parameter);
+                cmd.Parameters.Add(parameter);
 
                 //EXECUTE
                 connection.Open();
-                int id = (int)cmd.ExecuteScalar();
 
-                user.IdUser = id;
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)parameter.Value;
+                Console.WriteLine(id);
+                
 
             }
         }

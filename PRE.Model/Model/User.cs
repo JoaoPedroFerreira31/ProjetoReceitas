@@ -13,12 +13,10 @@ namespace PRE.Model.Model
         private string _FirstName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; } // Enum
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
-
 
         public Account Account { get; set; }
         private List<Recipe> _OwnRecipies { get; set; }
@@ -28,9 +26,8 @@ namespace PRE.Model.Model
         //Create Override Method
         public override string ToString()
         {
-            return $"{IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, {IsAdmin}";
+            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}";
         }
-
 
         //Create builders to generate users
         public User()

@@ -1,4 +1,5 @@
 ﻿using PRE.Model.Model;
+using PRE.Model.Model.Util;
 using PRE.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,24 @@ namespace ConsoleApp
         {
             UserService userService = new UserService();
 
-            //GetAll
-            List<User> users = userService.GetAll();
-            foreach (var item in users)
-            {
-                Console.WriteLine($"{item.IdUser}, {item.FirstName}, {item.LastName}, {item.BirthDate}, {item.Gender}, {item.Email} ");
-            }
+            
 
             //Get User by id
             //User user = userService.GetById(20);
             //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
 
             //Insert User
-            //User Manuel = new User("Manuel", "Mendonça", 1992/12/05, , "exemplo@exemplo.pt");
+            User Manuel = new User("Manuel", "Mendonça", new DateTime(1992/12/05), Gender.Male , "exemplo@exemplo.pt");
+
+            userService.Insert(Manuel);
+
+            //GetAll
+            Console.WriteLine("==== User GetAll() ====");
+            List<User> users = userService.GetAll();
+            foreach (User user in users)
+            {
+                Console.WriteLine(user);
+            }
         }
     }
 }
