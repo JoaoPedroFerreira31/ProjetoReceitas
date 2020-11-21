@@ -25,6 +25,12 @@ namespace PRE.Model.Model
         public List<Recipe> OwnRecipies { get; set; }
         public List<Recipe> FavoriteRecipies { get; set; }
 
+        //Create Override Method
+        public override string ToString()
+        {
+            return $"{IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, {IsAdmin}";
+        }
+
 
         //Create builders to generate users
         public User()

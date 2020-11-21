@@ -8,6 +8,7 @@ namespace PRE.Model.Model.Util
 {
     public enum Gender : byte
     {
+        NA = 0,
         Male = 1,
         Female = 2,
         Other = 3,

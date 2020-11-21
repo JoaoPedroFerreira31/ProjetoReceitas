@@ -11,10 +11,10 @@ namespace PRE.Model.Model
     {
         public int IdRecipe { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public TimeSpan Duration { get; set; }
         public Difficulty Difficulty { get; set; } //Enum
-        public Rating Rating { get; set; } //Enum        
-        public string Description { get; set; }
+        public Rating Rating { get; set; } //Enum                
         public bool IsValidated { get; set; }
 
 
@@ -28,6 +28,7 @@ namespace PRE.Model.Model
         public Recipe()
         {
         }
+
 
     }
 }
