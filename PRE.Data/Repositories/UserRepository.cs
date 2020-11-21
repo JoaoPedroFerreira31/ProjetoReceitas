@@ -13,8 +13,15 @@ namespace PRE.Data.Repositories
 {
     public class UserRepository
     {
+
+
         //MSSQL connection string
-        private static string _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelaresCS"].ConnectionString;
+        private static string _connectionString; 
+
+        public UserRepository()
+        {
+           _connectionString = ConfigurationManager.ConnectionStrings["ReceitasEstrelaresCS"].ConnectionString;
+        }   
 
         //MSSQL Table Users_tbl
         private static int _colIdUser = 0;
