@@ -55,12 +55,47 @@ namespace PRE.Data.Repositories
                     account.IdAccount = dataReader.GetInt32(_colIdAccount);
                     account.Username = dataReader.GetString(_colUsername);
                     account.Password = dataReader.GetString(_colPassword);
-                    account.IdUser = (User)dataReader.GetInt32(_colIdUser);
+                    //account.IdUser = (User)dataReader.GetInt32(_colIdUser);
                     
                     accounts.Add(account);
                 }
                 return accounts;
             }
+        }
+
+        //Get account by id from database 
+        public Account GetById(int id)
+        {
+            return null;
+        }
+
+        //Insert account in database 
+        public void Insert(Account account)
+        {
+            
+        }
+
+        //Check username
+        public bool CheckUsername(string username)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT count(Id) FROM Accounts" +
+                    " WHERE Username == " + username;
+
+                object obj = cmd.ExecuteScalar();
+                int count = (int)obj;
+
+                if (count > 0)
+                    return true;
+
+            }
+            return false;
+
         }
 
     }
