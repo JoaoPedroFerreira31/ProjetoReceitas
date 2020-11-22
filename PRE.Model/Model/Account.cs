@@ -13,6 +13,11 @@ namespace PRE.Model.Model
         public string Password { get; set; }
         public User IdUser { get; set; }
 
+        //Create Override Method
+        public override string ToString()
+        {
+            return $"{IdAccount}, {Username}, {Password}".ToString();
+        }
 
         //Create builders to generate users
         public Account()

@@ -13,9 +13,29 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            
             UserService userService = new UserService();
+            AccountService accountService = new AccountService();
 
+            //=====================
+            //==     Account     ==
+            //=====================
 
+            //GetAll
+            List<Account> accounts = accountService.GetAll();
+
+            foreach (Account account in accounts)
+            {
+                Console.WriteLine(account);
+            }
+
+            //Get Account by id            
+            //Insert Account            
+            
+
+            //=====================
+            //==      USER       ==
+            //=====================
 
             //Get User by id
             //User user = userService.GetById(20);
@@ -31,12 +51,12 @@ namespace ConsoleApp
             userService.Insert(Manuel);*/
 
             //GetAll
-            Console.WriteLine("==== User GetAll() ====");
+            /*Console.WriteLine("==== User GetAll() ====");
             List<User> users = userService.GetAll();
             foreach (User user in users)
             {
                 Console.WriteLine(user);
-            }
+            }*/
         }
     }
 }
