@@ -197,6 +197,7 @@ namespace PRE.Data.Repositories
                 cmd.Parameters.AddWithValue("@Gender", user.Gender);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
+                cmd.Parameters.AddWithValue("@Blocked", user.Blocked);
 
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@IdUser";
@@ -212,9 +213,7 @@ namespace PRE.Data.Repositories
 
                 int id = (int)parameter.Value;
                 user.IdUser = id;
-                Console.WriteLine(id);
-                
-
+                Console.WriteLine(id);   
             }
         }
     }

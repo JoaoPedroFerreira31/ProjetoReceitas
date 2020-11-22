@@ -32,11 +32,11 @@ namespace PRE.Services.Services
         public void Insert(User user)
         {
             
-            if (user == null)
-                throw new Exception("Impossível isto ser null");
+           // if (user == null)
+           //     throw new Exception("Impossível isto ser null");
 
-            if (user.Account == null)
-                throw new Exception("Impossível isto ser null");
+            //if (user.account == null)
+            //    throw new exception("impossível isto ser null");
 
             // verificar username tem as caracterisitcas
             //if (_accountRepo.CheckUsername(user.Account.Username))

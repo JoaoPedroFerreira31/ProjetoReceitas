@@ -27,7 +27,7 @@ namespace PRE.Data.Repositories
         private static int _colIdUser = 3;
 
         //Get all accounts from Database
-        public List<Account> getAll()
+        public List<Account> GetAll()
         {
             List<Account> accounts = new List<Account>();
 

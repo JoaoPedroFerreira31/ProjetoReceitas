@@ -22,13 +22,13 @@ namespace ConsoleApp
             //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
 
             //Insert User
-            int year = 1963;
+            /*int year = 1963;
             int month = 06;
             int day = 16;
 
-            User Manuel = new User("Manuel", "Mendonça", new DateTime(year, month, day), Gender.Male , "exemplo@exemplo.pt");
+            User Manuel = new User("Manuel", "Mendonça", new DateTime(year, month, day), Gender.Male , "exemplo@exemplo.pt", false, false);
 
-            userService.Insert(Manuel);
+            userService.Insert(Manuel);*/
 
             //GetAll
             Console.WriteLine("==== User GetAll() ====");
