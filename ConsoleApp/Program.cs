@@ -16,22 +16,40 @@ namespace ConsoleApp
             
             UserService userService = new UserService();
             AccountService accountService = new AccountService();
+            RecipeService recipeService = new RecipeService();
+
+            //=====================
+            //==      Recipe     ==
+            //=====================
+
+            //GetAll
+            List<Recipe> recipes = recipeService.GetAll();
+
+            foreach (Recipe recipe in recipes)
+            {
+                Console.WriteLine(recipe);
+            }
+
+            //Get Recipe By Id
+            //Insert Recipe
+            //Get Recipe by User Id
+
 
             //=====================
             //==     Account     ==
             //=====================
 
             //GetAll
-            List<Account> accounts = accountService.GetAll();
+            /*List<Account> accounts = accountService.GetAll();
 
             foreach (Account account in accounts)
             {
                 Console.WriteLine(account);
-            }
+            }*/
 
             //Get Account by id            
             //Insert Account            
-            
+
 
             //=====================
             //==      USER       ==

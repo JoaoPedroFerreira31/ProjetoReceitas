@@ -29,7 +29,16 @@ namespace PRE.Model.Model
         {
         }
 
-
+        public Recipe(int idRecipe, string name, string description, TimeSpan duration, Difficulty difficulty, Rating rating, bool isValidated)
+        {
+            IdRecipe = idRecipe;
+            Name = name;
+            Description = description;
+            Duration = duration;
+            Difficulty = difficulty;
+            Rating = rating;
+            IsValidated = isValidated;
+        }
     }
 }
 

@@ -24,6 +24,8 @@ namespace PRE.Data.Repositories
         private static int _colDifficulty = 4;
         private static int _colIdRating = 5;
         private static int _colIsValidated = 6;
+        private static int _colIdCategory = 7;
+        private static int _colIdUser = 8;
 
 
         //Get all Recipes from Database
@@ -38,7 +40,7 @@ namespace PRE.Data.Repositories
                 SqlCommand cmd = connection.CreateCommand();
 
                 //Query to select all recipes from Database
-                cmd.CommandText = "spReadRecipe";
+                cmd.CommandText = "spReadRecipes";
                 cmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -175,6 +177,9 @@ namespace PRE.Data.Repositories
         }
 
         //Insert Recipe in Database       
-    
+        public void Insert()
+        {
+
+        }
     }
 }

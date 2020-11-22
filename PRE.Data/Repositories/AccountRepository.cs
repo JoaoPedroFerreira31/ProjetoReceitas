@@ -78,7 +78,8 @@ namespace PRE.Data.Repositories
         //Check username
         public bool CheckUsername(string username)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            return false;
+            /*using (SqlConnection conn = new SqlConnection(_connectionString))
             {
 
                 SqlCommand cmd = new SqlCommand();
@@ -95,7 +96,7 @@ namespace PRE.Data.Repositories
 
             }
             return false;
-
+            */
         }
 
     }
