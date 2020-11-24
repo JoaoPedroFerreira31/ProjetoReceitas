@@ -23,12 +23,12 @@ namespace ConsoleApp
             //=====================
 
             //GetAll
-            List<Recipe> recipes = recipeService.GetAll();
+            /*List<Recipe> recipes = recipeService.GetAll();
 
             foreach (Recipe recipe in recipes)
             {
                 Console.WriteLine(recipe);
-            }
+            }*/
 
             //Get Recipe By Id
             //Insert Recipe
@@ -40,12 +40,12 @@ namespace ConsoleApp
             //=====================
 
             //GetAll
-            /*List<Account> accounts = accountService.GetAll();
+            List<Account> accounts = accountService.GetAll();
 
             foreach (Account account in accounts)
             {
                 Console.WriteLine(account);
-            }*/
+            }
 
             //Get Account by id            
             //Insert Account            
@@ -60,13 +60,13 @@ namespace ConsoleApp
             //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
 
             //Insert User
-            /*int year = 1963;
-            int month = 06;
-            int day = 16;
+            /*int year = 1967;
+            int month = 08;
+            int day = 20;
 
-            User Manuel = new User("Manuel", "Mendonça", new DateTime(year, month, day), Gender.Male , "exemplo@exemplo.pt", false, false);
+            User user = new User("Rita", "Martins", new DateTime(year, month, day), Gender.Female , "exemplo@exemplo.pt", false, false);
 
-            userService.Insert(Manuel);*/
+            userService.Insert(user);*/
 
             //GetAll
             /*Console.WriteLine("==== User GetAll() ====");

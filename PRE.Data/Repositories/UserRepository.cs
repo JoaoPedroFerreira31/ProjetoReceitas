@@ -33,6 +33,7 @@ namespace PRE.Data.Repositories
         private static int _colIdAccount = 6;
         private static int _IdRecipe = 7;
         private static int _colIsAdmin = 8;
+        private static int _colBlocked = 9;
 
         //Get all users from Database
         public List<User> GetAll()
@@ -88,6 +89,7 @@ namespace PRE.Data.Repositories
                     user.Email = dataReader.GetString(_colEmail);
                     //user.OwnRecipies = dataReader.IsDBNull(_IdRecipe) ? 0 : dataReader.GetInt32(_IdRecipe);
                     user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
+                    user.IsAdmin = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
 
                     users.Add(user);
                 }
@@ -165,7 +167,7 @@ namespace PRE.Data.Repositories
                     }
 
                     user.Email = dataReader.GetString(_colEmail);
-                    //user.IsAdmin = dataReader.GetBoolean(_colIsAdmin);
+                    user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
 
                 }
 
@@ -209,11 +211,11 @@ namespace PRE.Data.Repositories
                 //EXECUTE
                 connection.Open();
 
-                int affectedRows = cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
                 int id = (int)parameter.Value;
                 user.IdUser = id;
-                Console.WriteLine(id);   
+                Console.WriteLine(id);
             }
         }
     }

@@ -66,7 +66,48 @@ namespace PRE.Data.Repositories
         //Get account by id from database 
         public Account GetById(int id)
         {
-            return null;
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                //COMMAND
+                SqlCommand cmd = connection.CreateCommand();
+
+                //Query to select all accounts from Database
+                cmd.CommandText = "spReadAccountsById";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
+                parameter = new SqlParameter("@IdAccount", id);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //IdUser DataType in Database
+                parameter.DbType = DbType.Int32;
+
+                cmd.Parameters.Add(parameter);
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Account account = null;
+
+                while (dataReader.Read())
+                {
+
+                    account = new Account();
+
+                    account.IdAccount = dataReader.GetInt32(_colIdAccount);
+                    account.Username = dataReader.GetString(_colUsername);
+                    account.Password = dataReader.GetString(_colPassword);
+                    //account.IdUser = dataReader.GetInt32(_colIdUser);
+                                        
+                }
+                return account;
+            }
         }
 
         //Insert account in database 
