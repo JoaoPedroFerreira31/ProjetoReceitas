@@ -1,5 +1,6 @@
 ﻿using PRE.Data.Repositories;
 using PRE.Model.Model;
+using PRE.Model.Model.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace PRE.Services.Services
 
         public User GetById(int id)
         {
+            
             return _repo.GetById(id);
         }
 

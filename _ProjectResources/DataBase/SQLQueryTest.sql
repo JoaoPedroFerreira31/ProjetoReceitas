@@ -1,10 +1,10 @@
-USE ReceitasEstrelares;
+USE JoaoPedro_ReceitasEstrelares;
 
 Exec spReadUser
 
-INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Email, IdAccount) VALUES ('Joao', 'Mateus','2001-10-01','Exemplo@exemplo.pt',1);
+INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Email, IsAdmin) VALUES ('João Pedro', 'Ferreira','2001-10-31','jpmferreira31@exemplo.pt', 1);
 
-INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Gender, Email, IdAccount) VALUES ('Maria', 'Do Carmo','1976-03-02', 2, 'Exemplo@exemplo.pt', 4);
+INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Gender, Email, IsAdmin, Blocked) VALUES ('Maria', 'Do Carmo','1976-03-02', 2, 'Exemplo@exemplo.pt', 4);
 
 SELECT * FROM Account_tbl;
 
@@ -16,6 +16,19 @@ Insert into Account_tbl (Username, Password) VALUES ('TesteAccount5', 'Password'
 SELECT * FROM Users_tbl
 
 -- USER
+
+-- Set default values
+
+-- Blocked
+ALTER TABLE Users_tbl
+ADD CONSTRAINT df_Blocked
+DEFAULT 0 FOR Blocked;
+
+-- IsAdmin
+ALTER TABLE Users_tbl
+ADD CONSTRAINT df_IsAdmin
+DEFAULT 0 FOR IsAdmin;
+
 
 -- GetById()
 CREATE PROCEDURE spReadUsersById 

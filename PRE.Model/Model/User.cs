@@ -62,18 +62,25 @@ namespace PRE.Model.Model
             IsAdmin = isAdmin;
         }
 
-        public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin, bool blocked)
+        public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email)
         {
             FirstName = firstName;
             LastName = lastName; 
             BirthDate = birthDate;
             Gender = gender;
-            Email = email;
-            IsAdmin = isAdmin;
-            Blocked = blocked; 
+            Email = email; 
         }
 
-        
+        public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin, bool blocked)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            Gender = gender;
+            Email = email;
+            IsAdmin = isAdmin;
+            Blocked = blocked;
+        }
     }
 }
 

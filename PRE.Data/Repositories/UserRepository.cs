@@ -89,7 +89,7 @@ namespace PRE.Data.Repositories
                     user.Email = dataReader.GetString(_colEmail);
                     //user.OwnRecipies = dataReader.IsDBNull(_IdRecipe) ? 0 : dataReader.GetInt32(_IdRecipe);
                     user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
-                    user.IsAdmin = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
+                    user.Blocked = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
 
                     users.Add(user);
                 }
@@ -143,18 +143,18 @@ namespace PRE.Data.Repositories
 
                     //Convert GetByte (Tinyint) into Gender Enum 
                     var enumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
-                    if((byte)enumGender == 0)
+                    if ((byte)enumGender == 0)
                     {
                         Gender gender = Gender.NA;
                         user.Gender = gender;
                     }
-                    else if((byte)enumGender == 1)
+                    else if ((byte)enumGender == 1)
                     {
                         Gender gender = Gender.Male;
-                        user.Gender =  gender;
-                    
+                        user.Gender = gender;
+
                     }
-                    else if((byte)enumGender == 2)
+                    else if ((byte)enumGender == 2)
                     {
                         Gender gender = Gender.Female;
                         user.Gender = gender;
@@ -198,24 +198,15 @@ namespace PRE.Data.Repositories
                 cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
                 cmd.Parameters.AddWithValue("@Gender", user.Gender);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
-                cmd.Parameters.AddWithValue("@Blocked", user.Blocked);
-
-                SqlParameter parameter = new SqlParameter();
-                parameter.ParameterName = "@IdUser";
-                parameter.SqlDbType = SqlDbType.Int;
-                parameter.Direction = ParameterDirection.Output;
-
-                cmd.Parameters.Add(parameter);
-
+                
                 //EXECUTE
                 connection.Open();
 
-                cmd.ExecuteNonQuery();
-
-                int id = (int)parameter.Value;
+                int id = (int)cmd.ExecuteScalar();
                 user.IdUser = id;
                 Console.WriteLine(id);
+
+                
             }
         }
     }

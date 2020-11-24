@@ -40,12 +40,12 @@ namespace ConsoleApp
             //=====================
 
             //GetAll
-            List<Account> accounts = accountService.GetAll();
+            /*List<Account> accounts = accountService.GetAll();
 
             foreach (Account account in accounts)
             {
                 Console.WriteLine(account);
-            }
+            }*/
 
             //Get Account by id            
             //Insert Account            
@@ -56,15 +56,15 @@ namespace ConsoleApp
             //=====================
 
             //Get User by id
-            //User user = userService.GetById(20);
-            //Console.WriteLine($"{user.IdUser}, {user.FirstName}, {user.LastName}, {user.BirthDate}, {user.Gender}, {user.Email} ");
+            User user = userService.GetById(37);
+            Console.WriteLine(user);
 
             //Insert User
-            /*int year = 1967;
-            int month = 08;
-            int day = 20;
+            /*int year = 2000;
+            int month = 12;
+            int day = 8;
 
-            User user = new User("Rita", "Martins", new DateTime(year, month, day), Gender.Female , "exemplo@exemplo.pt", false, false);
+            User user = new User("Liliana", "Marques", new DateTime(year, month, day), Gender.Female, "exemplo@exemplo.pt");
 
             userService.Insert(user);*/
 
