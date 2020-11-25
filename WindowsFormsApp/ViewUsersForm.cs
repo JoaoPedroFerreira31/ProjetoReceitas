@@ -15,6 +15,8 @@ namespace WindowsFormsApp
 {
     public partial class ViewUsersForm : Form
     {
+        DataTable table;
+
         public ViewUsersForm()
         {
             InitializeComponent();
@@ -25,13 +27,29 @@ namespace WindowsFormsApp
             UserService userService = new UserService();
 
             List<User> getAll = userService.GetAll();
-            dataGridView1.DataSource= getAll;
+            dataGridView.DataSource= getAll;
         }
 
+        private void btnPesquisarId_Click(object sender, EventArgs e)
+        {
+            UserService userService = new UserService();            
 
+            /*int id = int.Parse(textBox_Id.Text);
+            User getById = userService.GetById(id) ;
+            dataGridView.DataSource = getById;
+            dataGridView.Refresh();*/
 
+            DataTable dt = new DataTable();
+            
+            
+        }
 
+        private void btnVerTodos_Click(object sender, EventArgs e)
+        {
+            UserService userService = new UserService();
 
-
+            List<User> getAll = userService.GetAll();
+            dataGridView.DataSource = getAll;
+        }
     }
 }

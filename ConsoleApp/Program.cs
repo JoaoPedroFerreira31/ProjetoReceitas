@@ -56,12 +56,12 @@ namespace ConsoleApp
             //=====================
 
             //Get User by id
-            /*User user = userService.GetById(39);
-            Console.WriteLine(user);*/
+            User user = userService.GetById(36);
+            Console.WriteLine(user);
 
             //Get User by FirstName
-            User user = userService.GetByFirstName("Liliana");
-            Console.WriteLine(user);
+            /*User user = userService.GetByFirstName("Liliana");
+            Console.WriteLine(user);*/
 
             //Insert User
             /*int year = 1997;
@@ -83,12 +83,14 @@ namespace ConsoleApp
 
 
             //GetAll
-            /*Console.WriteLine("==== User GetAll() ====");
+            Console.WriteLine("==== User GetAll() ====");
             List<User> users = userService.GetAll();
-            foreach (User user in users)
+            foreach (User item in users)
             {
-                Console.WriteLine(user);
-            }*/
+                Console.WriteLine(item);
+            }
+                
+            
         }
     }
 }

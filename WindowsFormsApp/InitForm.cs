@@ -21,7 +21,15 @@ namespace WindowsFormsApp
         {
             //Open ViewUsersForm
             ViewUsersForm viewUsers = new ViewUsersForm();
-            viewUsers.Show();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                viewUsers.MdiParent = this;
+                viewUsers.Show();
+            }
         }
 
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)

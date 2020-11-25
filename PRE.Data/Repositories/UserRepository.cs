@@ -141,7 +141,7 @@ namespace PRE.Data.Repositories
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
 
                     //Convert GetByte (Tinyint) into Gender Enum 
-                    var enumGender = user.Gender = dataReader.IsDBNull(_colIsAdmin) ? 0 : (Gender)dataReader.GetByte(_colGender);
+                    var enumGender = user.Gender = dataReader.IsDBNull(_colGender) ? 0 : (Gender)dataReader.GetByte(_colGender);
                     if ((byte)enumGender == 0)
                     {
                         Gender gender = Gender.NA;

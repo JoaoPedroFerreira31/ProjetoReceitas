@@ -30,10 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blockUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,19 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // recipesToolStripMenuItem
+            // 
+            this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
+            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.recipesToolStripMenuItem.Text = "Receitas";
+            // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.windowToolStripMenuItem.Text = "Ingredientes";
+            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            // 
             // usersMenuStrip
             // 
             this.usersMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -74,34 +87,23 @@
             this.viewAllUsersToolStripMenuItem.Text = "Consultar Utilizadores";
             this.viewAllUsersToolStripMenuItem.Click += new System.EventHandler(this.viewAllUsersToolStripMenuItem_Click);
             // 
-            // recipesToolStripMenuItem
-            // 
-            this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
-            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.recipesToolStripMenuItem.Text = "Receitas";
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.windowToolStripMenuItem.Text = "Ingredientes";
-            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
-            // 
             // blockUsersToolStripMenuItem
             // 
             this.blockUsersToolStripMenuItem.Name = "blockUsersToolStripMenuItem";
             this.blockUsersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.blockUsersToolStripMenuItem.Text = "Bloquear Utilizadores";
             // 
-            // Form1
+            // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "InitForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Receitas Estrelares";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
