@@ -46,5 +46,10 @@ namespace PRE.Services.Services
 
             _repo.Insert(user);
         }
+        
+        public void InsertAdmin(User user)
+        {
+            _repo.InsertAdmin(user);
+        }
     }
 }

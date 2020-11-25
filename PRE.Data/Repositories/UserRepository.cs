@@ -87,7 +87,6 @@ namespace PRE.Data.Repositories
                     }
 
                     user.Email = dataReader.GetString(_colEmail);
-                    //user.OwnRecipies = dataReader.IsDBNull(_IdRecipe) ? 0 : dataReader.GetInt32(_IdRecipe);
                     user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
                     user.Blocked = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
 
@@ -111,7 +110,7 @@ namespace PRE.Data.Repositories
                 //SqlCommand cmd = new SqlCommand("spReadUsersById", connection); 
                 SqlCommand cmd = connection.CreateCommand();
 
-                //Query to select all users from Database
+                //Query to select user by id from Database
                 cmd.CommandText = "spReadUsersById";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -168,12 +167,91 @@ namespace PRE.Data.Repositories
 
                     user.Email = dataReader.GetString(_colEmail);
                     user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
+                    user.Blocked = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
 
                 }
 
                 return user;
             }
 
+        }
+
+        //Get User by FirstName from Database
+        public User GetByName(string firstName)
+        {
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                //SqlCommand cmd = new SqlCommand("spReadUsersById", connection); 
+                SqlCommand cmd = connection.CreateCommand();
+
+                //Query to select user by FirstName from Database
+                cmd.CommandText = "spReadUsersByFirstName";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
+                parameter = new SqlParameter("@FirstName", firstName);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //FirstName DataType in Database
+                parameter.DbType = DbType.String;
+
+                cmd.Parameters.Add(parameter);
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                User user = null;
+
+                while (dataReader.Read())
+                {
+                    user = new User();
+
+                    user.IdUser = dataReader.GetInt32(_colIdUser);
+                    user.FirstName = dataReader.GetString(_colFirstName);
+                    user.LastName = dataReader.GetString(_colLastName);
+                    user.BirthDate = dataReader.GetDateTime(_colBirthDate);
+
+                    //Convert GetByte (Tinyint) into Gender Enum 
+                    var enumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    if ((byte)enumGender == 0)
+                    {
+                        Gender gender = Gender.NA;
+                        user.Gender = gender;
+                    }
+                    else if ((byte)enumGender == 1)
+                    {
+                        Gender gender = Gender.Male;
+                        user.Gender = gender;
+
+                    }
+                    else if ((byte)enumGender == 2)
+                    {
+                        Gender gender = Gender.Female;
+                        user.Gender = gender;
+
+                    }
+                    else
+                    {
+                        Gender gender = Gender.Other;
+                        user.Gender = gender;
+                    }
+
+                    user.Email = dataReader.GetString(_colEmail);
+                    user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
+                    user.Blocked = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
+
+                }
+
+                return user;
+            }
         }
 
         //Insert User in Database        
@@ -207,6 +285,42 @@ namespace PRE.Data.Repositories
                 Console.WriteLine(id);
 
                 
+            }
+        }
+
+        //Insert Admin in database
+        public void InsertAdmin(User user)
+        {
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                                 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                //Query to select all users from Database
+                cmd.CommandText = "spInsertAdmin";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Add Store Procedure Parameter                
+                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
+                
+
+                //EXECUTE
+                connection.Open();
+
+                int id = (int)cmd.ExecuteScalar();
+                user.IdUser = id;
+                Console.WriteLine(id);
+
+
             }
         }
     }

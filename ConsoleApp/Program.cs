@@ -56,17 +56,27 @@ namespace ConsoleApp
             //=====================
 
             //Get User by id
-            User user = userService.GetById(37);
+            User user = userService.GetById(39);
             Console.WriteLine(user);
 
             //Insert User
-            /*int year = 2000;
-            int month = 12;
-            int day = 8;
+            /*int year = 1997;
+            int month = 2;
+            int day = 24;
 
-            User user = new User("Liliana", "Marques", new DateTime(year, month, day), Gender.Female, "exemplo@exemplo.pt");
+            User user = new User("Jorge", "Marques", new DateTime(year, month, day), Gender.Male, "exemplo@exemplo.pt");
 
             userService.Insert(user);*/
+
+            //Insert Admin
+            /*int year = 1986;
+            int month = 2;
+            int day = 4;
+
+            User user = new User("Miguel", "Cabral", new DateTime(year, month, day), Gender.Male, "exemplo@exemplo.pt", true);
+
+            userService.InsertAdmin(user);*/
+
 
             //GetAll
             /*Console.WriteLine("==== User GetAll() ====");

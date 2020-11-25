@@ -71,6 +71,16 @@ namespace PRE.Model.Model
             Email = email; 
         }
 
+        public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            Gender = gender;
+            Email = email;
+            IsAdmin = isAdmin;
+        }
+
         public User(string firstName, string lastName, DateTime birthDate, Gender gender, string email, bool isAdmin, bool blocked)
         {
             FirstName = firstName;
