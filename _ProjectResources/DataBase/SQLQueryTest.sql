@@ -40,6 +40,16 @@ END;
 
 EXEC spReadUsersById 22;
 
+-- GetByFirstName()
+CREATE PROCEDURE spReadUsersByFirstName 
+@FirstName nvarchar(100)
+AS
+BEGIN
+SELECT * FROM Users_tbl WHERE FirstName = @FirstName;
+END;
+
+EXEC spReadUsersByFirstName "João Pedro"
+
 -- Insert User
 CREATE PROCEDURE spInsertUsers
 @FirstName nvarchar(100),
@@ -51,6 +61,21 @@ AS
 BEGIN
 INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Gender, Email) 
 VALUES (@FirstName, @LastName, @BirthDate, @Gender, @Email)
+SELECT cast(SCOPE_IDENTITY() as int);
+END;
+
+-- Insert Admin
+CREATE PROCEDURE spInsertAdmin
+@FirstName nvarchar(100),
+@LastName nvarchar(100),
+@BirthDate datetime,
+@Gender tinyInt,
+@Email nvarchar(150),
+@IsAdmin bit
+AS
+BEGIN
+INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Gender, Email, IsAdmin) 
+VALUES (@FirstName, @LastName, @BirthDate, @Gender, @Email, @IsAdmin)
 SELECT cast(SCOPE_IDENTITY() as int);
 END;
 

@@ -141,7 +141,7 @@ namespace PRE.Data.Repositories
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
 
                     //Convert GetByte (Tinyint) into Gender Enum 
-                    var enumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
+                    var enumGender = user.Gender = dataReader.IsDBNull(_colIsAdmin) ? 0 : (Gender)dataReader.GetByte(_colGender);
                     if ((byte)enumGender == 0)
                     {
                         Gender gender = Gender.NA;
@@ -177,7 +177,7 @@ namespace PRE.Data.Repositories
         }
 
         //Get User by FirstName from Database
-        public User GetByName(string firstName)
+        public User GetByFirstName(string firstName)
         {
             SqlParameter parameter;
 
@@ -220,13 +220,8 @@ namespace PRE.Data.Repositories
                     user.BirthDate = dataReader.GetDateTime(_colBirthDate);
 
                     //Convert GetByte (Tinyint) into Gender Enum 
-                    var enumGender = user.Gender = (Gender)dataReader.GetByte(_colGender);
-                    if ((byte)enumGender == 0)
-                    {
-                        Gender gender = Gender.NA;
-                        user.Gender = gender;
-                    }
-                    else if ((byte)enumGender == 1)
+                    var enumGender = user.Gender = dataReader.IsDBNull(_colGender) ? 0 : (Gender)dataReader.GetByte(_colGender);
+                    if ((byte)enumGender == 1)
                     {
                         Gender gender = Gender.Male;
                         user.Gender = gender;

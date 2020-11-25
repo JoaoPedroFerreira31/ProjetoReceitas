@@ -56,7 +56,11 @@ namespace ConsoleApp
             //=====================
 
             //Get User by id
-            User user = userService.GetById(39);
+            /*User user = userService.GetById(39);
+            Console.WriteLine(user);*/
+
+            //Get User by FirstName
+            User user = userService.GetByFirstName("Liliana");
             Console.WriteLine(user);
 
             //Insert User

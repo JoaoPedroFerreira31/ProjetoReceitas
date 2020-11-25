@@ -20,17 +20,25 @@ namespace PRE.Services.Services
             _repo = new UserRepository();
         }
 
+        //Get all Users
         public List<User> GetAll()
         {
             return _repo.GetAll();
         }
 
+        //Get User by id
         public User GetById(int id)
         {
             
             return _repo.GetById(id);
         }
 
+        public User GetByFirstName(string firstName)
+        {
+            return _repo.GetByFirstName(firstName);
+        }
+
+        //Insert User
         public void Insert(User user)
         {
             
@@ -47,6 +55,7 @@ namespace PRE.Services.Services
             _repo.Insert(user);
         }
         
+        //Insert Admin
         public void InsertAdmin(User user)
         {
             _repo.InsertAdmin(user);
