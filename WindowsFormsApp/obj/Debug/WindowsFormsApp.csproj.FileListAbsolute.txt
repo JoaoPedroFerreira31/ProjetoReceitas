@@ -16,3 +16,4 @@ C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsF
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CopyComplete
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.EditUsers.resources

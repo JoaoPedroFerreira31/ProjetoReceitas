@@ -32,14 +32,21 @@ namespace WindowsFormsApp
             }
         }
 
-        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void blockUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            //Open EditUsersForm
+            EditUsers editUsers = new EditUsers();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                editUsers.MdiParent = this;
+                editUsers.Show();
+            }
         }
     }
 }

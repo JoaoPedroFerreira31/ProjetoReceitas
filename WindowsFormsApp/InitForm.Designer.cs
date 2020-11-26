@@ -68,7 +68,6 @@
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.windowToolStripMenuItem.Text = "Ingredientes";
-            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
             // 
             // usersMenuStrip
             // 
@@ -78,7 +77,6 @@
             this.usersMenuStrip.Name = "usersMenuStrip";
             this.usersMenuStrip.Size = new System.Drawing.Size(80, 20);
             this.usersMenuStrip.Text = "Utilizadores";
-            this.usersMenuStrip.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // viewAllUsersToolStripMenuItem
             // 
@@ -91,7 +89,8 @@
             // 
             this.blockUsersToolStripMenuItem.Name = "blockUsersToolStripMenuItem";
             this.blockUsersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.blockUsersToolStripMenuItem.Text = "Bloquear Utilizadores";
+            this.blockUsersToolStripMenuItem.Text = "Editar Utilizadores";
+            this.blockUsersToolStripMenuItem.Click += new System.EventHandler(this.blockUsersToolStripMenuItem_Click);
             // 
             // InitForm
             // 
