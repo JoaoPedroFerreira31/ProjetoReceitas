@@ -48,5 +48,10 @@ namespace WindowsFormsApp
                 editUsers.Show();
             }
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();        
+        }
     }
 }
