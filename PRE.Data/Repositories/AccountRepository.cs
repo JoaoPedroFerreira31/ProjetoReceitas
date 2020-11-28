@@ -56,7 +56,7 @@ namespace PRE.Data.Repositories
                     account.Username = dataReader.GetString(_colUsername);
                     account.Password = dataReader.GetString(_colPassword);
                     //account.IdUser = (User)dataReader.GetInt32(_colIdUser);
-                    
+
                     accounts.Add(account);
                 }
                 return accounts;
@@ -104,7 +104,7 @@ namespace PRE.Data.Repositories
                     account.Username = dataReader.GetString(_colUsername);
                     account.Password = dataReader.GetString(_colPassword);
                     //account.IdUser = dataReader.GetInt32(_colIdUser);
-                                        
+
                 }
                 return account;
             }
@@ -113,32 +113,35 @@ namespace PRE.Data.Repositories
         //Insert account in database 
         public void Insert(Account account)
         {
-            
-        }
-
-        //Check username
-        public bool CheckUsername(string username)
-        {
-            return false;
-            /*using (SqlConnection conn = new SqlConnection(_connectionString))
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-
+                //COMMAND
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "spInsertAccounts";
 
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT count(Id) FROM Accounts" +
-                    " WHERE Username == " + username;
+                cmd.Parameters.AddWithValue("@UserName", account.Username);
+                cmd.Parameters.AddWithValue("@Password", account.Password);
+                cmd.Parameters.AddWithValue("@IdUser", account.User.IdUser);
 
-                object obj = cmd.ExecuteScalar();
-                int count = (int)obj;
+                SqlParameter idParam = new SqlParameter();
+                idParam.ParameterName = "@IdAccount";
+                idParam.SqlDbType = SqlDbType.Int;
+                idParam.Direction = ParameterDirection.Output;
 
-                if (count > 0)
-                    return true;
+                cmd.Parameters.Add(idParam);
+
+                //EXECUTE
+                connection.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)idParam.Value;
+                account.IdAccount = id;
 
             }
-            return false;
-            */
-        }
-
-    }
+        }              
+    } 
 }

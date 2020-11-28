@@ -11,7 +11,7 @@ namespace PRE.Model.Model
         public int IdAccount { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public User IdUser { get; set; }
+        public User User { get; set; }
 
         //Create Override Method
         public override string ToString()

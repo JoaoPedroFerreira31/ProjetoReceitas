@@ -49,7 +49,11 @@ namespace PRE.Services.Services
             if (user.FirstName == null)
                 throw new Exception("User nome não pode ser null");
 
-            _repo.Insert(user); 
+            _repo.Insert(user);
+
+            user.Account.User = user;
+
+            _accountRepo.Insert(user.Account); 
         }
         
         //Insert Admin

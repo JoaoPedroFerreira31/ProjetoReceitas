@@ -314,20 +314,34 @@ namespace PRE.Data.Repositories
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Add Store Procedure Parameter                
-                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+                SqlParameter nameParam = new SqlParameter();
+                nameParam.ParameterName = "@FirstName";
+                nameParam.Value = user.FirstName;
+                nameParam.SqlDbType = SqlDbType.NVarChar;
+                nameParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(nameParam);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
                 cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
                 cmd.Parameters.AddWithValue("@Gender", user.Gender);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
-                
+
+                SqlParameter idParam = new SqlParameter();
+                idParam.ParameterName = "@IdUser";
+                idParam.SqlDbType = SqlDbType.Int;
+                idParam.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(idParam);
+
 
                 //EXECUTE
                 connection.Open();
 
-                int id = (int)cmd.ExecuteScalar();
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)idParam.Value;
                 user.IdUser = id;
-                Console.WriteLine(id);
 
 
             }

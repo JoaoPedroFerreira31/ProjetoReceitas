@@ -64,31 +64,31 @@ namespace ConsoleApp
             Console.WriteLine(user);*/
 
             //Insert User
-            int year = 1977;
+            /*int year = 1977;
             int month = 8;
             int day = 3;
 
             User user = new User("Diogo", "Pinto", new DateTime(year, month, day), Gender.Male, "exemplo@exemplo.pt");
 
-            userService.Insert(user);
+            userService.Insert(user);*/
 
             //Insert Admin
-            /*int year = 1986;
-            int month = 2;
-            int day = 4;
+            /*int year = 1987;
+            int month = 8;
+            int day = 16;
 
-            User user = new User("Miguel", "Cabral", new DateTime(year, month, day), Gender.Male, "exemplo@exemplo.pt", true);
+            User user = new User("Ruben", "Sousa", new DateTime(year, month, day), Gender.Male, "exemplo@exemplo.pt", true);
 
             userService.InsertAdmin(user);*/
 
 
             //GetAll
-            Console.WriteLine("==== User GetAll() ====");
+            /*Console.WriteLine("==== User GetAll() ====");
             List<User> users = userService.GetAll();
             foreach (User item in users)
             {
                 Console.WriteLine(item);
-            }
+            }*/
                 
             
         }
