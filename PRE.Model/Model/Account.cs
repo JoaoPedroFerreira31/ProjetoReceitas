@@ -16,10 +16,10 @@ namespace PRE.Model.Model
         //Create Override Method
         public override string ToString()
         {
-            return $"{IdAccount}, {Username}, {Password}".ToString();
+            return $"{IdAccount}, {Username}, {Password}";
         }
 
-        //Create builders to generate users
+        /*Create builders to generate users
         public Account()
         {
 
@@ -38,7 +38,7 @@ namespace PRE.Model.Model
             Username = username;
             Password = password;
             
-        }
+        }*/
     }
 
 }

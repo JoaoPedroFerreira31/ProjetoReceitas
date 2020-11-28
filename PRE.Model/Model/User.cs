@@ -10,7 +10,6 @@ namespace PRE.Model.Model
     public class User
     {
         public int IdUser { get; set; }
-        private string _FirstName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
@@ -19,15 +18,14 @@ namespace PRE.Model.Model
         public bool IsAdmin { get; set; }
         public bool Blocked { get; set; }
 
-        public Account Account { get; set; }
-        private List<Recipe> _OwnRecipies { get; set; }
+        public Account Account { get; set; }        
         public List<Recipe> OwnRecipies { get; set; }
         public List<Recipe> FavoriteRecipies { get; set; }
 
         //Create Override Method
         public override string ToString()
         {
-            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}, Blocked: {Blocked}";
+            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}, Blocked: {Blocked}, Account: {Account}";
         }
 
         //Create builders to generate users

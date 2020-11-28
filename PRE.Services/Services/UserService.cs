@@ -13,11 +13,13 @@ namespace PRE.Services.Services
     {
         //Call UserRepository
         private UserRepository _repo;
+        private AccountRepository _accountRepo;
 
         //Create builders to generate UserService
         public UserService()
         {
             _repo = new UserRepository();
+            _accountRepo = new AccountRepository();
         }
 
         //Get all Users
@@ -41,18 +43,13 @@ namespace PRE.Services.Services
         //Insert User
         public void Insert(User user)
         {
-            
-           // if (user == null)
-           //     throw new Exception("Impossível isto ser null");
+            if (user == null)
+                throw new Exception("User não pode ser null");
 
-            //if (user.account == null)
-            //    throw new exception("impossível isto ser null");
+            if (user.FirstName == null)
+                throw new Exception("User nome não pode ser null");
 
-            // verificar username tem as caracterisitcas
-            //if (_accountRepo.CheckUsername(user.Account.Username))
-                //throw new Exception("Username already exists");
-
-            _repo.Insert(user);
+            _repo.Insert(user); 
         }
         
         //Insert Admin
