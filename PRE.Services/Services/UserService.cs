@@ -59,7 +59,17 @@ namespace PRE.Services.Services
         //Insert Admin
         public void InsertAdmin(User user)
         {
+            if (user == null)
+                throw new Exception("User não pode ser null");
+
+            if (user.FirstName == null)
+                throw new Exception("User nome não pode ser null");
+
             _repo.InsertAdmin(user);
+
+            user.Account.User = user;
+
+            _accountRepo.Insert(user.Account);
         }
     }
 }
