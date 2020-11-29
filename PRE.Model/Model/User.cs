@@ -25,7 +25,7 @@ namespace PRE.Model.Model
         //Create Override Method
         public override string ToString()
         {
-            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}, Blocked: {Blocked}, Account: {Account.Username}";
+            return $"ID: {IdUser}, {FirstName}, {LastName}, {BirthDate.ToShortDateString()}, {Gender}, {Email}, IsAdmin: {IsAdmin}, Blocked: {Blocked}, Account: {Account}";
         }
 
         //Create builders to generate users
