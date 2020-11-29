@@ -47,6 +47,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.warningTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -231,18 +232,28 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Sim",
-            "Não"});
+            "Não",
+            "Sim"});
             this.comboBox2.Location = new System.Drawing.Point(191, 23);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(274, 21);
             this.comboBox2.TabIndex = 30;
+            // 
+            // warningTxt
+            // 
+            this.warningTxt.AutoSize = true;
+            this.warningTxt.Location = new System.Drawing.Point(188, 398);
+            this.warningTxt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.warningTxt.Name = "warningTxt";
+            this.warningTxt.Size = new System.Drawing.Size(0, 13);
+            this.warningTxt.TabIndex = 31;
             // 
             // InsertAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 450);
+            this.Controls.Add(this.warningTxt);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -290,5 +301,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label warningTxt;
     }
 }

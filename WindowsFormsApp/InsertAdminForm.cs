@@ -35,7 +35,7 @@ namespace WindowsFormsApp
             if (firstName == "" && lastName == "" && email == "" && username == "" && password == "" && passwordRepeat == "")
             {
                 button1.Enabled = false;
-                label6.Text = "Campos por preencher";
+                warningTxt.Text = "Campos por preencher";
             }
             else
             {
@@ -43,13 +43,13 @@ namespace WindowsFormsApp
                 {
                     if (password == passwordRepeat)
                     {
-                        label6.Text = "";
+                        warningTxt.Text = "";
                         button1.Enabled = true;
                     }
                 }
                 else
                 {
-                    label6.Text = "Passwords don't match";
+                    warningTxt.Text = "Passwords don't match";
                 }
             }
 
