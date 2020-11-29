@@ -83,12 +83,12 @@ namespace ConsoleApp
 
 
             //GetAll
-            /*Console.WriteLine("==== User GetAll() ====");
+            Console.WriteLine("==== User GetAll() ====");
             List<User> users = userService.GetAll();
             foreach (User item in users)
             {
                 Console.WriteLine(item);
-            }*/
+            }
                 
             
         }

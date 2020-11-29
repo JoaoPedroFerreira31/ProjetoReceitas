@@ -17,6 +17,7 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
+        //Button Utilizadores -- Consultar Utilizadores
         private void viewAllUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open ViewUsersForm
@@ -32,8 +33,7 @@ namespace WindowsFormsApp
             }
         }
 
-        
-
+        //Button Utilizadores -- Editar Utilizadores
         private void blockUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open EditUsersForm
@@ -49,9 +49,26 @@ namespace WindowsFormsApp
             }
         }
 
+        //Button File - Exit
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();        
+        }
+
+        //Button Utilizadores -- Inserir Administrador
+        private void inserirAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open InsertAdminForm
+            InsertAdminForm insertAdmin = new InsertAdminForm();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                 insertAdmin.MdiParent = this;
+                 insertAdmin.Show();
+            }
         }
     }
 }

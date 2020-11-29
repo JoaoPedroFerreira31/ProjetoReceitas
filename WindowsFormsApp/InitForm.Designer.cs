@@ -30,12 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blockUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirAdministradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // recipesToolStripMenuItem
             // 
             this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
@@ -76,7 +84,8 @@
             // 
             this.usersMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewAllUsersToolStripMenuItem,
-            this.blockUsersToolStripMenuItem});
+            this.blockUsersToolStripMenuItem,
+            this.inserirAdministradorToolStripMenuItem});
             this.usersMenuStrip.Name = "usersMenuStrip";
             this.usersMenuStrip.Size = new System.Drawing.Size(80, 20);
             this.usersMenuStrip.Text = "Utilizadores";
@@ -95,12 +104,12 @@
             this.blockUsersToolStripMenuItem.Text = "Editar Utilizadores";
             this.blockUsersToolStripMenuItem.Click += new System.EventHandler(this.blockUsersToolStripMenuItem_Click);
             // 
-            // sairToolStripMenuItem
+            // inserirAdministradorToolStripMenuItem
             // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.inserirAdministradorToolStripMenuItem.Name = "inserirAdministradorToolStripMenuItem";
+            this.inserirAdministradorToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.inserirAdministradorToolStripMenuItem.Text = "Criar Administrador";
+            this.inserirAdministradorToolStripMenuItem.Click += new System.EventHandler(this.inserirAdministradorToolStripMenuItem_Click);
             // 
             // InitForm
             // 
@@ -130,6 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blockUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inserirAdministradorToolStripMenuItem;
     }
 }
 
