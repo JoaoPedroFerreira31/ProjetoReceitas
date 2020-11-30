@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="Webforms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title></title>
+    <%-- Bootstrap css --%>
+    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />
+    <link href="~/Contents/css/main.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
+        <%-- links and meta data --%>
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <%--Links internos para a root do servidor - utilizar o "~" (só com runat="server") --%>
+                    <a class="navbar-brand" href="~/" runat="server">Receitas Estrelares</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/" runat="server">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Pages/RecipesPage.aspx" runat="server">Receitas</a>
+                            </li>                                                        
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Alimentação saudavel</a>
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sopas</a>
+                                    <a class="dropdown-item">Carnes</a>                                    
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Aves</a>
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Peixes</a>
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Massas</a>
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Bebidas</a>
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx">Sobremesas</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li>
+                        </ul>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Olá username
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Area Pessoal</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+    </form>
+    <%-- Jquery --%>
+    <script src="Contents/js/jquery-3.5.1.js"></script>
+    <%-- Popper --%>
+    <script src="Contents/js/popper.min.js"></script>
+    <%-- Bootstrap --%>
+    <script src="Contents/js/bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="FooterPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
