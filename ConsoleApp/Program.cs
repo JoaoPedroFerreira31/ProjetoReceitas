@@ -17,7 +17,20 @@ namespace ConsoleApp
             UserService userService = new UserService();
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
+            CategoryService categoryService = new CategoryService();
 
+            //=====================
+            //==     Category    ==
+            //=====================
+
+            //GetAll
+            List<Category> categories = new List<Category>();
+
+            categories = categoryService.GetAll();
+
+            Console.WriteLine(categories);
+            
+            
             //=====================
             //==      Recipe     ==
             //=====================

@@ -10,5 +10,10 @@ namespace PRE.Model.Model
     {
         public int IdCategory { get; set; }
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {IdCategory}, {Name}";
+        }
     }
 }

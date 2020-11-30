@@ -11,7 +11,7 @@ namespace PRE.Services.Services
 {
     public class UserService
     {
-        //Call UserRepository
+        //Call Repositories
         private UserRepository _repo;
         private AccountRepository _accountRepo;
 

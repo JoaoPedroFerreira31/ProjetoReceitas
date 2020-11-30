@@ -59,5 +59,40 @@ namespace PRE.Data.Repositories
 
             }
         }
+
+        public void Insert(Category category)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.CommandText = "spInsertCategory";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter nameParameter = new SqlParameter();
+                nameParameter.ParameterName = "@Name";
+                nameParameter.Value = category.Name;
+                nameParameter.SqlDbType = SqlDbType.VarChar;
+                nameParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(nameParameter);
+
+                SqlParameter idParameter = new SqlParameter();
+                idParameter.ParameterName = "@IdCategory";
+                idParameter.Value = category.IdCategory;
+                idParameter.SqlDbType = SqlDbType.Int;
+                idParameter.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(idParameter);
+
+                connection.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)idParameter.Value;
+                category.IdCategory = id;
+
+            }
+        }
     }
 }
