@@ -82,8 +82,8 @@
     <Content Include="Contents\js\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
-    <Content Include="Pages\PageTwo.aspx" />
-    <Content Include="Pages\PageThree.aspx" />
+    <Content Include="Pages\RecipePage.aspx" />
+    <Content Include="Pages\CategoryPage.aspx" />
     <Content Include="Accounts\Login.aspx" />
     <Content Include="Accounts\Register.aspx" />
     <Content Include="Users\AddUser.aspx" />
@@ -104,19 +104,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageTwo.aspx.cs">
-      <DependentUpon>PageTwo.aspx</DependentUpon>
+    <Compile Include="Pages\RecipePage.aspx.cs">
+      <DependentUpon>RecipePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PageTwo.aspx.designer.cs">
-      <DependentUpon>PageTwo.aspx</DependentUpon>
+    <Compile Include="Pages\RecipePage.aspx.designer.cs">
+      <DependentUpon>RecipePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageThree.aspx.cs">
-      <DependentUpon>PageThree.aspx</DependentUpon>
+    <Compile Include="Pages\CategoryPage.aspx.cs">
+      <DependentUpon>CategoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PageThree.aspx.designer.cs">
-      <DependentUpon>PageThree.aspx</DependentUpon>
+    <Compile Include="Pages\CategoryPage.aspx.designer.cs">
+      <DependentUpon>CategoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Accounts\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -109,7 +109,27 @@ END;
 
 EXEC spReadRecipesByUsersId 1
 
--- Account
+-- Category
+
+-- GetAll
+CREATE PROCEDURE spReadCategories
+AS
+SELECT * FROM Category_tbl;
+GO
+
+-- Insert
+CREATE PROCEDURE spInsertCategory
+@IdCategory int output,
+@Name varchar(120)
+AS
+BEGIN
+INSERT INTO Category_tbl (Name)
+VALUES (@Name)
+SELECT @IdCategory = SCOPE_IDENTITY()
+RETURN @IdCategory
+END;
+
+-- ACCOUNT
 
 -- GetAll
 CREATE PROCEDURE spReadAccounts 
