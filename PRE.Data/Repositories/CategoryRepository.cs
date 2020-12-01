@@ -65,6 +65,7 @@ namespace PRE.Data.Repositories
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
 
                 cmd.CommandText = "spInsertCategory";
                 cmd.CommandType = CommandType.StoredProcedure;

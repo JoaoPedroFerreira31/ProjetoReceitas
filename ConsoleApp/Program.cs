@@ -13,7 +13,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            
+
             UserService userService = new UserService();
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
@@ -23,13 +23,24 @@ namespace ConsoleApp
             //==     Category    ==
             //=====================
 
+            //Insert
+            /*Console.WriteLine("========= Inserir Categoria ===========");
+            Console.Write("Qual a Categoria: ");
+            string categoria = Console.ReadLine();
+
+            Category category = new Category();
+            category.Name = categoria;
+            categoryService.Insert(category);*/
+
             //GetAll
             List<Category> categories = new List<Category>();
 
             categories = categoryService.GetAll();
 
-            Console.WriteLine(categories);
-            
+            foreach (Category category in categories)
+            {
+                Console.WriteLine(category);
+            }
             
             //=====================
             //==      Recipe     ==
@@ -96,14 +107,14 @@ namespace ConsoleApp
 
 
             //GetAll
-            Console.WriteLine("==== User GetAll() ====");
+            /*Console.WriteLine("==== User GetAll() ====");
             List<User> users = userService.GetAll();
             foreach (User item in users)
             {
                 Console.WriteLine(item);
             }
-                
-            
+*/
+
         }
     }
 }

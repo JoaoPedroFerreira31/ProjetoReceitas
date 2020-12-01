@@ -39,6 +39,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Vegan</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Alimentação saudavel</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sopas</a>
                                     <a class="dropdown-item">Carnes</a>                                    
