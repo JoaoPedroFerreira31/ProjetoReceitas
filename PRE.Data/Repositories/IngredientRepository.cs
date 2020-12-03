@@ -40,6 +40,8 @@ namespace PRE.Data.Repositories
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
+                connection.Open();
+
                 while (dataReader.Read())
                 {
                     Ingredient ingredient = new Ingredient();
@@ -59,7 +61,41 @@ namespace PRE.Data.Repositories
         //GetIngredientById
         public Ingredient GetById(int id)
         {
-            
+            SqlParameter parameter;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadIngredientsById";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                parameter = new SqlParameter("@IdIngredient", id);
+                parameter.DbType = DbType.Int32;
+                parameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(parameter);
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Ingredient ingredient = null;
+
+                while (dataReader.Read())
+                {
+                    ingredient = new Ingredient();
+
+                    ingredient.IdIngredient = dataReader.GetInt32(_ColIdIngredient);
+                    ingredient.Name = dataReader.GetString(_ColIngredientName);
+                    ingredient.Quantity = dataReader.GetInt32(_ColIngredientQuantity);
+                    ingredient.Unit = dataReader.GetString(_ColIngredientUnit);
+                }
+                return ingredient;
+            }
         }
+
+
     }
 }
