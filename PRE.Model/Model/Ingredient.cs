@@ -12,5 +12,21 @@ namespace PRE.Model.Model
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; }
-    }
+
+        public Ingredient()
+        {
+        }
+    
+        public Ingredient(string name, int quantity)
+        {
+            Name = name;
+            Quantity = quantity;
+        }
+
+        public Ingredient(string name, string unit)
+        {
+            Name = name;
+            Unit = unit;
+        }
+    }    
 }

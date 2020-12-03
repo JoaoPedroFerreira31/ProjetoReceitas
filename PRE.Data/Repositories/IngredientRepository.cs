@@ -96,6 +96,10 @@ namespace PRE.Data.Repositories
             }
         }
 
+        //Insert Ingredient in Database
+        public void Insert(Ingredient ingredient)
+        {
 
+        }
     }
 }
