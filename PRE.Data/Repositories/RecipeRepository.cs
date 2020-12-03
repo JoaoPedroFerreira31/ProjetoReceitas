@@ -136,7 +136,7 @@ namespace PRE.Data.Repositories
                 SqlCommand cmd = connection.CreateCommand();
 
                 //Query to select all users from Database
-                cmd.CommandText = "spReadRecipesUserById";
+                cmd.CommandText = "spReadRecipesByUsersId";
                 cmd.CommandType = CommandType.StoredProcedure;
                 
                 //Access Store Procedure Parameter
@@ -150,6 +150,61 @@ namespace PRE.Data.Repositories
                 cmd.Parameters.Add(parameter);
 
                
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Recipe recipe = null;
+
+                while (dataReader.Read())
+                {
+                    recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+
+                    recipes.Add(recipe);
+                }
+
+                return recipes;
+            }
+        }
+
+        //Get Recipes by Category 
+        public List<Recipe> GetRecipeByCategory(int idCategory)
+        {
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Recipe> recipes = new List<Recipe>();
+
+                //COMMAND                 
+                //SqlCommand cmd = new SqlCommand("spReadRecipesByUserId", connection); 
+                SqlCommand cmd = connection.CreateCommand();
+
+                //Query to select all users from Database
+                cmd.CommandText = "spReadRecipesByIdCategory";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
+                parameter = new SqlParameter("@IdCategory", idCategory);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //IdUser DataType in Database
+                parameter.DbType = DbType.Int32;
+
+                cmd.Parameters.Add(parameter);
+
+
                 //EXECUTE
                 connection.Open();
 

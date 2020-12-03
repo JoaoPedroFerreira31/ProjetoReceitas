@@ -109,6 +109,16 @@ END;
 
 EXEC spReadRecipesByUsersId 1
 
+-- GetRecipeByCategoryId
+CREATE PROCEDURE spReadRecipesByIdCategory
+@IdCategory int
+AS
+BEGIN
+SELECT * FROM Recipes_tbl WHERE IdCategory = @IdCategory;
+END;
+
+EXEC spReadRecipesByIdCategory 2
+
 -- Category
 
 -- GetAll
