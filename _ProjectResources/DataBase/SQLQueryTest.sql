@@ -114,10 +114,18 @@ CREATE PROCEDURE spReadRecipesByIdCategory
 @IdCategory int
 AS
 BEGIN
-SELECT * FROM Recipes_tbl WHERE IdCategory = @IdCategory;
+SELECT * FROM Recipes_tbl WHERE IdCategory = @IdCategory
 END;
 
 EXEC spReadRecipesByIdCategory 2
+
+--Ingredient
+
+-- GetAll
+CREATE PROCEDURE spReadIngredients
+AS
+SELECT * FROM Ingredients_tbl
+GO;
 
 -- Category
 
