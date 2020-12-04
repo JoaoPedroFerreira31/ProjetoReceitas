@@ -127,6 +127,30 @@ AS
 SELECT * FROM Ingredients_tbl
 GO;
 
+-- GetById
+CREATE PROCEDURE spReadIngredientsById
+@IdIngredient int 
+AS
+BEGIN
+SELECT * FROM Ingredients_tbl WHERE IdIngredient = @IdIngredient
+END;
+
+EXEC spReadIngredientsById 
+
+-- InsertIngredient
+CREATE PROCEDURE spInsertIngredient
+@IdIngredient int output,
+@Name nvarchar(100),
+@Quantity int = null,
+@Unit nvarchar(100) = null
+AS
+BEGIN
+INSERT INTO Ingredients_tbl (Name, Quantity, Unit)
+VALUES (@Name, @Quantity, @Unit)
+SELECT @IdIngredient = SCOPE_IDENTITY()
+RETURN @IdIngredient
+END;
+
 -- Category
 
 -- GetAll

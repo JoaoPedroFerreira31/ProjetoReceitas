@@ -99,7 +99,55 @@ namespace PRE.Data.Repositories
         //Insert Ingredient in Database
         public void Insert(Ingredient ingredient)
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
 
+                cmd.CommandText = "spInsertIngredient";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter nameParameter = new SqlParameter();
+                nameParameter.ParameterName = "@Name";
+                nameParameter.Value = ingredient.Name;
+                nameParameter.SqlDbType = SqlDbType.VarChar;
+                nameParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(nameParameter);
+
+                SqlParameter quantityParameter = new SqlParameter();
+                quantityParameter.ParameterName = "@Quantity";
+                quantityParameter.Value = ingredient.Quantity;
+                quantityParameter.SqlDbType = SqlDbType.Int;
+                quantityParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(quantityParameter);
+
+                SqlParameter unitParameter = new SqlParameter();
+                unitParameter.ParameterName = "@Unit";
+                unitParameter.Value = ingredient.Unit;
+                unitParameter.SqlDbType = SqlDbType.NVarChar;
+                unitParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(unitParameter);
+
+                SqlParameter idParameter = new SqlParameter();
+                idParameter.ParameterName = "@IdIngredient";
+                idParameter.Value = ingredient.IdIngredient;
+                idParameter.SqlDbType = SqlDbType.Int;
+                idParameter.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(idParameter);
+
+                connection.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)idParameter.Value;
+                ingredient.IdIngredient = id;
+            }
         }
+
+
     }
 }
