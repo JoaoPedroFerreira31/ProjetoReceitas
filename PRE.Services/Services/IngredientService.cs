@@ -26,5 +26,10 @@ namespace PRE.Services.Services
         {
             return _repo.GetById(id);
         }
+
+        public void Insert(Ingredient ingredient)
+        {
+            _repo.Insert(ingredient);
+        }
     }
 }

@@ -36,11 +36,11 @@ namespace PRE.Data.Repositories
                 cmd.Connection = connection;
 
                 cmd.CommandText = "spReadIngredients";
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataReader dataReader = cmd.ExecuteReader();
+                cmd.CommandType = CommandType.StoredProcedure;                
 
                 connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
                 {
@@ -48,8 +48,8 @@ namespace PRE.Data.Repositories
 
                     ingredient.IdIngredient = dataReader.GetInt32(_ColIdIngredient);
                     ingredient.Name = dataReader.GetString(_ColIngredientName);
-                    ingredient.Quantity = dataReader.GetInt32(_ColIngredientQuantity);
-                    ingredient.Unit = dataReader.GetString(_ColIngredientUnit);
+                    ingredient.Quantity = dataReader.IsDBNull(_ColIngredientQuantity) ? 0 : dataReader.GetInt32(_ColIngredientQuantity);
+                    ingredient.Unit = dataReader.IsDBNull(_ColIngredientUnit) ? "" : dataReader.GetString(_ColIngredientUnit);
 
                     ingredients.Add(ingredient);
                 }

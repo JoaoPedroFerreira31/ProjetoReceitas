@@ -18,6 +18,27 @@ namespace ConsoleApp
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
             CategoryService categoryService = new CategoryService();
+            IngredientService ingredientService = new IngredientService();
+
+            //=====================
+            //==    Ingredient   ==
+            //=====================
+
+            //Insert
+            /*Ingredient ingredient = new Ingredient("Ovos");
+
+            ingredientService.Insert(ingredient);
+            */
+
+            //GetAll
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            ingredients = ingredientService.GetAll();
+
+            foreach (Ingredient ingredient in ingredients)
+            {
+                Console.WriteLine(ingredient);
+            }
 
             //=====================
             //==     Category    ==
@@ -113,7 +134,7 @@ namespace ConsoleApp
             {
                 Console.WriteLine(item);
             }
-*/
+            */
 
         }
     }

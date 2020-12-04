@@ -13,10 +13,20 @@ namespace PRE.Model.Model
         public int Quantity { get; set; }
         public string Unit { get; set; }
 
+        public override string ToString()
+        {
+            return $"ID: {IdIngredient}, Name: {Name}";
+        }
+
         public Ingredient()
         {
         }
     
+        public Ingredient(string name)
+        {
+            Name = name;
+        }
+
         public Ingredient(string name, int quantity)
         {
             Name = name;
