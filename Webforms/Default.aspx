@@ -14,7 +14,7 @@
         <a class="btn btn-primary btn-lg" href="~/Accounts/Register.aspx" runat="server" role="button">Register</a>
     </div>
     
-    <section id="Receitas" class="mt-5">
+    <section id="Receitas" class="mt-5 mb-5">
     <div class="row">
         
         <div class="col">
@@ -52,13 +52,17 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        
+            
         </div>
 
     </div>
+</section>
+    
+
 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FooterPlaceHolder" runat="server">
 </asp:Content>
+
 

@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
 
-    <title></title>
+    <title>Receitas Estrelares</title>
     <%-- Bootstrap css --%>
     <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />
     <link href="~/Contents/css/main.css" rel="stylesheet" />
@@ -49,20 +49,22 @@
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Bebidas</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx">Sobremesas</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                            </li>
+                            </li>                            
                         </ul>
-                        <div class="dropdown">
+                        
+                        <div id="btnSignUp" class="btn btn-sm-primary" href="~/Users/AddUser.aspx" runat="server">Criar Conta</div>
+                        <div id="btnLogin" class="btn btn-sm-primary">Entrar</div>
+                        
+                        <%--<div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Olá username
+                                Conta
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Area Pessoal</a>
                                 <a class="dropdown-item" href="#">Logout</a>
                             </div>
-                        </div>
+                        </div>--%>
+                    
                     </div>
                 </div>
             </nav>
