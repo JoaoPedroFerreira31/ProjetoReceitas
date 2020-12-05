@@ -34,6 +34,7 @@ namespace PRE.Data.Repositories
         private static int _IdRecipe = 7;
         private static int _colIsAdmin = 8;
         private static int _colBlocked = 9;
+        private static int _colMembershipUsername = 10;
 
         //Get all users from Database
         public List<User> GetAll()
@@ -346,6 +347,68 @@ namespace PRE.Data.Repositories
 
 
             }
+        }
+
+        public User GetLoggedInUser(string identityUsername)
+        {            
+            User user = null;
+            SqlParameter identityParameter;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spGetLoggedInUser";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                identityParameter = new SqlParameter();
+                identityParameter.ParameterName = "@MembershipUsername";
+                identityParameter.Value = user.MembershipUsername;
+                identityParameter.SqlDbType = SqlDbType.NVarChar;
+                identityParameter.Direction = ParameterDirection.Input;
+
+                connection.Open();                
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                user = new User();
+
+                if (dr.Read())
+                {
+                    user.IdUser = dr.GetInt32(_colIdUser);
+                    user.FirstName = dr.GetString(_colFirstName);
+                    user.LastName = dr.GetString(_colLastName);
+                    
+                    //Convert GetByte (Tinyint) into Gender Enum 
+                    var enumGender = user.Gender = dr.IsDBNull(_colGender) ? 0 : (Gender)dr.GetByte(_colGender);
+                    if ((byte)enumGender == 1)
+                    {
+                        Gender gender = Gender.Male;
+                        user.Gender = gender;
+
+                    }
+                    else if ((byte)enumGender == 2)
+                    {
+                        Gender gender = Gender.Female;
+                        user.Gender = gender;
+
+                    }
+                    else if ((byte)enumGender >= 3)
+                    {
+                        Gender gender = Gender.Other;
+                        user.Gender = gender;
+                    }
+                    user.MembershipUsername = dr.GetString(_colMembershipUsername);
+
+                    return user ;
+                }
+                else
+                {
+                    throw new Exception("Não existe");
+                }
+            }
+
         }
     }
 }

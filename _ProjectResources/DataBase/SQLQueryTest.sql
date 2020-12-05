@@ -29,7 +29,13 @@ ALTER TABLE Users_tbl
 ADD CONSTRAINT df_IsAdmin
 DEFAULT 0 FOR IsAdmin;
 
-
+-- GetLoggedInUser
+CREATE PROCEDURE spGetLoggedInUser
+@MembershipUsername nvarchar(150)
+AS
+BEGIN
+SELECT * FROM Users_tbl WHERE MembershipUsername = @MembershipUsername
+END;
 -- GetById()
 CREATE PROCEDURE spReadUsersById 
 @IdUser int

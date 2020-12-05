@@ -17,6 +17,7 @@ namespace PRE.Model.Model
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
         public bool Blocked { get; set; }
+        public string MembershipUsername { get; set; }
 
         public Account Account { get; set; }        
         public List<Recipe> OwnRecipies { get; set; }

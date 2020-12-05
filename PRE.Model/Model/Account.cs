@@ -18,27 +18,5 @@ namespace PRE.Model.Model
         {
             return $"{IdAccount}, {Username}, {Password}";
         }
-
-        /*Create builders to generate users
-        public Account()
-        {
-
-        }
-
-        public Account(int idAccount, string username, string password, User idUser)
-        {
-            IdAccount = idAccount;
-            Username = username;
-            Password = password;
-            IdUser = idUser;
-        }
-
-        public Account(string username, string password)
-        {
-            Username = username;
-            Password = password;
-            
-        }*/
     }
-
 }
