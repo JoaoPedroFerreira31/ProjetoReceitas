@@ -87,6 +87,9 @@ END;
 
 -- RECIPE
 
+
+INSERT INTO Recipes_tbl VALUES ('Peixe', 'khadjggagsjhgjsa' , '06:15:20', 2, 5, 0, 3, 36 );
+
 -- GetAll()
 CREATE PROCEDURE spReadRecipes
 AS

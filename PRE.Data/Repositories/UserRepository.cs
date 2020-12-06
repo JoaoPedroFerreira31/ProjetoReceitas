@@ -362,8 +362,7 @@ namespace PRE.Data.Repositories
                 cmd.CommandText = "spGetLoggedInUser";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                identityParameter = new SqlParameter();
-                identityParameter.ParameterName = "@MembershipUsername";
+                identityParameter = new SqlParameter("@MembershipUsername", identityUsername);
                 identityParameter.Value = user.MembershipUsername;
                 identityParameter.SqlDbType = SqlDbType.NVarChar;
                 identityParameter.Direction = ParameterDirection.Input;

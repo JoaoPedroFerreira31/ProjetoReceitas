@@ -175,6 +175,16 @@
   <ItemGroup>
     <Folder Include="RestrictedArea\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PRE.Model\PRE.Model.csproj">
+      <Project>{37add18e-e96c-4081-8782-ab1b93a89a37}</Project>
+      <Name>PRE.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PRE.Services\PRE.Services.csproj">
+      <Project>{76494e1b-1ed0-4615-a5ec-e2a31d60a73d}</Project>
+      <Name>PRE.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

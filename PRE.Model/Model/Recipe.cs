@@ -19,7 +19,7 @@ namespace PRE.Model.Model
 
 
         public User User { get; set; }
-        public List<Category> Category { get; set; }
+        public Category Category { get; set; }
         public Ingredient Ingredients { get; set; }
         public Comment Comments { get; set; }
 

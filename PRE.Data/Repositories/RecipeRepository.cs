@@ -59,7 +59,8 @@ namespace PRE.Data.Repositories
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
-                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetInt32(_colIdCategory);
+                    //recipe.IsValidated = dataReader.IsDBNull(_colIsValidated)? false : dataReader.GetBoolean(_colIsValidated);
 
                     recipes.Add(recipe);
                 }
@@ -234,7 +235,10 @@ namespace PRE.Data.Repositories
         //Insert Recipe in Database       
         public void Insert()
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
 
+            }
         }
     }
 }

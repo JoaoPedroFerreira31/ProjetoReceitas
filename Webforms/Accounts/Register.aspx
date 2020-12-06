@@ -5,14 +5,20 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
     <h1>Register</h1>
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
-                <WizardSteps>
-                    <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
-                    </asp:CreateUserWizardStep>
-                    <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
-                    </asp:CompleteWizardStep>
-                </WizardSteps>
-            </asp:CreateUserWizard>
+   
+            
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">First Name</label>
+                    <asp:TextBox ID="FirstNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Last Name</label>
+                    <asp:TextBox ID="LastNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <label for="exampleFormControlSelect1">Data Nascimento</label>
+                <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                <asp:Button ID="RegisterBtn" runat="server" Text="Submit" OnClick="RegisterBtn_Click" />
+          
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FooterPlaceHolder" runat="server">

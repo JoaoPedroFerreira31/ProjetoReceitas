@@ -57,3 +57,9 @@ C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\obj\Debug\Webforms.csproj.CopyComplete
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\obj\Debug\Webforms.dll
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\obj\Debug\Webforms.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Model.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Services.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Data.dll
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Model.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Services.pdb
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\Webforms\bin\PRE.Data.pdb
