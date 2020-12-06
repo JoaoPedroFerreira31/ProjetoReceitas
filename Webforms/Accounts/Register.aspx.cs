@@ -1,4 +1,5 @@
 ﻿using PRE.Model.Model;
+using PRE.Model.Model.Util;
 using PRE.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,12 @@ namespace Webforms
 
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
-            User user = new User(FirstNameTxt.Text,LastNameTxt.Text, Calendar1.SelectedDate, PRE.Model.Model.Util.Gender.Male, "Exemplo@exemplo.com");
+            int convertYear = int.Parse(YearTxt.Text);
+            int convertMonth = int.Parse(MonthTxt.Text);
+            int convertDay = int.Parse(DayTxt.Text);
+            Gender gender = (Gender)int.Parse(UserGender.SelectedValue);
+
+            User user = new User(FirstNameTxt.Text, LastNameTxt.Text, new DateTime(convertYear, convertMonth, convertDay), gender , EmailTxt.Text);            
             userService.Insert(user);
 
         }

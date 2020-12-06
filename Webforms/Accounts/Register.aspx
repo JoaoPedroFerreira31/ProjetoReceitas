@@ -4,21 +4,42 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
-    <h1>Register</h1>
-   
+          
+        <div class="container">            
+            <h1 class="my-3">Criar conta</h1>   
             
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">First Name</label>
+                    <label for="exampleFormControlInput1">Primeiro nome</label>
                     <asp:TextBox ID="FirstNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Last Name</label>
+                    <label for="exampleFormControlSelect1">Ultimo nome</label>
                     <asp:TextBox ID="LastNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <label for="exampleFormControlSelect1">Data Nascimento</label>
-                <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-                <asp:Button ID="RegisterBtn" runat="server" Text="Submit" OnClick="RegisterBtn_Click" />
-          
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Data de nascimento</label>
+                    <div class="row">
+                       <div class="col-4"><asp:TextBox ID="DayTxt" runat="server" CssClass="form-control" placeholder="Dia"></asp:TextBox></div>
+                       <div class="col-4"><asp:TextBox ID="MonthTxt" runat="server" CssClass="form-control" placeholder="Mês"></asp:TextBox></div>
+                       <div class="col-4"><asp:TextBox ID="YearTxt" runat="server" CssClass="form-control" placeholder="Ano"></asp:TextBox></div>                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Genero</label>
+                    <asp:DropDownList ID="UserGender" runat="server" CssClass="form-control">
+                        <asp:ListItem Value="0">NA</asp:ListItem>
+                        <asp:ListItem Value="1">Masculino</asp:ListItem>
+                        <asp:ListItem Value="2">Feminino</asp:ListItem>
+                        <asp:ListItem Value="3">Outro</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Email</label>
+                    <asp:TextBox ID="EmailTxt" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <asp:Button ID="RegisterBtn" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="RegisterBtn_Click" />
+         </div> 
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FooterPlaceHolder" runat="server">

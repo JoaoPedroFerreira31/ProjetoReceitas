@@ -52,8 +52,8 @@
                             </li>                            
                         </ul>
                         
-                        <div id="btnSignUp" class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</div>
-                        <div id="btnLogin" class="btn btn-sm-primary" href="~/Accounts/Login.aspx">Entrar</div>
+                        <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
+                        <a class="btn btn-sm-primary" href="~/Accounts/Login.aspx">Entrar</a>
                         
                         <%--<div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

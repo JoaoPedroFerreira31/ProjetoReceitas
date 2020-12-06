@@ -18,71 +18,35 @@
     </div>
 
     <%-- //Chamar recipes (Name, etc..) ver source --%>
-    <div id="div1">
+    <%--<div id="div1">
         <% foreach (Recipe recipe in recipes)
             { %>
         <div>
             <%: recipe.Name %>
         </div>
         <% } //foreach %>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1"></label>
-        <asp:TextBox ID="FirstNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Last Name</label>
-        <asp:TextBox ID="LastNameTxt" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
+    </div>--%>
 
 
     <section id="Receitas" class="mt-5 mb-5">
         <div class="row">
 
-            <div class="col">
-                
-                <%foreach (Recipe recipe in recipes)%>
-                <% { %>
-                <div class="card">
-                     <h5 class="card-header"><%: recipe.Category %></h5> 
-
-                    <div class="card-body">
-                        <h5 class="card-title"><%: recipe.Name %></h5>
-                        <p class="card-text"><%: recipe.Description %></p>
-                        
-                        <a href="#" class="btn btn-primary">Ver Mais</a>
+            <% foreach (Recipe recipe in recipes) %> 
+            <% { %>
+            <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"></div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%: recipe.Name %></h5>
+                                <p class="card-text"><%: recipe.Description %></p>
+                                <a href="~/Pages/RecipePage.aspx" class="btn btn-primary" onclick="recipeShowBtn">Ver mais</a>
+                            </div>
                     </div>
-                </div>
-                <% } %>
             </div>
+            <% } %>
+            
 
-            <%--<div class="col">
-
-                <div class="card">
-                    <h5 class="card-header">featured</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">special title treatment</h5>
-                        <p class="card-text">with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-
-                <div class="card">
-                    <h5 class="card-header">featured</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">special title treatment</h5>
-                        <p class="card-text">with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">go somewhere</a>
-                    </div>
-                </div>
-
-            </div>--%>
-
-        </div>
+         </div>
     </section>
 
 
