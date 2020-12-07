@@ -58,7 +58,7 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
-                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated);
                     recipe.Category = (Category) dataReader.GetByte(_colCategory);
                     recipes.Add(recipe);
@@ -112,7 +112,7 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
-                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
                 }
@@ -166,7 +166,7 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
-                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
 
@@ -222,7 +222,7 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
-                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
 
@@ -265,7 +265,7 @@ namespace PRE.Data.Repositories
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
-                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
 

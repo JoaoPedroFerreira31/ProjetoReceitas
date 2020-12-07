@@ -15,12 +15,12 @@ namespace Webforms
     {
 
         /// <summary>
-        /// SearchRecipe control.
+        /// SearchRecipeTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchRecipe;
+        protected global::System.Web.UI.WebControls.TextBox SearchRecipeTxt;
     }
 }

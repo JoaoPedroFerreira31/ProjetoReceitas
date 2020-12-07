@@ -21,7 +21,7 @@ namespace Webforms
         
         protected void SearchRecipeBtn_Click(object sender, EventArgs e)
         {
-            this.recipes = recipeService.GetRecipesByName()
+            this.recipes = recipeService.GetRecipesByName(SearchRecipeTxt.Text);
         }
     }
 }
