@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <a href="~/Pages/RecipePage.aspx" class="btn btn-primary" onclick="recipeShowBtn">Ver mais</a>
+                                <a href="~/Pages/RecipeShow.aspx" class="btn btn-sm-primary" runat="server" onclick="recipeShowBtn">Ver mais</a>
                             </div>
                     </div>
             </div>

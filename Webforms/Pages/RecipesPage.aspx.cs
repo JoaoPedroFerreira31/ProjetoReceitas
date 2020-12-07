@@ -11,13 +11,17 @@ namespace Webforms
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        public List<Recipe> recipes { get; set; }
         private RecipeService recipeService = new RecipeService();
 
         protected void Page_Load(object sender, EventArgs e)
+        {            
+            this.recipes = recipeService.GetAll();
+        }
+        
+        protected void SearchRecipeBtn_Click(object sender, EventArgs e)
         {
-            List<Recipe> recipes = new List<Recipe>();
 
-            recipes = recipeService.GetAll();
         }
     }
 }
