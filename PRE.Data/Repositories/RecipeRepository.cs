@@ -236,6 +236,7 @@ namespace PRE.Data.Repositories
         //Get recipes by name 
         public List<Recipe> GetRecipeByName(string name)
         {
+            Recipe recipe = null;
             List<Recipe> recipes = new List<Recipe>();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -243,18 +244,36 @@ namespace PRE.Data.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "spGetRecipeByName";
+                cmd.CommandText = "spReadRecipeByName";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter nameParameter = new SqlParameter();
-                nameParameter.ParameterName = "@Name";
-                nameParameter.Value = name;
+                SqlParameter nameParameter = new SqlParameter("@Name", name);                
+                nameParameter.Value = recipe.Name;
+                nameParameter.SqlDbType = SqlDbType.NVarChar;
+                nameParameter.Direction = ParameterDirection.Input;
 
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
+
+                    recipes.Add(recipe);
+                }
             }
-            return null;
-        }
-        
-        
+            return recipes;
+        }                
 
         //Insert Recipe in Database       
         public void Insert()

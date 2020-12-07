@@ -40,5 +40,10 @@ namespace PRE.Services.Services
             return _repo.GetRecipeByCategory(category);
         }
 
+        public List<Recipe> GetRecipesByName(string name)
+        {
+            return _repo.GetRecipeByName(name);
+        }
+
     }
 }

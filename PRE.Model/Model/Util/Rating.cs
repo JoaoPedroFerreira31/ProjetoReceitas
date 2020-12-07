@@ -8,6 +8,7 @@ namespace PRE.Model.Model.Util
 {
     public enum Rating : byte
     {
+        ZeroStars = 0,
         OneStar = 1,
         TwoStars = 2,
         ThreeStars = 3,

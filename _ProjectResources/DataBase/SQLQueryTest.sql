@@ -89,6 +89,13 @@ END;
 
 -- RECIPE
 
+-- Set default values
+
+-- isValidated
+ALTER TABLE Recipes_tbl
+ADD CONSTRAINT df_isValidated
+DEFAULT 0 FOR isValidated;
+
 
 INSERT INTO Recipes_tbl VALUES ('Peixe', 'khadjggagsjhgjsa' , '06:15:20', 2, 5, 0, 3, 36 );
 
@@ -129,6 +136,14 @@ SELECT * FROM Recipes_tbl WHERE Category = @Category
 END;
 
 EXEC spReadRecipesByCategory 3
+
+-- GetRecipebyName
+CREATE PROCEDURE spReadRecipeByName
+@Name nvarchar(120)
+AS
+BEGIN
+SELECT * FROM Recipes_tbl WHERE [Name] = @Name;
+END;
 
 SELECT * FROM Recipes_tbl;
 
