@@ -23,13 +23,18 @@ namespace PRE.Model.Model
         public Ingredient Ingredients { get; set; }
         public Comment Comments { get; set; }
 
+        public override string ToString()
+        {
+            return $"{IdRecipe}, {Name}, {Description}, {Duration}, {Difficulty}, {Rating}, {IsValidated}, {Category}";
+        }
+
 
         //Create builders to generate Recipes
         public Recipe()
         {
         }
 
-        public Recipe(int idRecipe, string name, string description, TimeSpan duration, Difficulty difficulty, Rating rating, bool isValidated)
+        public Recipe(int idRecipe, string name, string description, TimeSpan duration, Difficulty difficulty, Rating rating, Category category, bool isValidated)
         {
             IdRecipe = idRecipe;
             Name = name;
@@ -37,6 +42,7 @@ namespace PRE.Model.Model
             Duration = duration;
             Difficulty = difficulty;
             Rating = rating;
+            Category = category;
             IsValidated = isValidated;
         }
     }

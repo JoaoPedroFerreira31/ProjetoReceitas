@@ -88,7 +88,7 @@ namespace PRE.Data.Repositories
                     }
 
                     user.Email = dataReader.GetString(_colEmail);
-                    user.Account.IdAccount = dataReader.GetInt32(_colIdAccount);
+                    //user.Account.IdAccount = dataReader.GetInt32(_colIdAccount);
                     user.IsAdmin = dataReader.IsDBNull(_colIsAdmin) ? false : dataReader.GetBoolean(_colIsAdmin);
                     user.Blocked = dataReader.IsDBNull(_colBlocked) ? false : dataReader.GetBoolean(_colBlocked);
 

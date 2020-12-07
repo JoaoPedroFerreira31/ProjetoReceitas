@@ -81,6 +81,8 @@
     <Content Include="Contents\js\jquery-3.5.1.js" />
     <Content Include="Contents\js\popper.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\AddRecipe.aspx" />
+    <Content Include="Pages\RecipeShow.aspx" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -91,7 +93,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
-    <Content Include="Pages\RecipePage.aspx" />
+    <Content Include="Pages\RecipesPage.aspx" />
     <Content Include="Pages\CategoryPage.aspx" />
     <Content Include="Accounts\Login.aspx" />
     <Content Include="Accounts\Register.aspx" />
@@ -116,12 +118,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RecipePage.aspx.cs">
-      <DependentUpon>RecipePage.aspx</DependentUpon>
+    <Compile Include="Pages\RecipesPage.aspx.cs">
+      <DependentUpon>RecipesPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\RecipePage.aspx.designer.cs">
-      <DependentUpon>RecipePage.aspx</DependentUpon>
+    <Compile Include="Pages\RecipesPage.aspx.designer.cs">
+      <DependentUpon>RecipesPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CategoryPage.aspx.cs">
       <DependentUpon>CategoryPage.aspx</DependentUpon>
@@ -150,6 +152,20 @@
     </Compile>
     <Compile Include="Users\AddUser.aspx.designer.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddRecipe.aspx.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddRecipe.aspx.designer.cs">
+      <DependentUpon>AddRecipe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecipeShow.aspx.cs">
+      <DependentUpon>RecipeShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecipeShow.aspx.designer.cs">
+      <DependentUpon>RecipeShow.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

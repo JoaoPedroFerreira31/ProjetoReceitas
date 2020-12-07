@@ -13,7 +13,9 @@ WHERE IdUser = 22;
 
 Insert into Account_tbl (Username, Password) VALUES ('TesteAccount5', 'Password')
 
-SELECT * FROM Users_tbl
+SELECT * FROM Users_tbl where Gender = 1;
+
+ 
 
 -- USER
 
@@ -118,15 +120,17 @@ END;
 
 EXEC spReadRecipesByUsersId 1
 
--- GetRecipeByCategoryId
-CREATE PROCEDURE spReadRecipesByIdCategory
-@IdCategory int
+-- GetRecipeByCategory
+CREATE PROCEDURE spReadRecipesByCategory
+@Category tinyint
 AS
 BEGIN
-SELECT * FROM Recipes_tbl WHERE IdCategory = @IdCategory
+SELECT * FROM Recipes_tbl WHERE Category = @Category
 END;
 
-EXEC spReadRecipesByIdCategory 2
+EXEC spReadRecipesByCategory 3
+
+SELECT * FROM Recipes_tbl;
 
 --Ingredient
 

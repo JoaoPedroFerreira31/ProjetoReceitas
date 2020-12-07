@@ -7,15 +7,13 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
-
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="~/Accounts/Login.aspx" runat="server" role="button">Login</a>
-        <a class="btn btn-primary btn-lg" href="~/Accounts/Register.aspx" runat="server" role="button">Register</a>
-    </div>
+    <header class="jumbotron" id="HeaderDefaultPage">
+		<div class="container">
+			<h1>Bem-Vindo ao Receitas Estrelares</h1>
+			<p>Veja as nossas receitas!</p>	
+			<a href="#" class="btn btn-info btn-sm" >Adicionar Receitas</a>
+		</div>
+	</header>
 
     <%-- //Chamar recipes (Name, etc..) ver source --%>
     <%--<div id="div1">
@@ -35,7 +33,7 @@
             <% { %>
             <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header"></div>
+                        <div class="card-header"><%: recipe.Category %></div>
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>

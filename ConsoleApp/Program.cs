@@ -17,7 +17,6 @@ namespace ConsoleApp
             UserService userService = new UserService();
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
-            CategoryService categoryService = new CategoryService();
             IngredientService ingredientService = new IngredientService();
 
             //=====================
@@ -40,29 +39,7 @@ namespace ConsoleApp
                 Console.WriteLine(ingredient);
             }
 
-            //=====================
-            //==     Category    ==
-            //=====================
 
-            //Insert
-            /*Console.WriteLine("========= Inserir Categoria ===========");
-            Console.Write("Qual a Categoria: ");
-            string categoria = Console.ReadLine();
-
-            Category category = new Category();
-            category.Name = categoria;
-            categoryService.Insert(category);*/
-
-            //GetAll
-            List<Category> categories = new List<Category>();
-
-            categories = categoryService.GetAll();
-
-            foreach (Category category in categories)
-            {
-                Console.WriteLine(category);
-            }
-            
             //=====================
             //==      Recipe     ==
             //=====================
@@ -78,7 +55,15 @@ namespace ConsoleApp
             //Get Recipe By Id
             //Insert Recipe
             //Get Recipe by User Id
-
+            
+            //Get by category
+            List<Recipe> recipes = new List<Recipe>();
+            
+            recipes = recipeService.GetRecipesByCategory(3);
+            foreach (Recipe recipe in recipes)
+            {
+                Console.WriteLine(recipe);
+            }
 
             //=====================
             //==     Account     ==

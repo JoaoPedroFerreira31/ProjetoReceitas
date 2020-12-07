@@ -7,11 +7,11 @@
 
     <title>Receitas Estrelares</title>
     <%-- Bootstrap css --%>
-    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />
+    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />    
     <link href="~/Contents/css/main.css" rel="stylesheet" />
-    
+
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
-        <%-- links and meta data --%>
+        
     </asp:ContentPlaceHolder>
 
 </head>
@@ -21,7 +21,7 @@
     <form id="form1" runat="server">
 
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 160, 122);">
                 <div class="container">
                     <%--Links internos para a root do servidor - utilizar o "~" (só com runat="server") --%>
                     <a class="navbar-brand" href="~/" runat="server">Receitas Estrelares</a>
@@ -34,12 +34,12 @@
                                 <a class="nav-link" href="~/" runat="server">Home </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="~/Pages/RecipesPage.aspx" runat="server">Receitas</a>
+                                <a class="nav-link" href="~/Pages/RecipePage.aspx" runat="server">Receitas</a>
                             </li>                                                        
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Vegan</a>
+                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryVeganBtn" runat="server">Vegan</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Alimentação saudavel</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sopas</a>
                                     <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Carnes</a>                                    

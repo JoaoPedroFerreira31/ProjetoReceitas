@@ -35,9 +35,9 @@ namespace PRE.Services.Services
             return _repo.GetByUserId(id);
         }
 
-        public List<Recipe> GetRecipesByCategoryId(int idCategory)
+        public List<Recipe> GetRecipesByCategory(byte category)
         {
-            return _repo.GetRecipeByCategory(idCategory);
+            return _repo.GetRecipeByCategory(category);
         }
 
     }

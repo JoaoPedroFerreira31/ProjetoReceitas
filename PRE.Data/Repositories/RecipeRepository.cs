@@ -24,7 +24,7 @@ namespace PRE.Data.Repositories
         private static int _colDifficulty = 4;
         private static int _colIdRating = 5;
         private static int _colIsValidated = 6;
-        private static int _colIdCategory = 7;
+        private static int _colCategory = 7;
         private static int _colIdUser = 8;
 
 
@@ -52,16 +52,15 @@ namespace PRE.Data.Repositories
                 while (dataReader.Read())
                 {
                     Recipe recipe = new Recipe();
-
+                    
                     recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
                     recipe.Name = dataReader.GetString(_colName);
                     recipe.Description = dataReader.GetString(_colDescription);
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
-                    recipe.Category = (Category)dataReader.GetInt32(_colIdCategory);
-                    //recipe.IsValidated = dataReader.IsDBNull(_colIsValidated)? false : dataReader.GetBoolean(_colIsValidated);
-
+                    recipe.IsValidated = dataReader.IsDBNull(_colIsValidated);
+                    recipe.Category = (Category) dataReader.GetByte(_colCategory);
                     recipes.Add(recipe);
                 }
 
@@ -115,7 +114,7 @@ namespace PRE.Data.Repositories
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
-
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
                 }
 
                 return recipe;
@@ -169,6 +168,7 @@ namespace PRE.Data.Repositories
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
 
                     recipes.Add(recipe);
                 }
@@ -178,7 +178,7 @@ namespace PRE.Data.Repositories
         }
 
         //Get Recipes by Category 
-        public List<Recipe> GetRecipeByCategory(int idCategory)
+        public List<Recipe> GetRecipeByCategory(int category)
         {
             SqlParameter parameter;
 
@@ -192,11 +192,11 @@ namespace PRE.Data.Repositories
                 SqlCommand cmd = connection.CreateCommand();
 
                 //Query to select all users from Database
-                cmd.CommandText = "spReadRecipesByIdCategory";
+                cmd.CommandText = "spReadRecipesByCategory";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Access Store Procedure Parameter
-                parameter = new SqlParameter("@IdCategory", idCategory);
+                parameter = new SqlParameter("@Category", category);
 
                 parameter.Direction = ParameterDirection.Input;
 
@@ -224,6 +224,7 @@ namespace PRE.Data.Repositories
                     recipe.Difficulty = (Difficulty)dataReader.GetInt32(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetInt32(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
 
                     recipes.Add(recipe);
                 }
@@ -231,6 +232,29 @@ namespace PRE.Data.Repositories
                 return recipes;
             }
         }
+
+        //Get recipes by name 
+        public List<Recipe> GetRecipeByName(string name)
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spGetRecipeByName";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter nameParameter = new SqlParameter();
+                nameParameter.ParameterName = "@Name";
+                nameParameter.Value = name;
+
+            }
+            return null;
+        }
+        
+        
 
         //Insert Recipe in Database       
         public void Insert()

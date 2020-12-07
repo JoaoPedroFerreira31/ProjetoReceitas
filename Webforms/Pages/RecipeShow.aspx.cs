@@ -7,13 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Webforms
 {
-    public partial class SiteMaster : System.Web.UI.MasterPage
+    public partial class WebForm8 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-        protected void CategoryVeganBtn_Click(object sender, EventArgs e)
         {
 
         }
