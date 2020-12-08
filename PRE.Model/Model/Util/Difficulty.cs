@@ -13,6 +13,5 @@ namespace PRE.Model.Model.Util
         Medium = 2,
         Hard = 3,
         VeryHard = 4,
-        Expert = 5,
     }
 }

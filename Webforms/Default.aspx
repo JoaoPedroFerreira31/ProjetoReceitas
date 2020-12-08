@@ -11,7 +11,7 @@
 		<div class="container">
 			<h1>Bem-Vindo ao Receitas Estrelares</h1>
 			<p>Veja as nossas receitas!</p>	
-			<a href="#" class="btn btn-info btn-sm" >Adicionar Receitas</a>
+			<a href="~/Pages/AddRecipe.aspx" runat="server" class="btn btn-info btn-sm" >Adicionar Receitas</a>
 		</div>
 	</header>
 
@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <a href="~/Pages/RecipeShow.aspx" class="btn btn-sm-primary" runat="server" onclick="recipeShowBtn">Ver mais</a>
+                                <%--<asp:button href="~/Pages/RecipeShow.aspx" CssClass="btn btn-sm-primary" text="Ver mais" runat="server" onclick="recipeShowBtn"></asp:button>--%>
                             </div>
                     </div>
             </div>

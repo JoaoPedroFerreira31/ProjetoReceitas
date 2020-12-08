@@ -9,6 +9,8 @@
     <%-- Bootstrap css --%>
     <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />    
     <link href="~/Contents/css/main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
 
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
         

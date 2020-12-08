@@ -9,8 +9,8 @@
     <div class="jumbotron">
         <h1 class="display-4">Receitas</h1>
         <p class="lead">Veja as melhores e mais saborosas receitas</p>
-        <asp:TextBox ID="SearchRecipeTxt" runat="server" placeholder="Nome Receita" style="padding-right: 200px;"></asp:TextBox>
-        <button class="btn btn-secondary my-2 mx-2" type="submit" onclick="SearchRecipeBtn">Pesquisar</button>        
+        <asp:TextBox ID="SearchRecipeTxt" runat="server" placeholder="Nome da Receita" style="padding-right: 200px;"></asp:TextBox>
+        <asp:Button ID="SearchRecipeBtn" CssClass="btn btn-primary" runat="server" Text="Procurar" OnClick="SearchRecipeBtn_Click" />
     </div>
     
     <section id="Receitas" class="mt-5 mb-5">
@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <a href="~/Pages/RecipeShow.aspx" class="btn btn-primary btn-sm" runat="server" onclick="recipeShowBtn_Click">Ver mais</a>
+                                <%--<asp:button href="~/Pages/RecipeShow.aspx" CssClass="btn btn-primary btn-sm" text="Ver mais" runat="server" onclick="recipeShowBtn_Click"></asp:button>--%>
                             </div>
                     </div>
             </div>
