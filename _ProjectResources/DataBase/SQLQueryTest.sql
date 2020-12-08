@@ -145,6 +145,8 @@ BEGIN
 SELECT * FROM Recipes_tbl WHERE [Name] = @Name;
 END;
 
+EXEC spReadRecipeByName Teste
+
 SELECT * FROM Recipes_tbl;
 
 --Ingredient

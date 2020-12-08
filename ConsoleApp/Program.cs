@@ -55,16 +55,24 @@ namespace ConsoleApp
             //Get Recipe By Id
             //Insert Recipe
             //Get Recipe by User Id
-            
-            //Get by category
-            List<Recipe> recipes = new List<Recipe>();
+
+            //Get recipe by category
+            /*List<Recipe> recipes = new List<Recipe>();
             
             recipes = recipeService.GetRecipesByCategory(3);
             foreach (Recipe recipe in recipes)
             {
                 Console.WriteLine(recipe);
-            }
+            }*/
 
+            //Get recipe by name 
+            List<Recipe> recipes = new List<Recipe>();
+
+            recipes = recipeService.GetRecipesByName("Teste");
+            foreach (Recipe recipe in recipes)
+            {
+                Console.WriteLine(recipe);
+            }
             //=====================
             //==     Account     ==
             //=====================
