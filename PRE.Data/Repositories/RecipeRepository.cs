@@ -52,7 +52,7 @@ namespace PRE.Data.Repositories
                 while (dataReader.Read())
                 {
                     Recipe recipe = new Recipe();
-                    
+
                     recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
                     recipe.Name = dataReader.GetString(_colName);
                     recipe.Description = dataReader.GetString(_colDescription);
@@ -60,7 +60,7 @@ namespace PRE.Data.Repositories
                     recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated);
-                    recipe.Category = (Category) dataReader.GetByte(_colCategory);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
                     recipes.Add(recipe);
                 }
 
@@ -138,7 +138,7 @@ namespace PRE.Data.Repositories
                 //Query to select all users from Database
                 cmd.CommandText = "spReadRecipesByUsersId";
                 cmd.CommandType = CommandType.StoredProcedure;
-                
+
                 //Access Store Procedure Parameter
                 parameter = new SqlParameter("@IdUser", id);
 
@@ -149,7 +149,7 @@ namespace PRE.Data.Repositories
 
                 cmd.Parameters.Add(parameter);
 
-               
+
                 //EXECUTE
                 connection.Open();
 
@@ -236,7 +236,7 @@ namespace PRE.Data.Repositories
         //Get recipes by name 
         public List<Recipe> GetRecipeByName(string name)
         {
-            
+
             List<Recipe> recipes = new List<Recipe>();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -247,7 +247,7 @@ namespace PRE.Data.Repositories
                 cmd.CommandText = "spReadRecipeByName";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter nameParameter = new SqlParameter("@Name", name);                
+                SqlParameter nameParameter = new SqlParameter("@Name", name);
                 nameParameter.DbType = DbType.String;
                 nameParameter.Direction = ParameterDirection.Input;
 
@@ -274,7 +274,7 @@ namespace PRE.Data.Repositories
                 }
             }
             return recipes;
-        }                
+        }
 
         //Insert Recipe in Database       
         public void Insert(Recipe recipe)
@@ -293,8 +293,30 @@ namespace PRE.Data.Repositories
                 nameParameter.SqlDbType = SqlDbType.NVarChar;
                 nameParameter.Direction = ParameterDirection.Input;
 
-                SqlParameter DescriptionParameter = new SqlParameter("@Description", recipe.Description);
+                cmd.Parameters.Add(nameParameter);
+
+                cmd.Parameters.AddWithValue("@Description", recipe.Description);
+                cmd.Parameters.AddWithValue("@Duration", recipe.Duration);
+                cmd.Parameters.AddWithValue("@Difficulty", recipe.Difficulty);
+                cmd.Parameters.AddWithValue("@Category", recipe.Category);
+
+                SqlParameter idParameter = new SqlParameter();
+                idParameter.ParameterName = "@IdRecipe";
+                idParameter.Value = recipe.IdRecipe;
+                idParameter.SqlDbType = SqlDbType.Int;
+                idParameter.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(idParameter);
+
+                connection.Open();
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                int id = (int)idParameter.Value;
+                recipe.IdRecipe = id;
             }
         }
+
+
     }
 }

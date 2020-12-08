@@ -45,6 +45,15 @@ namespace PRE.Model.Model
             Category = category;
             IsValidated = isValidated;
         }
+
+        public Recipe(string name, string description, TimeSpan duration, Difficulty difficulty, Category category)
+        {
+            Name = name;
+            Description = description;
+            Duration = duration;
+            Difficulty = difficulty;
+            Category = category;
+        }
     }
 }
 
