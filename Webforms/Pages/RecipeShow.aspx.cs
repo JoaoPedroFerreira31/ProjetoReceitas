@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PRE.Model.Model;
+using PRE.Services.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,14 @@ namespace Webforms
 {
     public partial class WebForm8 : System.Web.UI.Page
     {
+        private RecipeService recipeService = new RecipeService();
+        public Recipe recipe;
+        
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
+            
         }
     }
 }

@@ -34,11 +34,12 @@
             <% { %>
             <div class="col-md-4">
                     <div class="card">
+                        <h1><%: recipe.IdRecipe %></h1>
                         <div class="card-header"><%: recipe.Category %></div>
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <%--<asp:button href="~/Pages/RecipeShow.aspx" CssClass="btn btn-sm-primary" text="Ver mais" runat="server" onclick="recipeShowBtn"></asp:button>--%>
+                                <asp:button href="~/Pages/RecipeShow.aspx/" CssClass="btn btn-sm-primary" text="Ver mais" runat="server" onclick="RecipeShowBtn_Click"></asp:button>--%>
                             </div>
                     </div>
             </div>

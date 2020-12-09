@@ -39,17 +39,17 @@
                                 <a class="nav-link" href="~/Pages/RecipesPage.aspx" runat="server">Receitas</a>
                             </li>                                                        
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryVeganBtn" runat="server">Vegan</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Alimentação saudavel</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sopas</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Carnes</a>                                    
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Aves</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Peixes</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Massas</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Bebidas</a>
-                                    <a class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sobremesas</a>
+                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
+                                    <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
+                                    <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
+                                    <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>                                    
+                                    <a ID="Aves" class="dropdown-item" href="~/Pages/CategoryPage.aspx"  runat="server">Aves</a>                                    
+                                    <a ID="Peixes" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Peixes</a>
+                                    <a ID="Massas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Massas</a>
+                                    <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Bebidas</a>
+                                    <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sobremesas</a>
                                 </div>
                             </li>                            
                         </ul>

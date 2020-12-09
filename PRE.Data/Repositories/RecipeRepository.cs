@@ -59,14 +59,54 @@ namespace PRE.Data.Repositories
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
-                    recipe.IsValidated = dataReader.IsDBNull(_colIsValidated);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
                     recipes.Add(recipe);
                 }
 
                 return recipes;
             }
         }
+
+        //Get all recipes from database where validated = true
+        public List<Recipe> GetAllValidated()
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadRecipesValidated";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Recipe recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+
+                    recipes.Add(recipe);
+                }
+
+                return recipes;
+            }
+        }
+
 
         //Get Recipe by ID from Database
         public Recipe GetById(int id)

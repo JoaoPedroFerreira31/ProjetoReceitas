@@ -158,12 +158,14 @@ CREATE PROCEDURE spInsertRecipe
 @Description nvarchar(250),
 @Duration time(7),
 @Difficulty tinyInt,
-@Category tinyInt
+@Category tinyInt,
+@IdRecipe int output
 AS
 BEGIN
 INSERT INTO Recipes_tbl (Name, Description, Duration, Difficulty, Category) 
 VALUES (@Name, @Description, @Duration, @Difficulty, @Category)
-SELECT cast(SCOPE_IDENTITY() as int);
+SET @IdRecipe = SCOPE_IDENTITY();
+RETURN @IdRecipe
 END;
 
 

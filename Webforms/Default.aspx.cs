@@ -16,8 +16,12 @@ namespace Webforms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             this.recipes = recipeService.GetAll();
+        }
+
+        protected void RecipeShowBtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
