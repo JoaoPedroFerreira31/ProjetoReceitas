@@ -96,6 +96,11 @@ ALTER TABLE Recipes_tbl
 ADD CONSTRAINT df_isValidated
 DEFAULT 0 FOR isValidated;
 
+-- idRating
+ALTER TABLE Recipes_tbl
+ADD CONSTRAINT df_idRating
+DEFAULT 0 FOR idRating;
+
 
 INSERT INTO Recipes_tbl VALUES ('Peixe', 'khadjggagsjhgjsa' , '06:15:20', 2, 5, 0, 3, 36 );
 
@@ -146,6 +151,21 @@ SELECT * FROM Recipes_tbl WHERE [Name] = @Name;
 END;
 
 EXEC spReadRecipeByName Teste
+
+-- InsertRecipe
+CREATE PROCEDURE spInsertRecipe
+@Name nvarchar(120),
+@Description nvarchar(250),
+@Duration time(7),
+@Difficulty tinyInt,
+@Category tinyInt
+AS
+BEGIN
+INSERT INTO Recipes_tbl (Name, Description, Duration, Difficulty, Category) 
+VALUES (@Name, @Description, @Duration, @Difficulty, @Category)
+SELECT cast(SCOPE_IDENTITY() as int);
+END;
+
 
 SELECT * FROM Recipes_tbl;
 

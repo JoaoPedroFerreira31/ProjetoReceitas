@@ -45,5 +45,10 @@ namespace PRE.Services.Services
             return _repo.GetRecipeByName(name);
         }
 
+        public void Insert(Recipe recipe)
+        {
+            _repo.Insert(recipe);
+        }
+
     }
 }

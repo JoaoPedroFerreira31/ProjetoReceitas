@@ -21,18 +21,16 @@ namespace Webforms
 
         protected void AddRecipeBtn_Click(object sender, EventArgs e)
         {
-            int day = int.Parse(DayTxt.Text);
-            int hour = int.Parse(HourTxt.Text);
-            int minute = int.Parse(MinuteTxt.Text);
-
+                        
             string nameRecipe = NameTxt.Text;
             string description = DesriptionTxt.Text;
-            TimeSpan duration = new TimeSpan(day, hour, minute);
+            TimeSpan duration = TimeSpan.Parse(DurationTxt.Text);
             Difficulty difficulty = (Difficulty)int.Parse(DifficultyDropdown.SelectedValue);
-            Category category = (Category)int.Parse(CategoryDropdown.SelectedValue);
-
+            Category category = (Category)int.Parse(CategoryDropdown.SelectedValue);                
+            
             Recipe recipe = new Recipe(nameRecipe, description, duration, difficulty, category);
-            recipeService;
+            recipeService.Insert(recipe);                                    
+            
         }
     }
 }

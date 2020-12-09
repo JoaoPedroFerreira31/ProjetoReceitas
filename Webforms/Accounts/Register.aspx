@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Email</label>
-                    <asp:TextBox ID="EmailTxt" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="EmailTxt" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                 </div>
                 <asp:Button ID="RegisterBtn" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="RegisterBtn_Click" />
          </div> 

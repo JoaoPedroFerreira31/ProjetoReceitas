@@ -33,33 +33,6 @@ namespace Webforms
         protected global::System.Web.UI.WebControls.TextBox DesriptionTxt;
 
         /// <summary>
-        /// DayTxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DayTxt;
-
-        /// <summary>
-        /// HourTxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox HourTxt;
-
-        /// <summary>
-        /// MinuteTxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MinuteTxt;
-
-        /// <summary>
         /// DifficultyDropdown control.
         /// </summary>
         /// <remarks>
@@ -67,6 +40,15 @@ namespace Webforms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DifficultyDropdown;
+
+        /// <summary>
+        /// DurationTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DurationTxt;
 
         /// <summary>
         /// CategoryDropdown control.
