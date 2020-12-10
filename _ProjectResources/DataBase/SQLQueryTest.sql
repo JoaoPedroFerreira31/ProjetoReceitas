@@ -112,6 +112,22 @@ GO;
 
 EXEC spReadRecipes;
 
+-- GetAllValidated()
+CREATE PROCEDURE spReadRecipesValidated
+AS
+BEGIN
+SELECT * FROM Recipes_tbl WHERE IsValidated = 1
+END;
+
+-- GetAllNonValidated()
+CREATE PROCEDURE spReadNonValidatedRecipes
+AS
+BEGIN
+SELECT * FROM Recipes_tbl WHERE IsValidated = 0
+END;
+
+EXEC spReadRecipesValidated
+
 -- GetById()
 CREATE PROCEDURE spReadRecipesById
 @IdRecipe int

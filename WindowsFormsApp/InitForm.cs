@@ -70,5 +70,20 @@ namespace WindowsFormsApp
                  insertAdmin.Show();
             }
         }
+
+        private void verReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open ViewRecipesForm
+            ViewRecipesForm recipesForm = new ViewRecipesForm();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                recipesForm.MdiParent = this;
+                recipesForm.Show();
+            }
+        }
     }
 }

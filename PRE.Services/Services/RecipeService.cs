@@ -25,6 +25,11 @@ namespace PRE.Services.Services
             return _repo.GetAll();
         }
 
+        public List<Recipe> GetAllRecipesValidated()
+        {
+            return _repo.GetAllRecipesValidated();
+        }
+
         public Recipe GetById(int id)
         {
             return _repo.GetById(id);

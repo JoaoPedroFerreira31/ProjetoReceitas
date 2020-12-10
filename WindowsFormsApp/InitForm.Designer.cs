@@ -37,6 +37,8 @@
             this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blockUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirAdministradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.validarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,9 @@
             // 
             // recipesToolStripMenuItem
             // 
+            this.recipesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verReceitasToolStripMenuItem,
+            this.validarReceitasToolStripMenuItem});
             this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
             this.recipesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.recipesToolStripMenuItem.Text = "Receitas";
@@ -111,6 +116,19 @@
             this.inserirAdministradorToolStripMenuItem.Text = "Criar Administrador";
             this.inserirAdministradorToolStripMenuItem.Click += new System.EventHandler(this.inserirAdministradorToolStripMenuItem_Click);
             // 
+            // verReceitasToolStripMenuItem
+            // 
+            this.verReceitasToolStripMenuItem.Name = "verReceitasToolStripMenuItem";
+            this.verReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verReceitasToolStripMenuItem.Text = "Ver Receitas";
+            this.verReceitasToolStripMenuItem.Click += new System.EventHandler(this.verReceitasToolStripMenuItem_Click);
+            // 
+            // validarReceitasToolStripMenuItem
+            // 
+            this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
+            this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validarReceitasToolStripMenuItem.Text = "Validar Receitas";
+            // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +158,8 @@
         private System.Windows.Forms.ToolStripMenuItem blockUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inserirAdministradorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verReceitasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem validarReceitasToolStripMenuItem;
     }
 }
 

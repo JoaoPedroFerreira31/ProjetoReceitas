@@ -61,7 +61,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
                     recipes.Add(recipe);
                 }
 
@@ -70,7 +70,7 @@ namespace PRE.Data.Repositories
         }
 
         //Get all recipes from database where validated = true
-        public List<Recipe> GetAllValidated()
+        public List<Recipe> GetAllRecipesValidated()
         {
             List<Recipe> recipes = new List<Recipe>();
 
@@ -98,7 +98,45 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+
+                    recipes.Add(recipe);
+                }
+
+                return recipes;
+            }
+        }
+
+        //Get Non Validated Recipes
+        public List<Recipe> GetNonValidatedRecipes()
+        {
+            List<Recipe> recipes = new List<Recipe>();
+
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadNonValidatedRecipes";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Recipe recipe = new Recipe();
+
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                    recipe.Name = dataReader.GetString(_colName);
+                    recipe.Description = dataReader.GetString(_colDescription);
+                    recipe.Duration = dataReader.GetTimeSpan(_colDuration);
+                    recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
+                    recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
+                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
 
                     recipes.Add(recipe);
                 }
@@ -265,6 +303,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
 
                     recipes.Add(recipe);
                 }
