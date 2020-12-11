@@ -85,5 +85,20 @@ namespace WindowsFormsApp
                 recipesForm.Show();
             }
         }
+
+        private void validarReceitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open EditRecipesForm
+            EditRecipesForm editRecipesForm = new EditRecipesForm();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                editRecipesForm.MdiParent = this;
+                editRecipesForm.Show();
+            }
+        }
     }
 }

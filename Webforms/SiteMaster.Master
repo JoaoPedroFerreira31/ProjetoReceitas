@@ -53,9 +53,18 @@
                                 </div>
                             </li>                            
                         </ul>
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
+                            </AnonymousTemplate>                            
+                        </asp:LoginView>
                         
-                        <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
-                        <a class="btn btn-sm-primary" href="~/Accounts/Login.aspx">Entrar</a>
+                        <%-- Username --%>
+                        <asp:LoginName runat="server"></asp:LoginName>
+                        <%-- Iniciar sessao / terminar sessao --%>
+                        <asp:LoginStatus ID="LoginStatus1" CssClass="ml-3" runat="server" />
+                        
+                        <%--<a class="btn btn-sm-primary" href="~/Accounts/Login.aspx">Entrar</a>--%>
                         
                         <%--<div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

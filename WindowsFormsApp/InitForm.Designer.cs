@@ -128,6 +128,7 @@
             this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
             this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.validarReceitasToolStripMenuItem.Text = "Validar Receitas";
+            this.validarReceitasToolStripMenuItem.Click += new System.EventHandler(this.validarReceitasToolStripMenuItem_Click);
             // 
             // InitForm
             // 

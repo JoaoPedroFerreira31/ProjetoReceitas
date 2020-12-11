@@ -4,8 +4,15 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
-          
-        <div class="container">            
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+        <WizardSteps>
+            <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+            </asp:CreateUserWizardStep>
+            <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+            </asp:CompleteWizardStep>
+        </WizardSteps>
+    </asp:CreateUserWizard>
+        <%--<div class="container">            
             <h1 class="my-3">Criar conta</h1>   
             
                 <div class="form-group">
@@ -38,7 +45,7 @@
                     <asp:TextBox ID="EmailTxt" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                 </div>
                 <asp:Button ID="RegisterBtn" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="RegisterBtn_Click" />
-         </div> 
+         </div> --%>
 
 </asp:Content>
 

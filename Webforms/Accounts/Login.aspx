@@ -5,13 +5,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
 
-
+    <asp:Login ID="Login2" runat="server" DestinationPageUrl="~/Default.aspx"></asp:Login>
     <section class="m-5">
         <div class="container">
             <h1>Login Page</h1>
-            <asp:Login 
-                <i></i>D="Login1" runat="server" OnLoggedIn="Login1_LoggedIn" OnAuthenticate="Login1_Authenticate">
-
+            <asp:LoginName runat="server"></asp:LoginName>
+            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            <%--<asp:Login  ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn" OnAuthenticate="Login1_Authenticate">
+                
                 <LayoutTemplate>
 
                     <form>
@@ -32,7 +33,7 @@
                     </form>
                      
                 </LayoutTemplate>
-            </asp:Login>
+            </asp:Login>--%>
             </div>  
     </section>
 

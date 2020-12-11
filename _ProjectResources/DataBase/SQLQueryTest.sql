@@ -13,7 +13,7 @@ WHERE IdUser = 22;
 
 Insert into Account_tbl (Username, Password) VALUES ('TesteAccount5', 'Password')
 
-SELECT * FROM Users_tbl where Gender = 1;
+SELECT * FROM Users_tbl;
 
  
 

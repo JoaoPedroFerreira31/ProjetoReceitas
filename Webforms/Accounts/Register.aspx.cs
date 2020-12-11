@@ -21,13 +21,13 @@ namespace Webforms
 
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
-            int convertYear = int.Parse(YearTxt.Text);
-            int convertMonth = int.Parse(MonthTxt.Text);
-            int convertDay = int.Parse(DayTxt.Text);
-            Gender gender = (Gender)int.Parse(UserGender.SelectedValue);
+            //int convertYear = int.Parse(YearTxt.Text);
+            //int convertMonth = int.Parse(MonthTxt.Text);
+            //int convertDay = int.Parse(DayTxt.Text);
+            //Gender gender = (Gender)int.Parse(UserGender.SelectedValue);
 
-            User user = new User(FirstNameTxt.Text, LastNameTxt.Text, new DateTime(convertYear, convertMonth, convertDay), gender , EmailTxt.Text);            
-            userService.Insert(user);
+            //User user = new User(FirstNameTxt.Text, LastNameTxt.Text, new DateTime(convertYear, convertMonth, convertDay), gender , EmailTxt.Text);            
+            //userService.Insert(user);
 
         }
     }
