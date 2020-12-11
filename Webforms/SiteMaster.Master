@@ -53,10 +53,12 @@
                                 </div>
                             </li>                            
                         </ul>
+                        
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
                                 <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
-                            </AnonymousTemplate>                            
+                            </AnonymousTemplate>
+                            <asp:button class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Area Pessoal</asp:button>
                         </asp:LoginView>
                         
                         <%-- Username --%>
