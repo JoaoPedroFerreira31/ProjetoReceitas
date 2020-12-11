@@ -72,6 +72,9 @@ namespace PRE.Services.Services
             _accountRepo.Insert(user.Account);
         }
 
-
+        public void InsertUserWithMembership(User user, string membershipUsername)
+        {
+            _repo.InsertUserWithMembership(user, membershipUsername);
+        }
     }
 }
