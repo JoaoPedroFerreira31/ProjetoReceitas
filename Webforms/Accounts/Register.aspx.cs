@@ -31,7 +31,7 @@ namespace Webforms
 
         }
 
-        protected void CreatedUserWizard_CreatedUser(object sender, EventArgs e)
+        protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
             int convertYear = int.Parse(YearTxt.Text);
             int convertMonth = int.Parse(MonthTxt.Text);
@@ -48,8 +48,8 @@ namespace Webforms
 
             user.MembershipUsername = CreateUserWizard1.UserName;
 
-            //User user = new User(FirstNameTxt.Text, LastNameTxt.Text, new DateTime(convertYear, convertMonth, convertDay), gender , EmailTxt.Text);            
-            //userService.Insert(user);
+            userService.InsertUserWithMembership(user, CreateUserWizard1.UserName);
+
         }
     }
 }

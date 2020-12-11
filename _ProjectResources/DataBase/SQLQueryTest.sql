@@ -72,6 +72,21 @@ VALUES (@FirstName, @LastName, @BirthDate, @Gender, @Email)
 SELECT cast(SCOPE_IDENTITY() as int);
 END;
 
+-- Insert User with membership
+CREATE PROCEDURE spInsertUserMembership
+@FirstName nvarchar(100),
+@LastName nvarchar(100),
+@BirthDate datetime,
+@Gender tinyInt,
+@Email nvarchar(150),
+@MembershipUsername nvarchar(150)
+AS
+BEGIN
+INSERT INTO Users_tbl (FirstName, LastName, BirthDate, Gender, Email, MembershipUsername) 
+VALUES (@FirstName, @LastName, @BirthDate, @Gender, @Email, @MembershipUsername)
+SELECT cast(SCOPE_IDENTITY() as int);
+END;
+
 -- Insert Admin
 CREATE PROCEDURE spInsertAdmin
 @FirstName nvarchar(100),
