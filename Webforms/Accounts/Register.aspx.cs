@@ -30,5 +30,26 @@ namespace Webforms
             //userService.Insert(user);
 
         }
+
+        protected void CreatedUserWizard_CreatedUser(object sender, EventArgs e)
+        {
+            int convertYear = int.Parse(YearTxt.Text);
+            int convertMonth = int.Parse(MonthTxt.Text);
+            int convertDay = int.Parse(DayTxt.Text);
+            Gender gender = (Gender)int.Parse(UserGender.SelectedValue);
+
+            User user = new User();
+
+            user.FirstName = FirstNameTxt.Text;
+            user.LastName = LastNameTxt.Text;
+            user.BirthDate = new DateTime(convertYear, convertMonth, convertDay); 
+            user.Gender = gender;
+            user.Email = EmailTxt.Text;
+
+            user.MembershipUsername = CreateUserWizard1.UserName;
+
+            //User user = new User(FirstNameTxt.Text, LastNameTxt.Text, new DateTime(convertYear, convertMonth, convertDay), gender , EmailTxt.Text);            
+            //userService.Insert(user);
+        }
     }
 }

@@ -299,6 +299,40 @@ namespace PRE.Data.Repositories
             }
         }
 
+        //Insert user with membership in database
+        public void InsertUserWithMembership(User user, string membershipUsername)
+        {
+            user.MembershipUsername = membershipUsername;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spInsertUserMembership";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter nameParam = new SqlParameter();
+                nameParam.ParameterName = "@FirstName";
+                nameParam.Value = user.FirstName;
+                nameParam.SqlDbType = SqlDbType.NVarChar;
+                nameParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(nameParam);
+                cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                cmd.Parameters.AddWithValue("@BirthDate", user.BirthDate);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@MembershipUsername", user.MembershipUsername);
+
+                connection.Open();
+
+                int id = (int)cmd.ExecuteScalar();
+                user.IdUser = id;
+
+            }
+        }
+
         //Insert Admin in database
         public void InsertAdmin(User user)
         {

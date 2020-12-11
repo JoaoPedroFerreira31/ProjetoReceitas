@@ -97,7 +97,6 @@
     <Content Include="Pages\CategoryPage.aspx" />
     <Content Include="Accounts\Login.aspx" />
     <Content Include="Accounts\Register.aspx" />
-    <Content Include="Users\AddUser.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -145,13 +144,6 @@
     </Compile>
     <Compile Include="Accounts\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Users\AddUser.aspx.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Users\AddUser.aspx.designer.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddRecipe.aspx.cs">
       <DependentUpon>AddRecipe.aspx</DependentUpon>
