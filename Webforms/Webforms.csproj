@@ -81,8 +81,10 @@
     <Content Include="Contents\js\jquery-3.5.1.js" />
     <Content Include="Contents\js\popper.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="Pages\AddRecipe.aspx" />
+    <Content Include="RestrictedArea\AddRecipe.aspx" />
     <Content Include="Pages\RecipeShow.aspx" />
+    <Content Include="RestrictedArea\Web.config" />
+    <Content Include="RestrictedArea\PersonalArea.aspx" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -145,11 +147,11 @@
     <Compile Include="Accounts\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddRecipe.aspx.cs">
+    <Compile Include="RestrictedArea\AddRecipe.aspx.cs">
       <DependentUpon>AddRecipe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AddRecipe.aspx.designer.cs">
+    <Compile Include="RestrictedArea\AddRecipe.aspx.designer.cs">
       <DependentUpon>AddRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RecipeShow.aspx.cs">
@@ -158,6 +160,13 @@
     </Compile>
     <Compile Include="Pages\RecipeShow.aspx.designer.cs">
       <DependentUpon>RecipeShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestrictedArea\PersonalArea.aspx.cs">
+      <DependentUpon>PersonalArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestrictedArea\PersonalArea.aspx.designer.cs">
+      <DependentUpon>PersonalArea.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -180,9 +189,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RestrictedArea\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PRE.Model\PRE.Model.csproj">
       <Project>{37add18e-e96c-4081-8782-ab1b93a89a37}</Project>

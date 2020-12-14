@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <%--<asp:button href="~/Pages/RecipeShow.aspx" CssClass="btn btn-primary btn-sm" text="Ver mais" runat="server" onclick="recipeShowBtn_Click"></asp:button>--%>
+                                <asp:Button ID="ShowRecipeBtn" CssClass="btn btn-primary btn-sm"  runat="server" Text="Ver Mais" />
                             </div>
                     </div>
             </div>

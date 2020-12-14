@@ -11,7 +11,7 @@
 		<div class="container">
 			<h1>Bem-Vindo ao Receitas Estrelares</h1>
 			<p>Veja as nossas receitas!</p>	
-			<a href="~/Pages/AddRecipe.aspx" runat="server" class="btn btn-info btn-sm" >Adicionar Receitas</a>
+			<a href="~/RestrictedArea/AddRecipe.aspx" runat="server" class="btn btn-info btn-sm" >Adicionar Receitas</a>
 		</div>
 	</header>
 
@@ -39,7 +39,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <asp:button href="~/Pages/RecipeShow.aspx/" CssClass="btn btn-sm-primary" text="Ver mais" runat="server" onclick="RecipeShowBtn_Click"></asp:button>--%>
+                                <asp:Button ID="ShowRecipeBtn" CssClass="btn btn-primary btn-sm" CommandName="ViewID" CommandArgument='<%#Eval("recipe_id") %>' runat="server" Text="Ver Mais" OnClick="ShowRecipeBtn_Click" />
                             </div>
                     </div>
             </div>

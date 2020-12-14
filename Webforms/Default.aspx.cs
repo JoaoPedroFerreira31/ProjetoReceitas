@@ -27,7 +27,7 @@ namespace Webforms
             Membership*/
         }
 
-        protected void RecipeShowBtn_Click(object sender, EventArgs e)
+        protected void ShowRecipeBtn_Click(object sender, EventArgs e)
         {
             
         }

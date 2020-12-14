@@ -59,7 +59,7 @@ namespace PRE.Data.Repositories
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
-                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.IsValidated = dataReader.IsDBNull(_colIsValidated) ? false : dataReader.GetBoolean(_colIsValidated); ;
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
                     //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
                     recipes.Add(recipe);
@@ -96,7 +96,7 @@ namespace PRE.Data.Repositories
                     recipe.Duration = dataReader.GetTimeSpan(_colDuration);
                     recipe.Difficulty = (Difficulty)dataReader.GetByte(_colDifficulty);
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
-                    recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
+                    recipe.IsValidated = dataReader.IsDBNull(_colIsValidated); 
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
                     //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
 
@@ -358,6 +358,8 @@ namespace PRE.Data.Repositories
         //Insert Recipe in Database       
         public void Insert(Recipe recipe)
         {
+            
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand cmd = new SqlCommand();
@@ -378,6 +380,14 @@ namespace PRE.Data.Repositories
                 cmd.Parameters.AddWithValue("@Duration", recipe.Duration);
                 cmd.Parameters.AddWithValue("@Difficulty", recipe.Difficulty);
                 cmd.Parameters.AddWithValue("@Category", recipe.Category);
+
+                SqlParameter userIdParam = new SqlParameter();
+                userIdParam.ParameterName = "@IdUser";
+                userIdParam.Value = recipe.User.IdUser;
+                userIdParam.SqlDbType = SqlDbType.Int;
+                userIdParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(userIdParam);
 
                 SqlParameter idParameter = new SqlParameter();
                 idParameter.ParameterName = "@IdRecipe";

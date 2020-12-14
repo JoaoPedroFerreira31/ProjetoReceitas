@@ -32,13 +32,15 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recipesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.validarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blockUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirAdministradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.validarReceitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verIngredientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarIngredientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,8 +81,25 @@
             this.recipesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.recipesToolStripMenuItem.Text = "Receitas";
             // 
+            // verReceitasToolStripMenuItem
+            // 
+            this.verReceitasToolStripMenuItem.Name = "verReceitasToolStripMenuItem";
+            this.verReceitasToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.verReceitasToolStripMenuItem.Text = "Ver Receitas";
+            this.verReceitasToolStripMenuItem.Click += new System.EventHandler(this.verReceitasToolStripMenuItem_Click);
+            // 
+            // validarReceitasToolStripMenuItem
+            // 
+            this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
+            this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.validarReceitasToolStripMenuItem.Text = "Validar Receitas";
+            this.validarReceitasToolStripMenuItem.Click += new System.EventHandler(this.validarReceitasToolStripMenuItem_Click);
+            // 
             // windowToolStripMenuItem
             // 
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verIngredientesToolStripMenuItem,
+            this.adicionarIngredientesToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.windowToolStripMenuItem.Text = "Ingredientes";
@@ -116,19 +135,19 @@
             this.inserirAdministradorToolStripMenuItem.Text = "Criar Administrador";
             this.inserirAdministradorToolStripMenuItem.Click += new System.EventHandler(this.inserirAdministradorToolStripMenuItem_Click);
             // 
-            // verReceitasToolStripMenuItem
+            // verIngredientesToolStripMenuItem
             // 
-            this.verReceitasToolStripMenuItem.Name = "verReceitasToolStripMenuItem";
-            this.verReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verReceitasToolStripMenuItem.Text = "Ver Receitas";
-            this.verReceitasToolStripMenuItem.Click += new System.EventHandler(this.verReceitasToolStripMenuItem_Click);
+            this.verIngredientesToolStripMenuItem.Name = "verIngredientesToolStripMenuItem";
+            this.verIngredientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verIngredientesToolStripMenuItem.Text = "Ver Ingredientes";
+            this.verIngredientesToolStripMenuItem.Click += new System.EventHandler(this.verIngredientesToolStripMenuItem_Click);
             // 
-            // validarReceitasToolStripMenuItem
+            // adicionarIngredientesToolStripMenuItem
             // 
-            this.validarReceitasToolStripMenuItem.Name = "validarReceitasToolStripMenuItem";
-            this.validarReceitasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.validarReceitasToolStripMenuItem.Text = "Validar Receitas";
-            this.validarReceitasToolStripMenuItem.Click += new System.EventHandler(this.validarReceitasToolStripMenuItem_Click);
+            this.adicionarIngredientesToolStripMenuItem.Name = "adicionarIngredientesToolStripMenuItem";
+            this.adicionarIngredientesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.adicionarIngredientesToolStripMenuItem.Text = "Adicionar Ingredientes";
+            this.adicionarIngredientesToolStripMenuItem.Click += new System.EventHandler(this.adicionarIngredientesToolStripMenuItem_Click);
             // 
             // InitForm
             // 
@@ -161,6 +180,8 @@
         private System.Windows.Forms.ToolStripMenuItem inserirAdministradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verReceitasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem validarReceitasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verIngredientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarIngredientesToolStripMenuItem;
     }
 }
 

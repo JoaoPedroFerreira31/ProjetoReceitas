@@ -22,7 +22,7 @@
 
     <form id="form1" runat="server">
 
-        <header>
+        <header id="subir">
             <nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(255, 160, 122);">
                 <div class="container">
                     <%--Links internos para a root do servidor - utilizar o "~" (só com runat="server") --%>
@@ -58,7 +58,9 @@
                             <AnonymousTemplate>
                                 <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
                             </AnonymousTemplate>
-                            <asp:button class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Area Pessoal</asp:button>
+                            <LoggedInTemplate>
+                                <a class="btn btn-sm-primary" href="~/RestrictedArea/PersonalArea.aspx" runat="server">Area Pessoal</a>
+                            </LoggedInTemplate>
                         </asp:LoginView>
                         
                         <%-- Username --%>
@@ -97,6 +99,7 @@
     <script src="Contents/js/bootstrap.min.js"></script>
 
     <asp:ContentPlaceHolder ID="FooterPlaceHolder" runat="server">
+        
     </asp:ContentPlaceHolder>
 </body>
 </html>

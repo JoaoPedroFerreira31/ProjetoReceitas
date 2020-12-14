@@ -100,5 +100,35 @@ namespace WindowsFormsApp
                 editRecipesForm.Show();
             }
         }
+
+        private void verIngredientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            ViewIngredientForm ingredientForm = new ViewIngredientForm();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                ingredientForm.MdiParent = this;
+                ingredientForm.Show();
+            }
+        }
+
+        private void adicionarIngredientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            InsertIngredient ingredientForm = new InsertIngredient();
+            if (ActiveMdiChild != null)
+            {
+                this.Show();
+            }
+            else
+            {
+                ingredientForm.MdiParent = this;
+                ingredientForm.Show();
+            }
+        }
     }
 }

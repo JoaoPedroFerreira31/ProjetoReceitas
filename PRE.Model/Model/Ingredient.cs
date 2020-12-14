@@ -27,6 +27,13 @@ namespace PRE.Model.Model
             Name = name;
         }
 
+        public Ingredient(string name, int quantity, string unit)
+        {
+            Name = name;
+            Quantity = quantity;
+            Unit = unit;
+        }
+
         public Ingredient(string name, int quantity)
         {
             Name = name;

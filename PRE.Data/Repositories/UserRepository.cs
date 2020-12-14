@@ -251,6 +251,69 @@ namespace PRE.Data.Repositories
             }
         }
 
+        //Read user by MembershipUsername 
+        public User GetUserByMembershipUsername(string membership)
+        {
+            User user = null;
+            SqlParameter parameter;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadUsersByMembership";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                parameter = new SqlParameter("@MembershipUsername", membership);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //FirstName DataType in Database
+                parameter.DbType = DbType.String;
+
+                cmd.Parameters.Add(parameter);
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read()) 
+                {
+                    user = new User();
+
+                    user.IdUser = dataReader.GetInt32(_colIdUser);
+                    user.FirstName = dataReader.GetString(_colFirstName);
+                    user.LastName = dataReader.GetString(_colLastName);
+                    user.BirthDate = dataReader.GetDateTime(_colBirthDate);
+
+                    //Convert GetByte (Tinyint) into Gender Enum 
+                    var enumGender = user.Gender = dataReader.IsDBNull(_colGender) ? 0 : (Gender)dataReader.GetByte(_colGender);
+                    if ((byte)enumGender == 1)
+                    {
+                        Gender gender = Gender.Male;
+                        user.Gender = gender;
+
+                    }
+                    else if ((byte)enumGender == 2)
+                    {
+                        Gender gender = Gender.Female;
+                        user.Gender = gender;
+
+                    }
+                    else
+                    {
+                        Gender gender = Gender.Other;
+                        user.Gender = gender;
+                    }
+
+                    user.Email = dataReader.GetString(_colEmail);
+                }
+                return user;
+            }
+        }
+
+
         //Insert User in Database        
         public void Insert(User user)
         {

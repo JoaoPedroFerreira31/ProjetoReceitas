@@ -20,3 +20,5 @@ C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsF
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.InsertAdminForm.resources
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.ViewRecipesForm.resources
 C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.EditRecipesForm.resources
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.ViewIngredientForm.resources
+C:\Users\jona4\Desktop\ProjetoReceitasWindows\ProjetoReceitasEstrelares\WindowsFormsApp\obj\Debug\WindowsFormsApp.InsertIngredient.resources

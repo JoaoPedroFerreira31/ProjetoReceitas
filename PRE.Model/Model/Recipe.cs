@@ -46,13 +46,14 @@ namespace PRE.Model.Model
             IsValidated = isValidated;
         }
 
-        public Recipe(string name, string description, TimeSpan duration, Difficulty difficulty, Category category)
+        public Recipe(string name, string description, TimeSpan duration, Difficulty difficulty, Category category, int idUser)
         {
             Name = name;
             Description = description;
             Duration = duration;
             Difficulty = difficulty;
             Category = category;
+            User.IdUser = idUser;
         }
     }
 }

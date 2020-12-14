@@ -72,9 +72,19 @@ namespace PRE.Services.Services
             _accountRepo.Insert(user.Account);
         }
 
+        public User GetUserByMembershipUsername(string membership)
+        {
+            return _repo.GetUserByMembershipUsername(membership);
+        }
+
         public void InsertUserWithMembership(User user, string membershipUsername)
         {
             _repo.InsertUserWithMembership(user, membershipUsername);
+        }
+
+        public User GetLoggedInUser(string identityUsername)
+        {
+           return _repo.GetLoggedInUser(identityUsername);
         }
     }
 }

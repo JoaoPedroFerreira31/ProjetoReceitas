@@ -13,9 +13,9 @@ WHERE IdUser = 22;
 
 Insert into Account_tbl (Username, Password) VALUES ('TesteAccount5', 'Password')
 
-SELECT * FROM Users_tbl;
+SELECT * FROM Recipes_tbl;
 
- 
+Exec spReadRecipesValidated
 
 -- USER
 
@@ -47,6 +47,14 @@ SELECT * FROM Users_tbl WHERE IdUser = @IdUser;
 END;
 
 EXEC spReadUsersById 22;
+
+-- GetByMembership
+	CREATE PROCEDURE spReadUsersByMembership
+	@MembershipUsername nvarchar(150)
+	AS
+	BEGIN
+	SELECT * FROM Users_tbl WHERE MembershipUsername = @MembershipUsername;
+	END;
 
 -- GetByFirstName()
 CREATE PROCEDURE spReadUsersByFirstName 

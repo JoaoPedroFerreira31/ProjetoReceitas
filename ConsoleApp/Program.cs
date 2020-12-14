@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace ConsoleApp
 {
@@ -18,6 +19,10 @@ namespace ConsoleApp
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
             IngredientService ingredientService = new IngredientService();
+
+            /*MembershipUser membership = Membership.GetUser();
+            var user = userService.GetLoggedInUser(membership.ProviderName);*/
+
 
             //=====================
             //==    Ingredient   ==
@@ -56,6 +61,16 @@ namespace ConsoleApp
             //Insert Recipe
             //Get Recipe by User Id
 
+            //Get all recipes validated 
+            Console.WriteLine("Receitas validadas");
+            List<Recipe> recipes1 = new List<Recipe>();
+
+            recipes1 = recipeService.GetAllRecipesValidated();
+            foreach (Recipe recipe in recipes1)
+            {
+                Console.WriteLine(recipe);
+            }
+
             //Get recipe by category
             /*List<Recipe> recipes = new List<Recipe>();
             
@@ -92,6 +107,11 @@ namespace ConsoleApp
             //=====================
             //==      USER       ==
             //=====================
+
+            //get user by membership
+            User user = userService.GetUserByMembershipUsername("testejp");
+
+            Console.WriteLine($"isto é um membership: {user}");
 
             //Get User by id
             /*User user = userService.GetById(36);
