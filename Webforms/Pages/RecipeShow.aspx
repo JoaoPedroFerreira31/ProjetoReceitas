@@ -6,6 +6,7 @@
     <div class="container">
 		<div class="row">
 			
+			<%: idRecipe %>
 			
 		</div>
 	</div>

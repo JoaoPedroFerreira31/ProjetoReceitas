@@ -18,7 +18,7 @@ namespace PRE.Model.Model
         public bool IsValidated { get; set; }
 
 
-        public User User { get; set; }
+        public int IdUser { get; set; }
         public Category Category { get; set; }
         public Ingredient Ingredients { get; set; }
         public Comment Comments { get; set; }
@@ -53,7 +53,7 @@ namespace PRE.Model.Model
             Duration = duration;
             Difficulty = difficulty;
             Category = category;
-            User.IdUser = idUser;
+            IdUser = idUser;
         }
     }
 }

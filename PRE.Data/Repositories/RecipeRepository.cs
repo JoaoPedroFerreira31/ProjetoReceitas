@@ -383,7 +383,7 @@ namespace PRE.Data.Repositories
 
                 SqlParameter userIdParam = new SqlParameter();
                 userIdParam.ParameterName = "@IdUser";
-                userIdParam.Value = recipe.User.IdUser;
+                userIdParam.Value = recipe.IdUser;
                 userIdParam.SqlDbType = SqlDbType.Int;
                 userIdParam.Direction = ParameterDirection.Input;
 

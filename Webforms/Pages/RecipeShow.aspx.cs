@@ -13,12 +13,14 @@ namespace Webforms
     {
         private RecipeService recipeService = new RecipeService();
         public Recipe recipe;
-        
-        
+        public int idRecipe; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            
+            idRecipe = int.Parse(Request.QueryString["ItemID"]);
+
+
+
         }
     }
 }

@@ -29,17 +29,34 @@
     <section id="Receitas" class="mt-5 mb-5">
         <div class="row">
             
-
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <div class="col-md-4">
+                    <div class="card">
+                        <asp:Label ID="Label1" runat="server" Text="" Visible="False"></asp:Label>
+                        <h1><%# DataBinder.Eval(Container.DataItem, "IdRecipe") %></h1>
+                        <div class="card-header"><%# DataBinder.Eval(Container.DataItem, "Category") %></div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "Name") %></h5>
+                                <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "Description") %></p>
+                                <%-- QueryString name = ItemID --%>
+                                <a href='<%# "Pages/RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' ID="ShowRecipeBtn" runat="server" CssClass="btn btn-primary" >Ver Mais</a>
+                            </div>
+                    </div>
+            </div>
+                </ItemTemplate>
+            </asp:Repeater>
             <% foreach (Recipe recipe in recipes) %> 
             <% { %>
             <div class="col-md-4">
                     <div class="card">
+                        <asp:Label ID="Label1" runat="server" Text="" Visible="False"></asp:Label>
                         <h1><%: recipe.IdRecipe %></h1>
                         <div class="card-header"><%: recipe.Category %></div>
                             <div class="card-body">
                                 <h5 class="card-title"><%: recipe.Name %></h5>
                                 <p class="card-text"><%: recipe.Description %></p>
-                                <asp:Button ID="ShowRecipeBtn" CssClass="btn btn-primary btn-sm" CommandName="ViewID" CommandArgument='<%#Eval("recipe_id") %>' runat="server" Text="Ver Mais" OnClick="ShowRecipeBtn_Click" />
+                                <asp:Button ID="ShowRecipeBtn" runat="server" CommandArgument='<%# Eval("recipes.ElementAt(0).IdRecipe") %>' CommandName="ViewRecipe" CssClass="btn btn-prima<asp:Repeater runat=" OnClick="ShowRecipeBtn_Click" server="" Text="Ver Mais" />
                             </div>
                     </div>
             </div>

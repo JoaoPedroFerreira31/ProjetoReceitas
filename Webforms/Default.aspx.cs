@@ -18,7 +18,9 @@ namespace Webforms
         protected void Page_Load(object sender, EventArgs e)
         {
             this.recipes = recipeService.GetAllRecipesValidated();
-           
+            Repeater1.DataSource = this.recipes;
+            Repeater1.DataBind();
+
             /* Membership.GetUser();
             MembershipUser membershipUser = Membership.GetUser();
             string username = membershipUser.UserName;
@@ -29,6 +31,14 @@ namespace Webforms
 
         protected void ShowRecipeBtn_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            switch (btn.CommandName)
+            {
+                case "ViewRecipe":
+                    Response.Redirect("Pages/RecipeShow.aspx?id=" + btn.CommandArgument.ToString());
+                    break;                
+            }
+
             
         }
     }

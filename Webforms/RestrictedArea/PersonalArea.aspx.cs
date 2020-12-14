@@ -12,8 +12,8 @@ namespace Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MembershipUser user = Membership.GetUser(User.Identity.Name);
-            user.
+            //MembershipUser user = Membership.GetUser(User.Identity.Name);
+            //user.
         }
     }
 }
