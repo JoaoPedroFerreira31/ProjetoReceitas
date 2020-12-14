@@ -24,6 +24,7 @@ namespace PRE.Data.Repositories
         private static int _ColIngredientName = 1;
         private static int _ColIngredientQuantity = 2;
         private static int _ColIngredientUnit = 3;
+        private static int _ColIsValidated = 4;
         
         //Get all ingredients from Database
         public List<Ingredient> GetAll()
@@ -50,6 +51,7 @@ namespace PRE.Data.Repositories
                     ingredient.Name = dataReader.GetString(_ColIngredientName);
                     ingredient.Quantity = dataReader.IsDBNull(_ColIngredientQuantity) ? 0 : dataReader.GetInt32(_ColIngredientQuantity);
                     ingredient.Unit = dataReader.IsDBNull(_ColIngredientUnit) ? "" : dataReader.GetString(_ColIngredientUnit);
+                    ingredient.IsValidated = dataReader.IsDBNull(_ColIsValidated) ? false : dataReader.GetBoolean(_ColIsValidated);
 
                     ingredients.Add(ingredient);
                 }

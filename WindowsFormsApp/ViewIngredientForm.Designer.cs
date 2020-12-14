@@ -32,6 +32,7 @@
             this.btnVerTodos = new System.Windows.Forms.Button();
             this.textBox_Id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,15 +43,14 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(15, 55);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(770, 380);
             this.dataGridView.TabIndex = 18;
             // 
             // btnVerTodos
             // 
-            this.btnVerTodos.Location = new System.Drawing.Point(15, 16);
+            this.btnVerTodos.Location = new System.Drawing.Point(15, 19);
             this.btnVerTodos.Name = "btnVerTodos";
-            this.btnVerTodos.Size = new System.Drawing.Size(133, 23);
+            this.btnVerTodos.Size = new System.Drawing.Size(100, 23);
             this.btnVerTodos.TabIndex = 17;
             this.btnVerTodos.Text = "Ver Todos";
             this.btnVerTodos.UseVisualStyleBackColor = true;
@@ -75,11 +75,22 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Pesquisar por nome";
             // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(125, 19);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(120, 23);
+            this.UpdateBtn.TabIndex = 19;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
             // ViewIngredientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnVerTodos);
             this.Controls.Add(this.textBox_Id);
@@ -98,5 +109,6 @@
         private System.Windows.Forms.Button btnVerTodos;
         private System.Windows.Forms.TextBox textBox_Id;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button UpdateBtn;
     }
 }

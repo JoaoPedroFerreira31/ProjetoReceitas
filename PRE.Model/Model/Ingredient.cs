@@ -12,6 +12,7 @@ namespace PRE.Model.Model
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; }
+        public bool IsValidated { get; set; }
 
         public override string ToString()
         {
