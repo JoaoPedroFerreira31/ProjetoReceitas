@@ -18,7 +18,7 @@ namespace Webforms
         protected void Page_Load(object sender, EventArgs e)
         {
             idRecipe = int.Parse(Request.QueryString["ItemID"]);
-
+            recipe = recipeService.GetById(idRecipe);
 
 
         }

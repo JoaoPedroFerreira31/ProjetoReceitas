@@ -41,7 +41,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
+                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=Vegan" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
                                     <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
                                     <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
                                     <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>                                    
