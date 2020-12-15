@@ -19,6 +19,21 @@ namespace ConsoleApp
             AccountService accountService = new AccountService();
             RecipeService recipeService = new RecipeService();
             IngredientService ingredientService = new IngredientService();
+            CommentService commentService = new CommentService();
+
+            string text = "Isto é um comment";
+            DateTime data = DateTime.Now;
+            int idUser = 1;
+            int idRecipe = 2;
+
+            Comment comment = new Comment(text, data, idUser, idRecipe);
+            commentService.Insert(comment);
+
+            List<Comment> comment1 = commentService.GetAll();
+            foreach (var item in comment1)
+            {
+                Console.WriteLine(item);
+            }
 
             /*MembershipUser membership = Membership.GetUser();
             var user = userService.GetLoggedInUser(membership.ProviderName);*/

@@ -17,6 +17,28 @@ SELECT * FROM Recipes_tbl WHERE IdRecipe = 4;
 
 Exec spReadRecipesValidated
 
+--COMMENTS
+
+--GetAll 
+CREATE PROCEDURE spReadComments
+AS
+SELECT * FROM Comments_tbl
+GO;
+
+--Insert Comment
+CREATE PROCEDURE spInsertComment
+@Comment nvarchar(150),
+@Date datetime,
+@IdUser int,
+@IdRecipe int
+AS
+BEGIN
+INSERT INTO Comments_tbl (Comment, Date, IdUser, IdRecipe) 
+VALUES (@Comment, @Date, @IdUser, @IdRecipe)
+SELECT cast(SCOPE_IDENTITY() as int);
+END;
+
+
 -- Fav List
 CREATE PROCEDURE spInsertIntoFavList
 @IdRecipe int,

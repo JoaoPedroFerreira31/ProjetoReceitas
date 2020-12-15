@@ -60,5 +60,39 @@ namespace PRE.Data.Repositories
                 return comments;
             }
         }
+
+        public void Insert(Comment comment)
+        {
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                                 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                //Query to select all users from Database
+                cmd.CommandText = "spInsertComment";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Add Store Procedure Parameter                
+                SqlParameter commentParam = new SqlParameter();
+                commentParam.ParameterName = "@Comment";
+                commentParam.Value = comment.CommentText;
+                commentParam.SqlDbType = SqlDbType.NVarChar;
+                commentParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(commentParam);
+                cmd.Parameters.AddWithValue("@Date", comment.Date);
+                cmd.Parameters.AddWithValue("@IdUser", comment.IdUser);
+                cmd.Parameters.AddWithValue("@IdRecipe", comment.IdRecipe);
+
+                //EXECUTE
+                connection.Open();
+
+                cmd.ExecuteNonQuery();                
+            }
+        }
     }
 }
