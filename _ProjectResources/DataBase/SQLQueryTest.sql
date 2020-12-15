@@ -17,6 +17,16 @@ SELECT * FROM Recipes_tbl;
 
 Exec spReadRecipesValidated
 
+-- Fav List
+CREATE PROCEDURE spInsertIntoFavList
+@IdRecipe int,
+@IdUser int
+AS
+BEGIN
+INSERT INTO FavRecipe_tbl (IdRecipe, IdUser) 
+VALUES (@IdRecipe, @IdUser)
+END;
+
 -- USER
 
 -- Set default values

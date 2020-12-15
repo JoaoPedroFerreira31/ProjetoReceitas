@@ -22,9 +22,7 @@ namespace Webforms
         }
 
         protected void AddRecipeBtn_Click(object sender, EventArgs e)
-        {
-            UserService userService = new UserService();
-
+        { 
             string userName = Membership.GetUser().UserName;
             User user = userService.GetUserByMembershipUsername(userName);
             int id = user.IdUser;

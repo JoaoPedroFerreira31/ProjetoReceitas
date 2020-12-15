@@ -55,5 +55,14 @@ namespace PRE.Services.Services
             _repo.Insert(recipe);
         }
 
+        public void InsertFavRecipe(int idRecipe, int idUser)
+        {
+            _repo.InsertFavRecipe(idRecipe, idUser);
+        }
+
+        public Recipe GetIdRecipe(int idUser)
+        {
+            return _repo.GetIdRecipe(idUser);
+        }
     }
 }

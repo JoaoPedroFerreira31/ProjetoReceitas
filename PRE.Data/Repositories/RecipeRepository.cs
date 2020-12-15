@@ -407,11 +407,66 @@ namespace PRE.Data.Repositories
             }
         }
 
+        //Get Recipes from Favlist
+        public Recipe GetIdRecipe(int idUser)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadIdRecipe";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter("IdUser", idUser);
+                idParam.DbType = DbType.Int32;
+                idParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(idParam);
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Recipe recipe = null;
+
+                while (dataReader.Read())
+                {
+                    recipe = new Recipe();
+                    recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                   
+                }
+                return recipe;
+            }
+        }
+
 
         //Add Recipe to Favorite list
-        public List<Recipe> InsertFavRecipe(int idRecipe, int idUser)
+        public void InsertFavRecipe(int idRecipe, int idUser)
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
 
+                cmd.CommandText = "spInsertIntoFavList";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter idRecipeParameter = new SqlParameter("@IdRecipe", idRecipe);
+                idRecipeParameter.DbType = DbType.Int32;
+                idRecipeParameter.Direction = ParameterDirection.Input;
+
+                SqlParameter idUserParameter = new SqlParameter("@IdUser", idUser);
+                idUserParameter.DbType = DbType.Int32;
+                idUserParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(idUserParameter);
+                cmd.Parameters.Add(idRecipeParameter);
+
+                connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
     }
