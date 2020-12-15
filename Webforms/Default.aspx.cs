@@ -29,17 +29,5 @@ namespace Webforms
             Membership*/
         }
 
-        protected void ShowRecipeBtn_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            switch (btn.CommandName)
-            {
-                case "ViewRecipe":
-                    Response.Redirect("Pages/RecipeShow.aspx?id=" + btn.CommandArgument.ToString());
-                    break;                
-            }
-
-            
-        }
     }
 }

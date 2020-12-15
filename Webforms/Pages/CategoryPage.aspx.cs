@@ -1,4 +1,5 @@
 ﻿using PRE.Model.Model;
+using PRE.Model.Model.Util;
 using PRE.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,17 @@ namespace Webforms
     {
         public List<Recipe> recipes = new List<Recipe>();
         private RecipeService recipeService = new RecipeService();
+        public int category;
+        public string categoryName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            category = int.Parse(Request.QueryString["Category"]);
+            categoryName = Request.QueryString["CategoryName"]; 
             
-        }
-
-        protected void CategoryCarnesBtn_Click(object sender, EventArgs e)
-        {
-                       
+            this.recipes = recipeService.GetRecipesByCategory((byte)category);
+            Repeater1.DataSource = this.recipes;
+            Repeater1.DataBind();
         }
     }
 }

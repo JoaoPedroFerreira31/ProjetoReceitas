@@ -61,7 +61,8 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated) ? false : dataReader.GetBoolean(_colIsValidated); ;
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    recipe.IdUser = dataReader.GetInt32(_colIdUser);
+                    
                     recipes.Add(recipe);
                 }
 
@@ -303,7 +304,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    recipe.IdUser = dataReader.IsDBNull(_colIdUser)? 0: dataReader.GetInt32(_colIdUser);
 
                     recipes.Add(recipe);
                 }

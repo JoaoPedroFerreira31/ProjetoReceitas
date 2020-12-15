@@ -39,17 +39,17 @@
                                 <a class="nav-link" href="~/Pages/RecipesPage.aspx" runat="server">Receitas</a>
                             </li>                                                        
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownDois" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=Vegan" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
-                                    <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
-                                    <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
-                                    <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>                                    
-                                    <a ID="Aves" class="dropdown-item" href="~/Pages/CategoryPage.aspx"  runat="server">Aves</a>                                    
-                                    <a ID="Peixes" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Peixes</a>
-                                    <a ID="Massas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Massas</a>
-                                    <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Bebidas</a>
-                                    <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx" runat="server">Sobremesas</a>
+                                <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownCategory">
+                                    <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=0&CategoryName=Vegan" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
+                                    <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=1&CategoryName=Alimentação Saudavel" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
+                                    <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=2&CategoryName=Sopas" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
+                                    <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=3&CategoryName=Carnes" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>                                    
+                                    <a ID="Aves" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=4&CategoryName=Aves"  runat="server">Aves</a>                                    
+                                    <a ID="Peixes" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=5&CategoryName=Peixes" runat="server">Peixes</a>
+                                    <a ID="Massas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=6&CategoryName=Massas" runat="server">Massas</a>
+                                    <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=7&CategoryName=Bebidas" runat="server">Bebidas</a>
+                                    <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=8&CategoryName=Sobremesas" runat="server">Sobremesas</a>
                                 </div>
                             </li>                            
                         </ul>
@@ -97,7 +97,7 @@
     <script src="Contents/js/popper.min.js"></script>
     <%-- Bootstrap --%>
     <script src="Contents/js/bootstrap.min.js"></script>
-
+    
     <asp:ContentPlaceHolder ID="FooterPlaceHolder" runat="server">
         
     </asp:ContentPlaceHolder>
