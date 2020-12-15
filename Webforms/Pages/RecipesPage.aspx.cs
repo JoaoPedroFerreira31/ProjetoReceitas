@@ -17,11 +17,26 @@ namespace Webforms
         protected void Page_Load(object sender, EventArgs e)
         {            
             this.recipes = recipeService.GetAllRecipesValidated();
+            Repeater1.DataSource = this.recipes;
+            Repeater1.DataBind();
         }
         
         protected void SearchRecipeBtn_Click(object sender, EventArgs e)
         {
-            this.recipes = recipeService.GetRecipesByName(SearchRecipeTxt.Text);
+            if(SearchRecipeTxt.Text == "")
+            {
+                this.recipes = recipeService.GetAllRecipesValidated();
+                Repeater1.DataSource = this.recipes;
+                Repeater1.DataBind();
+            }
+            else
+            {
+                this.recipes = recipeService.GetRecipesByName(SearchRecipeTxt.Text);
+                Repeater1.DataSource = this.recipes;
+                Repeater1.DataBind();
+            }
+
+            
         }
     }
 }

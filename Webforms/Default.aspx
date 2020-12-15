@@ -11,7 +11,7 @@
 		<div class="container">
 			<h1>Bem-Vindo ao Receitas Estrelares</h1>
 			<p>Veja as nossas receitas!</p>	
-			<a href="~/RestrictedArea/AddRecipe.aspx" runat="server" CssClass="btn btn-info btn-sm" >Adicionar Receitas</a>
+			<a href="~/RestrictedArea/AddRecipe.aspx" runat="server" class="btn btn-light btn-sm" >Adicionar Receitas</a>
 		</div>
 	</header>
 
@@ -39,7 +39,7 @@
                                 <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "Name") %></h5>
                                 <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "Description") %></p>
                                 <%-- QueryString name = ItemID --%>
-                                <a href='<%# "Pages/RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' ID="ShowRecipeBtn" runat="server" class="btn btn-primary" >Ver Mais</a>
+                                <a href='<%# "Pages/RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' ID="ShowRecipeBtn" runat="server" class="btn btn-info btn-sm" >Ver Mais</a>
                             </div>
                     </div>
             </div>

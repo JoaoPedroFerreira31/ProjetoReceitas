@@ -12,7 +12,7 @@
         <p class="lead">Veja as melhores receitas na categoria <%: categoryName %></p>
     </div>
 
-    <section id="Receitas" class="mt-5 mb-5">
+    <section class="mt-5 mb-5">
         <div class="row">
 
             <asp:Repeater ID="Repeater1" runat="server">
@@ -25,7 +25,7 @@
                                 <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "Name") %></h5>
                                 <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "Description") %></p>
                                 <%-- QueryString name = ItemID --%>
-                                <a href='<%# "RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' id="ShowRecipeBtn" runat="server" cssclass="btn btn-primary">Ver Mais</a>
+                                <a href='<%# "RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' id="ShowRecipeBtn" runat="server" class="btn btn-info btn-sm">Ver Mais</a>
                             </div>
                         </div>
                     </div>
@@ -33,6 +33,7 @@
             </asp:Repeater>
         </div>
     </section>
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FooterPlaceHolder" runat="server">

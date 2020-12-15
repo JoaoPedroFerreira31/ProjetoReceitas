@@ -4,7 +4,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceHolder" runat="server">
-
+    <center>
+    <h1 class="my-4">Criar conta</h1>
     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/Default.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser">
         <WizardSteps>
             <asp:WizardStep runat="server" Title="NewUser">
@@ -48,7 +49,7 @@
             </asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
-    
+    </center>
     
     
     <%--<div class="container">            
