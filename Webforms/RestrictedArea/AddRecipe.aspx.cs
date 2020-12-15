@@ -37,8 +37,9 @@ namespace Webforms
             
 
             Recipe recipe = new Recipe(nameRecipe, description, duration, difficulty, category, id);
-            recipeService.Insert(recipe);                                    
-            
+            recipeService.Insert(recipe);
+            Label1.Text = "Receita em Fila para validação";
+            Label1.Visible = true;
         }
     }
 }

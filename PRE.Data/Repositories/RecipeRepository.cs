@@ -408,5 +408,11 @@ namespace PRE.Data.Repositories
         }
 
 
+        //Add Recipe to Favorite list
+        public List<Recipe> InsertFavRecipe(int idRecipe, int idUser)
+        {
+
+        }
+
     }
 }

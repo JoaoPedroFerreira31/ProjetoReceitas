@@ -7,7 +7,7 @@
 
     <div class="container">
         <h1 class="my-4">Adicionar Receita</h1>
-
+        <asp:Label ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
         <div class="form-group">
             <label for="exampleFormControlInput1">Titulo</label>
             <asp:TextBox ID="NameTxt" runat="server" CssClass="form-control" placeholder="Nome da Receita"></asp:TextBox>
