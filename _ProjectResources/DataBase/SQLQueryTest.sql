@@ -13,7 +13,7 @@ WHERE IdUser = 22;
 
 Insert into Account_tbl (Username, Password) VALUES ('TesteAccount5', 'Password')
 
-SELECT * FROM Recipes_tbl;
+SELECT * FROM Recipes_tbl WHERE IdRecipe = 4;
 
 Exec spReadRecipesValidated
 
@@ -25,6 +25,13 @@ AS
 BEGIN
 INSERT INTO FavRecipe_tbl (IdRecipe, IdUser) 
 VALUES (@IdRecipe, @IdUser)
+END;
+
+CREATE PROCEDURE spReadIdRecipe 
+@IdUser int
+AS
+BEGIN
+SELECT IdRecipe FROM FavRecipe_tbl WHERE IdUser = IdUser
 END;
 
 -- USER

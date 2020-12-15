@@ -28,14 +28,22 @@ namespace Webforms
             
             UserService userService = new UserService();
 
-            string userName = Membership.GetUser().UserName;
-            User user = userService.GetUserByMembershipUsername(userName);
-            int id = user.IdUser;
+            bool isOnline = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
 
-            recipeService.InsertFavRecipe(idRecipe, id);
-            Label1.Text = "Receita Adicionada aos Favoritos";
-            Label1.Visible = true;
-            
+            if(isOnline == false)
+            {
+                Response.Redirect("~/Accounts/Login.aspx");
+            }
+            else
+            {
+                string userName = Membership.GetUser().UserName;
+                User user = userService.GetUserByMembershipUsername(userName);
+                int id = user.IdUser;
+
+                recipeService.InsertFavRecipe(idRecipe, id);
+                Label1.Text = "Receita Adicionada aos Favoritos";
+                Label1.Visible = true;
+            }                                    
         }
     }
 }

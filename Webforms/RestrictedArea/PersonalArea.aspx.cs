@@ -15,20 +15,25 @@ namespace Webforms
         public List<Recipe> recipes { get; set; }
         private RecipeService recipeService = new RecipeService();
         private UserService userService = new UserService();
+        public List<Recipe> FavList=new List<Recipe>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool isEmpty = !FavList.Any();
+
             string userName = Membership.GetUser().UserName;
             User user = userService.GetUserByMembershipUsername(userName);
             int id = user.IdUser;
 
-            Recipe recipe = recipeService.GetIdRecipe(id);
-            int idRecipe = recipe.IdRecipe;
-            Recipe recipeWhereUser = recipeService.GetById(idRecipe);
+            List<Recipe> recipe = recipeService.GetIdRecipe(id);
+            foreach (Recipe recipe1 in recipe)
+            {
+                int idRecipe = recipe1.IdRecipe;
+                Recipe FavRecipe = recipeService.GetById(idRecipe);
+                this.FavList.Add(FavRecipe);
+            }
 
-            recipes.Add(recipeWhereUser);
-
-            Repeater1.DataSource = this.recipes;
+            Repeater1.DataSource = FavList;
             Repeater1.DataBind();
         }
     }

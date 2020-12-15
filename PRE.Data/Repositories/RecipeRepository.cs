@@ -146,7 +146,6 @@ namespace PRE.Data.Repositories
             }
         }
 
-
         //Get Recipe by ID from Database
         public Recipe GetById(int id)
         {
@@ -408,8 +407,10 @@ namespace PRE.Data.Repositories
         }
 
         //Get Recipes from Favlist
-        public Recipe GetIdRecipe(int idUser)
+        public List<Recipe> GetIdRecipe(int idUser)
         {
+            List<Recipe> recipes = new List<Recipe>();
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand cmd = new SqlCommand();
@@ -418,7 +419,7 @@ namespace PRE.Data.Repositories
                 cmd.CommandText = "spReadIdRecipe";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter idParam = new SqlParameter("IdUser", idUser);
+                SqlParameter idParam = new SqlParameter("@IdUser", idUser);
                 idParam.DbType = DbType.Int32;
                 idParam.Direction = ParameterDirection.Input;
 
@@ -434,9 +435,10 @@ namespace PRE.Data.Repositories
                 {
                     recipe = new Recipe();
                     recipe.IdRecipe = dataReader.GetInt32(_colIdRecipe);
-                   
+
+                    recipes.Add(recipe);
                 }
-                return recipe;
+                return recipes;
             }
         }
 

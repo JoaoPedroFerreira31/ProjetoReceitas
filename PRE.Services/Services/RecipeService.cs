@@ -60,7 +60,7 @@ namespace PRE.Services.Services
             _repo.InsertFavRecipe(idRecipe, idUser);
         }
 
-        public Recipe GetIdRecipe(int idUser)
+        public List<Recipe> GetIdRecipe(int idUser)
         {
             return _repo.GetIdRecipe(idUser);
         }

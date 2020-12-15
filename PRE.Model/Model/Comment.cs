@@ -11,8 +11,8 @@ namespace PRE.Model.Model
         public int IdComment { get; set; }
         public string CommentText { get; set; }
         public DateTime Date { get; set; }
-        public User User { get; set; }
-        public Recipe Recipe { get; set; }
+        public int IdUser { get; set; }
+        public int IdRecipe { get; set; }
 
     }
 }
