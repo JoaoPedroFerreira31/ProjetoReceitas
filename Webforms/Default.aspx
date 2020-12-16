@@ -26,12 +26,12 @@
     </div>--%>
 
 
-    <section class="mt-5 mb-5">
+    <section class="mt-3 mb-5">
         <div class="row">
 
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mt-3">
                         <div class="card">
                             <%--<h1><%# DataBinder.Eval(Container.DataItem, "IdRecipe") %></h1>--%>
                             <div class="card-header"><%# DataBinder.Eval(Container.DataItem, "Category") %></div>

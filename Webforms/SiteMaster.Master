@@ -7,13 +7,12 @@
 
     <title>Receitas Estrelares</title>
     <%-- Bootstrap css --%>
-    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />    
+    <link href="~/Contents/css/bootstrap.min.css" rel="stylesheet" runat="server" />
     <link href="~/Contents/css/main.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
 
     <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
-        
     </asp:ContentPlaceHolder>
 
 </head>
@@ -37,9 +36,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="~/Pages/RecipesPage.aspx" runat="server">Receitas</a>
-                            </li>                                                        
-                            <li class="nav-item dropdown">
-                                <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                            </li>
+                            <%-- <li class="nav-item dropdown">
+                                <a class="nav-item nav-link dropdown-toggle mr-md-2" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownCategory">
                                     <a ID="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=0&CategoryName=Vegan" onClick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
                                     <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=1&CategoryName=Alimentação Saudavel" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
@@ -51,9 +50,9 @@
                                     <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=7&CategoryName=Bebidas" runat="server">Bebidas</a>
                                     <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=8&CategoryName=Sobremesas" runat="server">Sobremesas</a>
                                 </div>
-                            </li>                            
+                            </li>                         --%>
                         </ul>
-                        
+
                         <asp:LoginView ID="LoginView1" runat="server">
                             <AnonymousTemplate>
                                 <a class="btn btn-sm-primary" href="~/Accounts/Register.aspx" runat="server">Criar Conta</a>
@@ -62,28 +61,65 @@
                                 <a class="btn btn-sm-primary" href="~/RestrictedArea/PersonalArea.aspx" runat="server">Area Pessoal</a>
                             </LoggedInTemplate>
                         </asp:LoginView>
-                        
+
                         <%-- Username --%>
                         <asp:LoginName runat="server"></asp:LoginName>
                         <%-- Iniciar sessao / terminar sessao --%>
                         <asp:LoginStatus ID="LoginStatus1" CssClass="ml-3" runat="server" />
-                        
-                        <%--<a class="btn btn-sm-primary" href="~/Accounts/Login.aspx">Entrar</a>--%>
-                        
-                        <%--<div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Conta
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Area Pessoal</a>
-                                <a class="dropdown-item" href="#">Logout</a>
-                            </div>
-                        </div>--%>
-                    
+
+
                     </div>
                 </div>
             </nav>
+                
+                <ul class="nav" style="background-color: rgb(255, 160, 122);">
+                    <div class="container d-flex justify-content-center">
+                    <li class="nav-item">
+                        <a id="Vegan" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=0&CategoryName=Vegan" onclick="CategoryVeganBtn" text="Vegan" runat="server">Vegan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=1&CategoryName=Alimentação Saudavel" onclick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=2&CategoryName=Sopas" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=3&CategoryName=Carnes" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Aves" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=4&CategoryName=Aves"  runat="server">Aves</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Peixes" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=5&CategoryName=Peixes" runat="server">Peixes</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Massas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=6&CategoryName=Massas" runat="server">Massas</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=7&CategoryName=Bebidas" runat="server">Bebidas</a>
+                    </li>
+                     <li class="nav-item">
+                        <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=8&CategoryName=Sobremesas" runat="server">Sobremesas</a>
+                    </li>
+                    </div>
+                </ul>
+            
         </header>
+        <%--<li class="nav-item dropdown">
+                                <a class="nav-item nav-link dropdown-toggle mr-md-2" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownCategory">
+                                    
+                                    <a ID="Alimentacao_Saudavel" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=1&CategoryName=Alimentação Saudavel" onClick="CategoryAlimentacaoBtn" runat="server">Alimentação saudavel</a>
+                                    <a ID="Sopas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=2&CategoryName=Sopas" onClick="CategorySopasBtn_Click" runat="server">Sopas</a>
+                                    <a ID="CarneBtn" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=3&CategoryName=Carnes" runat="server" onclick="CategoryCarneBtn_Click" text="Carnes">Carnes</a>                                    
+                                    <a ID="Aves" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=4&CategoryName=Aves"  runat="server">Aves</a>                                    
+                                    <a ID="Peixes" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=5&CategoryName=Peixes" runat="server">Peixes</a>
+                                    <a ID="Massas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=6&CategoryName=Massas" runat="server">Massas</a>
+                                    <a ID="Bebidas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=7&CategoryName=Bebidas" runat="server">Bebidas</a>
+                                    <a ID="Sobremesas" class="dropdown-item" href="~/Pages/CategoryPage.aspx?Category=8&CategoryName=Sobremesas" runat="server">Sobremesas</a>
+                                </div>--%>
+
+
 
         <main class="container">
             <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server">
@@ -97,9 +133,8 @@
     <script src="Contents/js/popper.min.js"></script>
     <%-- Bootstrap --%>
     <script src="Contents/js/bootstrap.min.js"></script>
-    
+
     <asp:ContentPlaceHolder ID="FooterPlaceHolder" runat="server">
-        
     </asp:ContentPlaceHolder>
 </body>
 </html>
