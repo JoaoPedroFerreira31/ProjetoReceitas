@@ -58,9 +58,9 @@
             </div>
 
         </div>
-
-        <div class="row mt-3">
-            <h5>Ingredientes</h5>
+        <h5 class="mt-5">Ingredientes</h5>
+        <div class="row my-4">
+            
             <div class="col-4">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Nome ingrediente</label>
@@ -81,7 +81,8 @@
             </div>
         </div>
 
-        <asp:Button ID="AddRecipeBtn" CssClass="btn btn-primary" runat="server" Text="Adicionar" OnClick="AddRecipeBtn_Click" />
+        <asp:Button ID="AddRecipeBtn" CssClass="btn btn-primary" runat="server" Text="Adicionar Receita" OnClick="AddRecipeBtn_Click" />
+         <asp:Button ID="AddIngredientBtn" CssClass="btn btn-secondary" runat="server" Text="Adicionar Ingrediente" OnClick="AddIngredientBtn_Click" />
     </div>
 
 </asp:Content>

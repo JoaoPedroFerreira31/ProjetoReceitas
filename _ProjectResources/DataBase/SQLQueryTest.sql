@@ -17,6 +17,16 @@ SELECT * FROM Recipes_tbl WHERE IdRecipe = 4;
 
 Exec spReadRecipesValidated
 
+CREATE PROCEDURE spInsertIntoIngredientRecipe
+@IdRecipe int,
+@IdIngredient int
+AS
+BEGIN
+INSERT INTO RecipeIngredient_tbl (IdRecipe, IdIngredient) 
+VALUES (@IdRecipe, @IdIngredient)
+END;
+
+
 --COMMENTS
 
 --GetAll 

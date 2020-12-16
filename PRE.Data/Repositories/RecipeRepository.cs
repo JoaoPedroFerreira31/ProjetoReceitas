@@ -471,5 +471,32 @@ namespace PRE.Data.Repositories
             }
         }
 
+        public void InsertIngredientInRecipe(int idRecipe, int idIngredient)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spInsertIntoIngredientRecipe";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter idRecipeParameter = new SqlParameter("@IdRecipe", idRecipe);
+                idRecipeParameter.DbType = DbType.Int32;
+                idRecipeParameter.Direction = ParameterDirection.Input;
+
+                SqlParameter idIngredientParameter = new SqlParameter("@IdIngredient", idIngredient);
+                idIngredientParameter.DbType = DbType.Int32;
+                idIngredientParameter.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(idIngredientParameter);
+                cmd.Parameters.Add(idRecipeParameter);
+
+                connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }

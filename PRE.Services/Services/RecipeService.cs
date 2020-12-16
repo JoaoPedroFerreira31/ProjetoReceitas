@@ -64,5 +64,10 @@ namespace PRE.Services.Services
         {
             return _repo.GetIdRecipe(idUser);
         }
+
+        public void InsertIngredientInRecipe(int idRecipe, int idIngredient)
+        {
+            _repo.InsertIngredientInRecipe(idRecipe, idIngredient);
+        }
     }
 }
