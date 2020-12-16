@@ -20,8 +20,8 @@ namespace PRE.Model.Model
 
         public int IdUser { get; set; }
         public Category Category { get; set; }
-        public Ingredient Ingredients { get; set; }
-        public Comment Comments { get; set; }
+        public int IdIngredient { get; set; }
+        public int IdComment { get; set; }
 
         public override string ToString()
         {

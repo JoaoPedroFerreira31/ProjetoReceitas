@@ -69,6 +69,33 @@ namespace Webforms
         protected global::System.Web.UI.WebControls.DropDownList CategoryDropdown;
 
         /// <summary>
+        /// nameIngrTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nameIngrTxt;
+
+        /// <summary>
+        /// quantityIngrTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox quantityIngrTxt;
+
+        /// <summary>
+        /// UnitIngrTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UnitIngrTxt;
+
+        /// <summary>
         /// AddRecipeBtn control.
         /// </summary>
         /// <remarks>

@@ -38,6 +38,34 @@ VALUES (@Comment, @Date, @IdUser, @IdRecipe)
 SELECT cast(SCOPE_IDENTITY() as int);
 END;
 
+--GetCommentById
+CREATE PROCEDURE spReadCommentById
+@IdComment int
+AS
+BEGIN
+SELECT * FROM Comments_tbl WHERE IdComment = @IdComment; 
+END;
+
+--Insert into CommentRecipeUser_tbl
+CREATE PROCEDURE spInsertCommentIntoJoinTbl
+@IdComment int,
+@IdRecipe int,
+@IdUser int
+AS
+BEGIN
+INSERT INTO CommentRecipeUser_tbl (IdComment, IdRecipe, IdUser) 
+VALUES (@IdComment, @IdUser, @IdRecipe)
+END;
+
+
+ 
+--READ ID COMMENT JOIN
+CREATE PROCEDURE spReadIdComment 
+@IdRecipe int
+AS
+BEGIN
+SELECT IdComment FROM Comments_tbl WHERE IdRecipe = @IdRecipe
+END;
 
 -- Fav List
 CREATE PROCEDURE spInsertIntoFavList

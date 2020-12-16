@@ -26,7 +26,7 @@ namespace PRE.Data.Repositories
         private static int _colDate = 2;
         private static int _colIdRecipe = 3;
         private static int _colIdUser = 4;
-        
+
         public List<Comment> GetAll()
         {
             List<Comment> comments = new List<Comment>();
@@ -61,6 +61,56 @@ namespace PRE.Data.Repositories
             }
         }
 
+        public Comment GetById(int id)
+        {
+
+            SqlParameter parameter;
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                //Query to select all users from Database
+                cmd.CommandText = "spReadCommentById";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Access Store Procedure Parameter
+                parameter = new SqlParameter("@IdComment", id);
+
+                parameter.Direction = ParameterDirection.Input;
+
+                //IdRecipe DataType in Database
+                parameter.DbType = DbType.Int32;
+
+                cmd.Parameters.Add(parameter);
+
+
+                //EXECUTE
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Comment comment = null;
+
+                while (dataReader.Read())
+                {
+                    comment = new Comment();
+
+                    comment.IdComment = dataReader.GetInt32(_colIdComment);
+                    comment.CommentText = dataReader.GetString(_colCommentText);
+                    comment.Date = dataReader.GetDateTime(_colDate);
+                    comment.IdUser = dataReader.GetInt32(_colIdUser);
+                    comment.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+                }
+
+                return comment;
+            }
+        }
+        
         public void Insert(Comment comment)
         {
 
@@ -91,7 +141,123 @@ namespace PRE.Data.Repositories
                 //EXECUTE
                 connection.Open();
 
-                cmd.ExecuteNonQuery();                
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void InsertIntoJoiningTbl(int idComment, int idRecipe, int idUser)
+        {
+
+            //CONNECTION
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                //COMMAND                                 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                //Query to select all users from Database
+                cmd.CommandText = "spInsertCommentIntoJoinTbl";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Add Store Procedure Parameter                
+                SqlParameter commentParam = new SqlParameter("@IdComment", idComment);
+                commentParam.DbType = DbType.Int32;
+                commentParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(commentParam);
+
+                SqlParameter recipeParam = new SqlParameter("@IdRecipe", idRecipe);
+                commentParam.DbType = DbType.Int32;
+                commentParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(recipeParam);
+
+                SqlParameter userParam = new SqlParameter("@IdUser", idUser);
+                commentParam.DbType = DbType.Int32;
+                commentParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(userParam);
+
+                //EXECUTE
+                connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public List<Comment> GetCommentWhereIdRecipe(int idRecipe)
+        {
+            List<Comment> comments = new List<Comment>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadIdComment";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter recipeParam = new SqlParameter("@IdRecipe", idRecipe);
+                recipeParam.DbType = DbType.Int32;
+                recipeParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(recipeParam);
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Comment comment = null;
+                while (dataReader.Read())
+                {
+                    comment = new Comment();
+                    
+                    comment.IdComment = dataReader.GetInt32(_colIdComment);
+                    comment.CommentText = dataReader.GetString(_colCommentText);
+                    comment.Date = dataReader.GetDateTime(_colDate);
+                    comment.IdUser = dataReader.GetInt32(_colIdUser);
+                    comment.IdRecipe = dataReader.GetInt32(_colIdRecipe);
+
+                    comments.Add(comment);
+                }
+            }
+            return comments;
+        }
+
+        //Get comment from joining tbl
+        public List<Comment> GetIdComment(int idRecipe)
+        {
+            List<Comment> comments = new List<Comment>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "spReadIdCommentJoin";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter("@IdRecipe", idRecipe);
+                idParam.DbType = DbType.Int32;
+                idParam.Direction = ParameterDirection.Input;
+
+                cmd.Parameters.Add(idParam);
+
+                connection.Open();
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                Comment comment = null;
+
+                while (dataReader.Read())
+                {
+                    comment = new Comment();
+                    comment.IdComment = dataReader.GetInt32(_colIdComment);
+
+                    comments.Add(comment);
+                }
+                return comments;
             }
         }
     }

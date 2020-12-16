@@ -19,8 +19,6 @@ namespace Webforms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool isEmpty = !FavList.Any();
-
             string userName = Membership.GetUser().UserName;
             User user = userService.GetUserByMembershipUsername(userName);
             int id = user.IdUser;
