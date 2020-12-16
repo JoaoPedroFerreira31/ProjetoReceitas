@@ -61,7 +61,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated) ? false : dataReader.GetBoolean(_colIsValidated); ;
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    recipe.IdUser = dataReader.GetInt32(_colIdUser);
+                    
                     
                     recipes.Add(recipe);
                 }
