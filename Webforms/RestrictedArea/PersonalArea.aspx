@@ -11,6 +11,7 @@
 			<p>Veja as nossas receitas!</p>		
 		</div>
 	</header>
+    <asp:Label ID="Label1" runat="server" Text="Lista de favoritos está vazia" Visible="false"></asp:Label>
 
     
     
@@ -27,7 +28,7 @@
                                 <h5 class="card-title"><%# DataBinder.Eval(Container.DataItem, "Name") %></h5>
                                 <p class="card-text"><%# DataBinder.Eval(Container.DataItem, "Description") %></p>
                                 <%-- QueryString name = ItemID --%>
-                                <a href='<%# "RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' id="ShowRecipeBtn" runat="server" class="btn btn-info btn-sm">Ver Mais</a>
+                                 <a href='<%# "RecipeShow.aspx?ItemID=" + Eval("IdRecipe").ToString() %>' id="ShowRecipeBtn" runat="server" class="btn btn-info btn-sm">Ver Mais</a>
                             </div>
                         </div>
                     </div>

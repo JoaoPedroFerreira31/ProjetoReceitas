@@ -139,10 +139,11 @@ namespace PRE.Data.Repositories
                 idParameter.SqlDbType = SqlDbType.Int;
                 idParameter.Direction = ParameterDirection.Output;
 
-                cmd.Parameters.Add(idParameter);
+                
 
                 connection.Open();
 
+                cmd.Parameters.Add(idParameter);
                 int affectedRows = cmd.ExecuteNonQuery();
 
                 int id = (int)idParameter.Value;

@@ -61,6 +61,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated) ? false : dataReader.GetBoolean(_colIsValidated); ;
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    recipe.IdUser = dataReader.IsDBNull(_colIdUser)? 0 : dataReader.GetInt32(_colIdUser);
                     
                     
                     recipes.Add(recipe);
@@ -99,7 +100,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.IsDBNull(_colIsValidated); 
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    recipe.IdUser = dataReader.IsDBNull(_colIdUser) ? 0 : dataReader.GetInt32(_colIdUser);
 
                     recipes.Add(recipe);
                 }
@@ -137,7 +138,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
-                    //recipe.User.IdUser = dataReader.GetInt32(_colIdUser);
+                    recipe.IdUser = dataReader.IsDBNull(_colIdUser) ? 0 : dataReader.GetInt32(_colIdUser);
 
                     recipes.Add(recipe);
                 }
@@ -193,6 +194,7 @@ namespace PRE.Data.Repositories
                     recipe.Rating = (Rating)dataReader.GetByte(_colIdRating);
                     recipe.IsValidated = dataReader.GetBoolean(_colIsValidated);
                     recipe.Category = (Category)dataReader.GetByte(_colCategory);
+                    recipe.IdUser = dataReader.IsDBNull(_colIdUser) ? 0 : dataReader.GetInt32(_colIdUser);
                 }
 
                 return recipe;
@@ -395,10 +397,11 @@ namespace PRE.Data.Repositories
                 idParameter.SqlDbType = SqlDbType.Int;
                 idParameter.Direction = ParameterDirection.Output;
 
-                cmd.Parameters.Add(idParameter);
+                
 
                 connection.Open();
 
+                cmd.Parameters.Add(idParameter);
                 int affectedRows = cmd.ExecuteNonQuery();
 
                 int id = (int)idParameter.Value;

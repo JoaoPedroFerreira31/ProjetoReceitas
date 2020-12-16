@@ -15,7 +15,9 @@ namespace Webforms
     {
         private RecipeService recipeService = new RecipeService();
         private UserService userService = new UserService();
-        private IngredientService ingredientService = new IngredientService(); 
+        private IngredientService ingredientService = new IngredientService();
+        public int idRecipe = 0;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +37,8 @@ namespace Webforms
             Category category = (Category)int.Parse(CategoryDropdown.SelectedValue);
 
             Recipe recipe = new Recipe(nameRecipe, description, duration, difficulty, category, id);
+            recipeService.Insert(recipe);
+            idRecipe = recipe.IdRecipe;            
 
             Label1.Text = "Receita em Fila para validação";
             Label1.Visible = true;
@@ -42,27 +46,15 @@ namespace Webforms
 
         protected void AddIngredientBtn_Click(object sender, EventArgs e)
         {
-            string userName = Membership.GetUser().UserName;
-            User user = userService.GetUserByMembershipUsername(userName);
-            int id = user.IdUser;
-
-            string nameRecipe = NameTxt.Text;
-            string description = DesriptionTxt.Text;
-            TimeSpan duration = TimeSpan.Parse(DurationTxt.Text);
-            Difficulty difficulty = (Difficulty)int.Parse(DifficultyDropdown.SelectedValue);
-            Category category = (Category)int.Parse(CategoryDropdown.SelectedValue);
-
-            Recipe recipe = new Recipe(nameRecipe, description, duration, difficulty, category, id);
-            int idRecipe = recipe.IdRecipe;
-
             string nameIngredient = nameIngrTxt.Text;
             int quantityIngredient = int.Parse(quantityIngrTxt.Text);
             string unitIngredient = UnitIngrTxt.Text;
 
             Ingredient ingredient = new Ingredient(nameIngredient, quantityIngredient, unitIngredient);
-            int idIngredient = ingredient.IdIngredient;
 
             ingredientService.Insert(ingredient);
+            int idIngredient = ingredient.IdIngredient;
+
             recipeService.InsertIngredientInRecipe(idRecipe, idIngredient);
 
             Label1.Text = "Ingrediente Adicionado";
@@ -71,6 +63,7 @@ namespace Webforms
             nameIngrTxt.Text = "";
             quantityIngrTxt.Text = "";
             UnitIngrTxt.Text = "";
+
         }
     }
 }

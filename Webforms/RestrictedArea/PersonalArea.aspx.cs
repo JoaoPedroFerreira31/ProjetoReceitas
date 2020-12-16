@@ -15,7 +15,7 @@ namespace Webforms
         public List<Recipe> recipes { get; set; }
         private RecipeService recipeService = new RecipeService();
         private UserService userService = new UserService();
-        public List<Recipe> FavList=new List<Recipe>();
+        public List<Recipe> FavList= new List<Recipe>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,8 @@ namespace Webforms
             User user = userService.GetUserByMembershipUsername(userName);
             int id = user.IdUser;
 
-            List<Recipe> recipe = recipeService.GetIdRecipe(id);
-            foreach (Recipe recipe1 in recipe)
+            this.recipes = recipeService.GetIdRecipe(id);
+            foreach (Recipe recipe1 in recipes)
             {
                 int idRecipe = recipe1.IdRecipe;
                 Recipe FavRecipe = recipeService.GetById(idRecipe);
@@ -33,6 +33,13 @@ namespace Webforms
 
             Repeater1.DataSource = FavList;
             Repeater1.DataBind();
+
+            if (FavList.Count == 1)
+            {
+                Label1.Visible = false;
+            }
+            else
+                Label1.Visible = true;
         }
     }
 }
